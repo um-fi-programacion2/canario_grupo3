@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 1, 2012 2:55:45 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="canario" name="modelo.entidades.Usuarios" table="usuarios">
+    <id name="idu" type="java.lang.Long">
+      <column name="idu"/>
+      <generator class="identity"/>
+    </id>
+    <property name="nombre" type="string">
+      <column length="100" name="nombre" not-null="true"/>
+    </property>
+    <property name="bio" type="string">
+      <column length="100" name="bio" not-null="true"/>
+    </property>
+    <property name="date" type="date">
+      <column length="10" name="date" not-null="true"/>
+    </property>
+    <property name="mail" type="string">
+      <column length="100" name="mail" not-null="true"/>
+    </property>
+    <property name="pass" type="string">
+      <column length="100" name="pass" not-null="true"/>
+    </property>
+    <property name="imagen" type="string">
+      <column length="100" name="imagen" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>

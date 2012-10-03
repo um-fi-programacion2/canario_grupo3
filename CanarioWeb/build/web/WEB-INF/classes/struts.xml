@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+   <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+   <constant name="struts.devMode" value="false" />    
+    
+    <package name="pacUsuario" extends="struts-default">
+        <action name="registrar" class="controlador.ControladorUsuario" method="agregarUsuario">
+            <result name="exito">home.jsp</result>
+        </action>
+            
+    </package> 
+       
+ </struts> 
+    

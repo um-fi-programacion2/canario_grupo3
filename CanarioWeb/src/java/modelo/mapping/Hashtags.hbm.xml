@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Oct 1, 2012 2:55:45 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="canario" name="modelo.entidades.Hashtags" table="hashtags">
+    <id name="idh" type="java.lang.Long">
+      <column name="idh"/>
+      <generator class="identity"/>
+    </id>
+    <property name="string" type="string">
+      <column length="100" name="string" not-null="true"/>
+    </property>
+    <property name="firstcreator" type="string">
+      <column length="100" name="firstcreator" not-null="true"/>
+    </property>
+    <property name="idu" type="long">
+      <column name="idu" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>
