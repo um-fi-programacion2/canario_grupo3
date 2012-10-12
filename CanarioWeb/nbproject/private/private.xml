@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
+        <file>file:/C:/Users/el%20pampa/Documents/NetBeansProjects/prueba/src/java/struts.xml</file>
+        <file>file:/C:/Users/el%20pampa/Documents/NetBeansProjects/prueba/src/java/hibernate.cfg.xml</file>
+        <file>file:/C:/Users/el%20pampa/Documents/NetBeansProjects/prueba/src/java/roseindia/view/RegisterAction-validation.xml</file>
+        <file>file:/C:/Users/el%20pampa/Documents/NetBeansProjects/prueba/web/SignUpFail.jsp</file>
+        <file>file:/C:/Users/el%20pampa/Documents/NetBeansProjects/prueba/web/SignUp.jsp</file>
+        <file>file:/C:/Users/el%20pampa/Documents/NetBeansProjects/prueba/web/index.jsp</file>
+        <file>file:/C:/Users/el%20pampa/Documents/NetBeansProjects/prueba/web/WEB-INF/web.xml</file>
+        <file>file:/C:/Users/el%20pampa/Documents/NetBeansProjects/prueba/src/java/roseindia/dao/RegisterDao.java</file>
+        <file>file:/C:/Users/el%20pampa/Documents/NetBeansProjects/prueba/src/java/roseindia/model/Register.java</file>
+        <file>file:/C:/Users/el%20pampa/Documents/NetBeansProjects/prueba/web/SignUpSuccess.jsp</file>
+        <file>file:/C:/Users/el%20pampa/Documents/NetBeansProjects/prueba/web/home.jsp</file>
+    </open-files>
 </project-private>

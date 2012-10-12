@@ -1,14 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<%@taglib uri="/struts-tags" prefix="s" %>
+<%@page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" >
+
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="/CanarioWeb/Vista/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" media="all">
-<link href="/CanarioWeb/Vista/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
-<link href="/CanarioWeb/Vista/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-  <script src="/CanarioWeb/Vista/js/modernizr-2.6.1-respond-1.1.0.min.js"></script>
-  <link rel="/CanarioWeb/Vista/stylesheet/less" href="css/Less/bootstrap.less">
-<script src="/CanarioWeb/Vista/js/less-1.3.0.min.js" type="text/javascript"></script>
+<link href="bootstrap-responsive.css" rel="stylesheet" type="text/css" media="all">
+<link href="Vista/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+<link href="Vista/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+  <script src="Vista/js/modernizr-2.6.1-respond-1.1.0.min.js"></script>
+  <link rel="Vista/stylesheet/less" href="css/Less/bootstrap.less">
+<script src="Vista/js/less-1.3.0.min.js" type="text/javascript"></script>
 <!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -65,17 +71,25 @@
         
         
 			   </div>
-    <div class="seguidores"><h4><br><br>los usuarios a los que sigo<br><br><br></h4></div>
+     <div class="seguidores"><h4><br><br><s:property value="name" />
+<br>
+User name :
+<s:property value="emailId" />
+<br>
+Password :
+<s:property value="password" />
+<br><br><br></h4></div>
  	<div class="usuariosact"><h4><br><br>el top 10 de los usuarios mas activos<br><br><br><br></h4></div>
 
  </div>
- 	<div class="mensajes"><h1><br>el top 10 en tiempo real de los mensajes de los usuarios<br><br><br><br><br><br><br><br><br><br><br><br></h1></div> 
+ 	<div class="mensajes"><h1><br> <s:property value="mensaje" /><br><br><br><br><br><br><br><br><br><br><br><br></h1></div> 
   <!-- end .container --></div>
   
   
-   <script type="text/javascript" src="/CanarioWeb/Vista/js/jquery.js"></script>
-  <script type="text/javascript" src="/CanarioWeb/Vista/js/textarea.js"></script>         
-	<script type="text/javascript" src="/CanarioWeb/Vista/js/bootstrap.collapse.js"></script>
-    <script type="text/javascript" src="/CanarioWeb/Vista/js/bootstrap.js"></script>
+   <script type="text/javascript" src="Vista/js/jquery.js"></script>
+  <script type="text/javascript" src="Vista/js/textarea.js"></script>         
+	<script type="text/javascript" src="Vista/js/bootstrap.collapse.js"></script>
+    <script type="text/javascript" src="Vista/js/bootstrap.js"></script>
 </body>
 </html>
+

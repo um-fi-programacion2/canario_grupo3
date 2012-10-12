@@ -147,7 +147,7 @@ body {
 	font-size: 13px;
 	line-height: 18px;
 	color: #000033;
-	background-image:url(../img/cielo.jpg);
+        background-image: url(../img/cielo.jpg);
 	padding-top: 60px;
 	background-color:#417378;
   }
