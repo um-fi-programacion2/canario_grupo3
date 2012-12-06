@@ -8,7 +8,7 @@ package view;
  *
  * @author Franco
  */
-<<<<<<< HEAD
+
  
 import java.io.File;
 import javax.servlet.http.HttpServletRequest;
@@ -18,8 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
  
 import dao.PerfilDao;
 
-public class FileUploadAction extends ActionSupport implements
-        ServletRequestAware {
+public class FileUploadAction extends ActionSupport implements      ServletRequestAware {
     private File userImage;
     private String userImageContentType;
     private String userImageFileName;
@@ -74,8 +73,8 @@ public class FileUploadAction extends ActionSupport implements
         this.servletRequest = servletRequest;
  
     }
-=======
-public class FileUploadAction {
+
+
     
->>>>>>> 96ee4cd42b6e6a750c15eee9c3ab1b2e1f2f0294
+
 }
