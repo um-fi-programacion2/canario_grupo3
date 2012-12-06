@@ -28,8 +28,8 @@
                 </action>
                 
                  <action name="listar" class="view.ListarTwits">
-                    <result name="success">/home.jsp</result>
-                    <result name="fail">/home.jsp</result>
+                    <result name="fin">/home.jsp</result>
+                    <result name="fail">/index.jsp</result>
                     
                 </action>
 

@@ -6,6 +6,7 @@ package view;
 
 import dao.ListarTwitsDao;
 import java.util.ArrayList;
+import java.util.List;
 import model.Twits;
 
 /**
@@ -13,11 +14,17 @@ import model.Twits;
  * @author Franco
  */
 public class ListarTwits {
-     public String execute() throws Exception {
     
-        ArrayList <Twits> listaTwits = new ArrayList<Twits>();
-        listaTwits = ListarTwitsDao.getTwitList();
-        return "success";
+    public ArrayList <Twits> listarTwits = new ArrayList<Twits>();
+    public List getListarTwits() {
+        return listarTwits;
     }
     
+     public String execute() throws Exception {
+    
+       
+       listarTwits = ListarTwitsDao.getTwitList();
+         
+    return "fin";
+    }
 }

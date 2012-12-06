@@ -29,10 +29,10 @@ public class ListarTwitsDao {
 			 Query query = s.createQuery("FROM Twits t where t.idu = :idu or t.idu in (from Relaciones r where r.seguidor= :idu)");
      
                          Map auth = ActionContext.getContext().getSession();
-                           ;
+                           
                          query.setParameter("idu", ((Number)auth.get("idusuario")).longValue());            
-            
-                        return (ArrayList<Twits>) query.list();
+                         
+                        return (ArrayList<Twits>)query.list();
 
 		
 		} catch (Exception ex) {

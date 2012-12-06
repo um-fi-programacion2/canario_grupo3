@@ -93,11 +93,14 @@ Password :
  </div>
 <div class="mensajes"><h1><br> 
             <s:form action="listar">
-                <s:submit value="listar"/>    
-            <s:iterator value="%{listaTwits}">
+                <s:submit value="listart"/>    
+            <s:iterator value="%{listarTwits}">
             
             <tr>
-                <td> <s:property value="strings" /> </td>
+                <td> <s:property value="idt" /> </td>
+                 <td> <s:property value="idu" /> </td>
+                 <td> <s:property value="string" /> </td>
+                  <td> <s:property value="timestam" /> </td>
                 </tr>
             </s:iterator></s:form>
             <br><br><br><br><br><br><br><br><br><br><br><br></h1></div> 
