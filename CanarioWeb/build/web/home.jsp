@@ -95,13 +95,14 @@ Password :
             <s:form action="listar">
                 <s:submit value="listart"/>    
             <s:iterator value="%{listarTwits}">
-            
-            <tr>
-                <td> <s:property value="idt" /> </td>
-                 <td> <s:property value="idu" /> </td>
+                <table class="table table-striped" widht="500">
+                    <tbody>
+                    <tr>
+                
                  <td> <s:property value="string" /> </td>
                   <td> <s:property value="timestam" /> </td>
-                </tr>
+                </tr></tbody>
+                </table>
             </s:iterator></s:form>
             <br><br><br><br><br><br><br><br><br><br><br><br></h1></div> 
   <!-- end .container --></div>
