@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <%@page import="javassist.compiler.ast.Variable"%>
 <?xml version="1.0" encoding="UTF-8"?>
 <%@taglib uri="/struts-tags" prefix="s" %>
@@ -90,3 +91,22 @@ Password :
     <script type="text/javascript" src="Vista/js/bootstrap.js"></script>
 </body>
 </html>
+=======
+<%-- 
+    Document   : perfil
+    Created on : 06/12/2012, 10:30:41
+    Author     : Franco
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>Hello World!</h1>
+    </body>
+</html>
+>>>>>>> 96ee4cd42b6e6a750c15eee9c3ab1b2e1f2f0294
