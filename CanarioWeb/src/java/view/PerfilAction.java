@@ -10,15 +10,18 @@ package view;
  */
 import com.opensymphony.xwork2.ActionSupport;
 import dao.PerfilDao;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import model.Twits;
 import model.Usuarios;
 
 
 public class PerfilAction extends ActionSupport {
 private Long idu;
-    private String nombre;
+private String nombre;
 private String bio;
 private String mail;
 private String pass;
@@ -82,4 +85,6 @@ return "success";
 else
 return "fail";
 }
+    
+    
 }

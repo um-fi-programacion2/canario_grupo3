@@ -28,7 +28,7 @@
                 <p> Canario es un proyecto de la Catedra de Programacion 1 de la Facultad de Ingenieria de la Universidad de Mendoza</p>
             </div>
             <div class="login">
-                <s:form class="well well-small" action="login" method="post">
+                <s:form ccsClass="well well-small" action="login" method="post">
                     <s:textfield name="mail" placeholder="Ingrese su email"/>
                      <s:password name="pass" placeholder="Ingrese su contraseña"/>
                      <s:submit class="btn btn-success" value="Logueate"/>
@@ -39,7 +39,7 @@
               
                 <legend>Registrate!!!</legend>
                  
-                <s:form action="register" method="post" class="well well-small">
+                <s:form action="register" method="post" cssClass="well well-small">
 	<s:textfield name="nombre" label="Name"  required="true" placeholder="Ingrese su nombre de usuario"/>
 	<s:textfield name="mail" label="Email" required="true" placeholder="Ingrese su Email"/>
 	<s:password name="pass" label="Password" required="true" placeholder="Ingrese su contraseña"/>

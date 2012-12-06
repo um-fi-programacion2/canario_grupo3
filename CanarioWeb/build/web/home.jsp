@@ -33,8 +33,7 @@
         	<li class="active">
             	<a href="home.jsp"><i class="icon-home"></i>  Home</a>
             </li>
-			<li>
-            	<a href="perfil.jsp"><i class="icon-white icon-user"></i>  Perfil</a>
+            <li><s:form action="perfil2"> <s:submit value="Perffil"/>  </s:form></li>
             </li>
           
             </ul>
@@ -63,7 +62,7 @@
               </div>  
               <div id="collapseOne" class="accordion-body collapse" style="height: 0px; ">  
                 <div class="accordion-inner">  
-                  <s:form action="twit">
+                    <s:form action="twit" cssClass="well">
                     <s:textarea cols="40" rows="5" name="string" maxlength="150" placeholder="canarear!!!"></s:textarea> 
         <br><br><s:submit value="enviar"></s:submit> 
             </s:form>
@@ -92,7 +91,7 @@ Password :
 
  </div>
 <div class="mensajes"><h1><br> 
-            <s:form action="listar">
+            <s:form action="listar" cssClass="well">
                 <s:submit value="listart"/>    
             <s:iterator value="%{listarTwits}">
                 <table class="table table-striped" widht="500">

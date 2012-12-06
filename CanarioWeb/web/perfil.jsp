@@ -31,10 +31,10 @@
         	<ul class="nav nav-pills">
             <a class="brand" href="#">Canario Web</a>
         	<li class="active">
-            	<a href="home.jsp"><i class="icon-home"></i>  Home</a>
+                    <a href="home.jsp"><i class="icon-home"></i>  Home</a>
             </li>
-			<li>
-            	<a href="perfil.jsp"><i class="icon-white icon-user"></i>  Perfil</a>
+            <li>
+                <s:a href="perfil.jsp"><i class="icon-white icon-user"></i>  Perfil</s:a>
             </li>
           
             </ul>
@@ -50,13 +50,7 @@
  	
      <div class="seguidores"><h4><br><br><s:property value="nombre" />
 <br>
-User name :
-<s:property value="mail" />
-<br>
-Password :
-<s:property value="pass" /><br><br>
-       <br><br>
-<s:property value="imagen" /><br>
+
    
 <br><br><br></h4></div>
             
@@ -65,17 +59,26 @@ Password :
 <div class="mensajes"><h1><br> 
            <h2>Configuración del Perfil</h2>
 <s:actionerror />
-<s:form action="userImage" method="post" enctype="multipart/form-data">
+<s:form action="userImage" method="post" enctype="multipart/form-data" cssClass="well">
     <s:file name="userImage" label="Imagen de Perfil" />    <s:submit value="Subir" align="right" />
 </s:form>
 
-<s:form class="well well-small" action="GuardarPerfil" method="post">
-                    <s:textfield label="Nombre" name="nombre" placeholder="nuevo nombre de usuario"/>
-                    <s:textfield label="Email" name="mail" placeholder="Cambie su email"/>
-                    <s:password label="Password" name="pass" placeholder="igrese nueva clave"/>
-                     <s:textarea label="Bio"  cols="40" rows="5" name="bio" maxlength="300" placeholder="Escriba algo sobre usd"></s:textarea> 
-
+                 
+           
+        <s:form cssClass="well well-small" action="GuardarPerfil" method="post">
+    
+             <s:iterator value="%{traeperfil}">
+                 <s:textfield label="Nombre" name="nombre" value="<s:property value='nombre' />"><s:property value="nombre" /></s:textfield>
+                   <s:textfield label="Email" name="mail" placeholder="Cambie su email"><s:property value="mail" /></s:textfield>
+                    <s:password label="Password" name="pass" placeholder="igrese nueva clave"><s:property value="pass" /></s:password>
+                     <s:textarea label="Bio"  cols="40" rows="5" name="bio" maxlength="300" placeholder="a"></s:textarea> 
+                                     
                      <s:submit class="btn btn-success" value="Guardar Cambios"/>
+                
+                  
+               
+            </s:iterator>
+                   
                 </s:form>    
 
 
