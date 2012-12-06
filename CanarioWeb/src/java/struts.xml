@@ -9,10 +9,29 @@
 	<package name="default" extends="struts-default">
 
 		<action name="register" class="view.RegisterAction">
-			<result name="input">/SignUp.jsp</result>
 			<result name="success">/home.jsp</result>
-			<result name="fail">/SignUpFail.jsp</result>
+			<result name="fail">/index.jsp</result>
+                        <result name="input">/index.jsp</result>
+
 		</action>
+                
+                <action name="login" class="view.LoginAction">
+			<result name="success">/home.jsp</result>
+			<result name="fail">/index.jsp</result>
+                       
+
+		</action>
+                <action name="twit" class="view.TwitAction">
+                    <result name="success">/home.jsp</result>
+                    <result name="fail">/home.jsp</result>
+                    
+                </action>
+                
+                 <action name="listar" class="view.ListarTwits">
+                    <result name="success">/home.jsp</result>
+                    <result name="fail">/home.jsp</result>
+                    
+                </action>
 
 	</package>
 </struts>

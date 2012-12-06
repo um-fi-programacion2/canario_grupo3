@@ -1,92 +1,92 @@
 package view;
-
-import java.sql.Date;
-
-import dao.RegisterDao;
-import model.Register;
 import com.opensymphony.xwork2.ActionSupport;
-
+import dao.RegisterDao;
+import java.sql.Date;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import model.Usuarios;
 public class RegisterAction extends ActionSupport {
+private Long idu;
+private String nombre;
+private String bio="hola que tal";
+private java.util.Date date;
+private String mail;
+private String pass;
+private String imagen="imagen";
+public RegisterAction() {
+}
 
-	private static final long serialVersionUID = 908606616890722294L;
-	private String emailId, password, name, cellNo, website;
-	private Date birthDate;
+@Id
+@GeneratedValue
+@Column(name = "idu")
+public Long getIdu() {
+return this.idu;
+}
 
-	private Long id;
+public void setIdu(Long idu) {
+this.idu = idu;
+}
+@Column (name = "nombre")
+public String getNombre() {
+return this.nombre;
+}
 
-	public Long getId() {
-		return id;
-	}
+public void setNombre(String nombre) {
+this.nombre = nombre;
+}
+@Column (name="bio")
+public String getBio() {
+return this.bio;
+}
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+public void setBio(String bio) {
+this.bio = bio;
+}
+@Column (name="date")
+public java.util.Date getDate() {
+return this.date;
+}
 
-	public String getName() {
-		return name;
-	}
+public void setDate(java.util.Date date) {
+this.date = date;
+}
+@Column (name="mail")
+public String getMail() {
+return this.mail;
+}
 
-	public void setName(String name) {
-		this.name = name;
-	}
+public void setMail(String mail) {
+this.mail = mail;
+}
+@Column (name ="pass")
+public String getPass() {
+return this.pass;
+}
 
-	public String getCellNo() {
-		return cellNo;
-	}
+public void setPass(String pass) {
+this.pass = pass;
+}
+@Column (name= "imagen")
+public String getImagen() {
+return this.imagen;
+}
 
-	public void setCellNo(String cellNo) {
-		this.cellNo = cellNo;
-	}
-
-	public String getWebsite() {
-		return website;
-	}
-
-	public void setWebsite(String website) {
-		this.website = website;
-	}
-
-	public Date getBirthDate() {
-		return birthDate;
-	}
-
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
-	}
-
-	public String getEmailId() {
-		return emailId;
-	}
-
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public RegisterAction() {
-	}
-
-	public String execute() throws Exception {
-
-		Register Rgst = new Register();
-		Rgst.setCellNo(cellNo);
-		Rgst.setWebsite(website);
-		Rgst.setBirthDate(birthDate);
-		Rgst.setEmailId(emailId);
-
-		Rgst.setName(name);
-		Rgst.setPassword(password);
-
-		if (RegisterDao.registerUser(Rgst))
-			return "success";
-		else
-			return "fail";
-	}
+public void setImagen(String imagen) {
+this.imagen = imagen;
+}
+public String execute() throws Exception {
+Usuarios reg = new Usuarios();
+reg.setBio(bio);
+reg.setDate(date);
+reg.setIdu(idu);
+reg.setMail(mail);
+reg.setNombre(nombre);
+reg.setPass(pass);
+reg.setImagen(imagen);
+if (RegisterDao.registerUser(reg))
+return "success";
+else
+return "fail";
+}
 }

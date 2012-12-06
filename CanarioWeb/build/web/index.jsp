@@ -5,9 +5,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="Vista/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
-<link href="Vista/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
-<link href="Vista/css/bootstrap-responsive.css" rel="stylesheet" media="all">
+<link href="<s:url value="Vista/img/favicon.ico"/>" rel="shortcut icon" type="image/x-icon">
+<link href="<s:url value="Vista/css/bootstrap.css"/>" rel="stylesheet" type="text/css" media="all">
+<link href="<s:url value="Vista/css/bootstrap-responsive.css"/>" rel="stylesheet" media="all">
 
 
 <!--[if lt IE 9]>
@@ -28,11 +28,11 @@
                 <p> Canario es un proyecto de la Catedra de Programacion 1 de la Facultad de Ingenieria de la Universidad de Mendoza</p>
             </div>
             <div class="login">
-                <form class="well well-small" action="home.jsp" method="post">
-                <input type="email" required name="email" placeholder="Ingrese su email">
-                <input type="password" required name="pass" placeholder="Ingrese su contraseña">
-            	<button type="submit" class="btn btn-success">Ingresar</button>
-                </form>       
+                <s:form class="well well-small" action="login" method="post">
+                    <s:textfield name="mail" placeholder="Ingrese su email"/>
+                     <s:password name="pass" placeholder="Ingrese su contraseña"/>
+                     <s:submit class="btn btn-success" value="Logueate"/>
+                </s:form>       
             </div>
 
             <div class="registro">
@@ -40,12 +40,12 @@
                 <legend>Registrate!!!</legend>
                  
                 <s:form action="register" method="post" class="well well-small">
-	<s:textfield name="name" label="Name"  required="true" placeholder="Ingrese su nombre y apellido"/>
-	<s:textfield name="emailId" label="Email" required="true" placeholder="Ingrese su Email"/>
-	<s:password name="password" label="Password" required="true" placeholder="Ingrese su contraseña"/>
-	<s:textfield name="cellNo" label="Cell No." />
-	<s:textfield name="website" label="Homepage" />
-	<s:textfield name="birthDate" label="Birthdate" />
+	<s:textfield name="nombre" label="Name"  required="true" placeholder="Ingrese su nombre de usuario"/>
+	<s:textfield name="mail" label="Email" required="true" placeholder="Ingrese su Email"/>
+	<s:password name="pass" label="Password" required="true" placeholder="Ingrese su contraseña"/>
+        <s:textfield name="date" label="fecha de nacimiento"/>
+	
+	
 	<s:submit class="btn btn-danger" value="Register" align="center" />
                 </s:form>
                 

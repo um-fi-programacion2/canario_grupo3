@@ -1,3 +1,4 @@
+<%@page import="javassist.compiler.ast.Variable"%>
 <?xml version="1.0" encoding="UTF-8"?>
 <%@taglib uri="/struts-tags" prefix="s" %>
 <%@page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
@@ -9,9 +10,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="bootstrap-responsive.css" rel="stylesheet" type="text/css" media="all">
+    <link href="<s:url value="bootstrap-responsive.css"/>" rel="stylesheet" type="text/css" media="all">
 <link href="Vista/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
-<link href="Vista/css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+    <link href="<s:url value="Vista/css/bootstrap.css"/>" rel="stylesheet" type="text/css" media="all">
   <script src="Vista/js/modernizr-2.6.1-respond-1.1.0.min.js"></script>
   <link rel="Vista/stylesheet/less" href="css/Less/bootstrap.less">
 <script src="Vista/js/less-1.3.0.min.js" type="text/javascript"></script>
@@ -54,14 +55,19 @@
             <div class="accordion-group">  
               <div class="accordion-heading">  
                  <button class=" btn btn-large btn-success accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">Canarear</button>  
-                   
+   
+               
+
+               
                 </textarea>  
               </div>  
               <div id="collapseOne" class="accordion-body collapse" style="height: 0px; ">  
                 <div class="accordion-inner">  
-                   <textarea cols="40" rows="5" id="textarea" maxlength="150" placeholder="canarear!!!"></textarea> 
-        <br><br><button class="btn btn-primary">Canarear</button>
-        <div id="caracteres"></div>
+                  <s:form action="twit">
+                    <s:textarea cols="40" rows="5" name="string" maxlength="150" placeholder="canarear!!!"></s:textarea> 
+        <br><br><s:submit value="enviar"></s:submit> 
+            </s:form>
+        <s:div id="caracteres"></s:div>
                 </div>  
               </div>  
             </div>  
@@ -71,18 +77,30 @@
         
         
 			   </div>
-     <div class="seguidores"><h4><br><br><s:property value="name" />
+     <div class="seguidores"><h4><br><br><s:property value="nombre" />
 <br>
 User name :
-<s:property value="emailId" />
+<s:property value="mail" />
 <br>
 Password :
-<s:property value="password" />
+<s:property value="pass" /><br><br>
+       <br><br>
+<s:property value="imagen" /><br>
+   
 <br><br><br></h4></div>
  	<div class="usuariosact"><h4><br><br>el top 10 de los usuarios mas activos<br><br><br><br></h4></div>
 
  </div>
- 	<div class="mensajes"><h1><br> <s:property value="mensaje" /><br><br><br><br><br><br><br><br><br><br><br><br></h1></div> 
+<div class="mensajes"><h1><br> 
+            <s:form action="listar">
+                <s:submit value="listar"/>    
+            <s:iterator value="%{listaTwits}">
+            
+            <tr>
+                <td> <s:property value="strings" /> </td>
+                </tr>
+            </s:iterator></s:form>
+            <br><br><br><br><br><br><br><br><br><br><br><br></h1></div> 
   <!-- end .container --></div>
   
   
