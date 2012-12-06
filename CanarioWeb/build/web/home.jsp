@@ -11,11 +11,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<s:url value="bootstrap-responsive.css"/>" rel="stylesheet" type="text/css" media="all">
-<link href="Vista/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+        <link href="<s:url value="Vista/img/favicon.ico"/>" rel="shortcut icon" type="image/x-icon">
     <link href="<s:url value="Vista/css/bootstrap.css"/>" rel="stylesheet" type="text/css" media="all">
-  <script src="Vista/js/modernizr-2.6.1-respond-1.1.0.min.js"></script>
-  <link rel="Vista/stylesheet/less" href="css/Less/bootstrap.less">
-<script src="Vista/js/less-1.3.0.min.js" type="text/javascript"></script>
+  <script src="<s:url value="Vista/js/modernizr-2.6.1-respond-1.1.0.min.js"/>"></script>
+  <link rel="Vista/stylesheet/less" href="<s:url value="css/Less/bootstrap.less"/>">
+<script src="<s:url value="Vista/js/less-1.3.0.min.js"/>" type="text/javascript"></script>
 <!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -108,10 +108,10 @@ Password :
   <!-- end .container --></div>
   
   
-   <script type="text/javascript" src="Vista/js/jquery.js"></script>
-  <script type="text/javascript" src="Vista/js/textarea.js"></script>         
-	<script type="text/javascript" src="Vista/js/bootstrap.collapse.js"></script>
-    <script type="text/javascript" src="Vista/js/bootstrap.js"></script>
+ <script type="text/javascript" src="<s:url value="Vista/js/jquery.js"/>"></script>
+  <script type="text/javascript" src="<s:url value="Vista/js/textarea.js"/>"></script>         
+	<script type="text/javascript" src="<s:url value="Vista/js/bootstrap.collapse.js"/>"></script>
+    <script type="text/javascript" src="<s:url value="Vista/js/bootstrap.js"/>"></script>
 </body>
 </html>
 

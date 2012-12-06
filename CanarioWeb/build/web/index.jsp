@@ -58,8 +58,8 @@
  
  
   <!-- end .container </div>  -->
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-<script src="Vista/js/bootstrap.js"></script>
+  <script type="text/javascript" src="<s:url value="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"/>"></script>
+  <script src="<s:url value="Vista/js/bootstrap.js"/>"></script>
 
 </body>
 </html>
