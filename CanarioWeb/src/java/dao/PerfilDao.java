@@ -9,7 +9,9 @@ package dao;
  * @author Franco
  */
 import com.opensymphony.xwork2.ActionContext;
+import java.util.ArrayList;
 import java.util.Map;
+import model.Twits;
 import model.Usuarios;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -72,5 +74,28 @@ public static boolean guardarPerfil(Usuarios Rgst) {
 		}
 
 }
+ public static Usuarios traerPerfil() {
+                	
+		 try {
+			SessionFactory sf = HibernateUtil.getSessionFactory();
+                        Transaction t = null;
+                        Session s = sf.openSession();
+			t = s.beginTransaction(); // start a new transaction
+                        
+			 Query query = s.createQuery("FROM Usuarios t where t.idu = :idu");
+     
+                         Map auth = ActionContext.getContext().getSession();
+                           
+                         query.setParameter("idu", ((Number)auth.get("idusuario")).longValue());            
+                         
+                        return (Usuarios) query.list().get(0);
+
+		
+		} catch (Exception ex) {
+			System.err.println("Error !-->" + ex.getMessage());
+			
+			return null;
+		}
+  }
 
 }
