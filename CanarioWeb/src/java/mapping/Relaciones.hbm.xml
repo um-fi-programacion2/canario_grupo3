@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05/12/2012 13:20:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="prueba" name="model.Relaciones" table="relaciones">
+    <id name="idusuario" type="long">
+      <column name="idusuario"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="seguidor" type="long">
+      <column name="seguidor" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>
