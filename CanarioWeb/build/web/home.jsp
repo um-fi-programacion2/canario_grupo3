@@ -31,10 +31,10 @@
         	<ul class="nav nav-pills">
             <a class="brand" href="#">Canario Web</a>
         	<li class="active">
-            	<a href="home.html"><i class="icon-home"></i>  Home</a>
+            	<a href="home.jsp"><i class="icon-home"></i>  Home</a>
             </li>
 			<li>
-            	<a href="#"><i class="icon-white icon-user"></i>  Perfil</a>
+            	<a href="perfil.jsp"><i class="icon-white icon-user"></i>  Perfil</a>
             </li>
           
             </ul>
