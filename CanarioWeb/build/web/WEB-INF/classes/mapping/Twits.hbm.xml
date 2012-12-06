@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 05/12/2012 13:20:05 by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+  <class catalog="prueba" name="model.Twits" table="twits">
+    <id name="idt" type="java.lang.Long">
+      <column name="idt"/>
+      <generator class="identity"/>
+    </id>
+    <property name="idu" type="java.lang.Long">
+      <column name="idu" not-null="true"/>
+    </property>
+    <property name="string" type="string">
+      <column length="100" name="string" not-null="true"/>
+    </property>
+    <property name="timestam" type="string">
+      <column length="100" name="timestam" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>
