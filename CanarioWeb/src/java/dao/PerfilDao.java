@@ -24,9 +24,9 @@ public class PerfilDao {
                 Map auth = ActionContext.getContext().getSession();
                            
 		
-                Query query = s.createQuery("UPDATE Usuarios set imagen = :name where idu= :id");
+                Query query = s.createQuery("UPDATE Usuarios set imagen = :name where idu= :idu");
                 query.setParameter("name", name);
-                query.setParameter("id",((Number)auth.get("idusuario")).longValue());
+                query.setParameter("idu",((Number)auth.get("idusuario")).longValue());
                
                 
                 try {

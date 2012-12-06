@@ -1,4 +1,3 @@
-
 <%@page import="javassist.compiler.ast.Variable"%>
 <?xml version="1.0" encoding="UTF-8"?>
 <%@taglib uri="/struts-tags" prefix="s" %>
@@ -72,9 +71,8 @@ Password :
 
 <s:form class="well well-small" action="GuardarPerfil" method="post">
                     <s:textfield label="Nombre" name="nombre" placeholder="nuevo nombre de usuario"/>
-                    <s:textfield label="Email" name="email" placeholder="Cambie su email"/>
-                    <s:password label="Password" name="npass" placeholder="igrese nueva clave"/>
-                     <s:password label="Reingrese Password" name="renpass" placeholder="igrese nueva clave"/>
+                    <s:textfield label="Email" name="mail" placeholder="Cambie su email"/>
+                    <s:password label="Password" name="pass" placeholder="igrese nueva clave"/>
                      <s:textarea label="Bio"  cols="40" rows="5" name="bio" maxlength="300" placeholder="Escriba algo sobre usd"></s:textarea> 
 
                      <s:submit class="btn btn-success" value="Guardar Cambios"/>
@@ -92,11 +90,7 @@ Password :
 </body>
 </html>
 
-<%-- 
-    Document   : perfil
-    Created on : 06/12/2012, 10:30:41
-    Author     : Franco
---%>
+
 
 
 

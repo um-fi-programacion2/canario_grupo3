@@ -52,7 +52,7 @@ public void setBio(String bio) {
 this.bio = bio;
 }
 
-@Column (name="email")
+@Column (name="mail")
 public String getMail() {
 return this.mail;
 }
