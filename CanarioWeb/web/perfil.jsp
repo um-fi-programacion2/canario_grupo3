@@ -1,4 +1,3 @@
-
 <%@page import="javassist.compiler.ast.Variable"%>
 <?xml version="1.0" encoding="UTF-8"?>
 <%@taglib uri="/struts-tags" prefix="s" %>
@@ -92,11 +91,7 @@ Password :
 </body>
 </html>
 
-<%-- 
-    Document   : perfil
-    Created on : 06/12/2012, 10:30:41
-    Author     : Franco
---%>
+
 
 
 
