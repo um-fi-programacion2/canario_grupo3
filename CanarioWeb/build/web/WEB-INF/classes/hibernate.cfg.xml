@@ -20,7 +20,6 @@
     <!-- Drop and re-create the database schema on startup -->
     <property name="hbm2ddl.auto">update</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
- 
     <mapping resource="mapping/Usuarios.hbm.xml"/>
     <mapping resource="mapping/Twits.hbm.xml"/>
     <mapping resource="mapping/Relaciones.hbm.xml"/>

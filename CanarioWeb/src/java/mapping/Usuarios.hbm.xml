@@ -14,7 +14,7 @@
       <column length="100" name="bio" not-null="true"/>
     </property>
     <property name="date" type="date">
-      <column length="10" name="date" not-null="true"/>
+      <column length="10" name="date" not-null="false"/>
     </property>
     <property name="mail" type="string">
       <column length="100" name="mail" not-null="true"/>

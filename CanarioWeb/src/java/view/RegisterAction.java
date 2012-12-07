@@ -9,11 +9,11 @@ import model.Usuarios;
 public class RegisterAction extends ActionSupport {
 private Long idu;
 private String nombre;
-private String bio="hola que tal";
+private String bio="sin bio";
 private java.util.Date date;
 private String mail;
 private String pass;
-private String imagen="imagen";
+private String imagen="default.png";
 public RegisterAction() {
 }
 

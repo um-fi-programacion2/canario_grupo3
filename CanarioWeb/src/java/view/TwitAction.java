@@ -10,6 +10,7 @@ package view;
  */
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import dao.ListarTwitsDao;
 import dao.TwitDao;
 import java.util.ArrayList;
 import java.util.Map;

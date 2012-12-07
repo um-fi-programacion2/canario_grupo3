@@ -1,5 +1,6 @@
 package view;
 import com.opensymphony.xwork2.ActionSupport;
+import dao.ListarTwitsDao;
 import dao.LoginDao;
 import dao.RegisterDao;
 import javax.persistence.Column;
@@ -88,8 +89,9 @@ reg.setMail(mail);
 reg.setNombre(nombre);
 reg.setPass(pass);
 reg.setImagen(imagen);
-if (LoginDao.LoginUser(reg))
+if (LoginDao.LoginUser(reg)) {
 return "success";
+}
 else
 return "fail";
 }
