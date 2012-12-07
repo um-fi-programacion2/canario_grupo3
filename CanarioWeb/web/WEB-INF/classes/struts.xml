@@ -34,24 +34,29 @@
                     <result name="fail">/index.jsp</result>
                     
                 </action>
-<action name="GuardarPerfil" class="view.PerfilAction">
+                <action name="perfil2" class="view.traerPerfil">
+                    <result name="fin">/perfil.jsp</result>
+                    <result name="fail">/home.jsp</result>
+                    
+                </action>
+                <action name="GuardarPerfil" class="view.PerfilAction">
                     <result name="success">/perfil.jsp</result>
                     <result name="fail">/perfil.jsp</result>
                     
                 </action>
 
-<action name="userImage"
-    class="view.FileUploadAction">
-    <interceptor-ref name="fileUpload">
-        <param name="maximumSize">2097152</param>
-        <param name="allowedTypes">
-            image/png,image/gif,image/jpeg,image/pjpeg
-        </param>
-    </interceptor-ref>
-         <interceptor-ref name="defaultStack"></interceptor-ref>
-            <result name="success">perfil.jsp</result>
-             <result name="input">perfil.jsp</result>
-        </action>
+                <action name="userImage"
+                    class="view.FileUploadAction">
+                    <interceptor-ref name="fileUpload">
+                        <param name="maximumSize">2097152</param>
+                        <param name="allowedTypes">
+                            image/png,image/gif,image/jpeg,image/pjpeg
+                        </param>
+                    </interceptor-ref>
+                         <interceptor-ref name="defaultStack"></interceptor-ref>
+                            <result name="success">perfil.jsp</result>
+                             <result name="input">perfil.jsp</result>
+                </action>
 
 	</package>
         

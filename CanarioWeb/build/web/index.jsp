@@ -27,6 +27,7 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
+
   </head>
 
   <body>
@@ -45,6 +46,7 @@
             <ul class="nav">
               
               
+
             </ul>
             <s:form cssClass="navbar-form pull-right" action="login" method="post">
                  <s:textfield cssClass="span2" name="mail" placeholder="Ingrese su email"/>
