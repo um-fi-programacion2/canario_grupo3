@@ -76,7 +76,7 @@ public static boolean guardarPerfil(Usuarios Rgst) {
 }
  
                 	
-	public static ArrayList <Usuarios> traerPerfil() {
+	public static Usuarios traerPerfil() {
                 	
 		 try {
 			SessionFactory sf = HibernateUtil.getSessionFactory();
@@ -90,18 +90,10 @@ public static boolean guardarPerfil(Usuarios Rgst) {
                            
                          query.setParameter("idu", ((Number)auth.get("idusuario")).longValue());            
                          
-                        return (ArrayList<Usuarios>)query.list();
+                        return (Usuarios) query.list().get(0);
 
 		
-		} catch (Exception ex) {
-			System.err.println("Error !-->" + ex.getMessage());
-			
-			return null;
-		}	
-        }
-
-}       /*
-                        return (Usuarios) query.list().get(0);
+		 	
 
 		
 		} catch (Exception ex) {
@@ -109,6 +101,8 @@ public static boolean guardarPerfil(Usuarios Rgst) {
 			
 			return null;
 		}
-                * */
+        }
+}
+                
  
 

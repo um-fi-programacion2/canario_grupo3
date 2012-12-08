@@ -27,9 +27,9 @@ public class FileUploadAction extends ActionSupport implements      ServletReque
  
     public String execute() {
         try {
-           // String filePath = servletRequest.getSession().getServletContext().getRealPath("/");
-            String filePath = "D:\\uploads\\";
-            //System.out.println("Server path:" + filePath);
+           //String filePath = servletRequest.getSession().getServletContext().getRealPath("/img/users");
+            String filePath = "D:\\nb_proyectos\\repository\\canario_grupo3\\CanarioWeb\\web\\img\\users\\";
+            System.out.println("Server path:" + filePath);
             File fileToCreate = new File(filePath, this.userImageFileName);
  
             FileUtils.copyFile(this.userImage, fileToCreate);

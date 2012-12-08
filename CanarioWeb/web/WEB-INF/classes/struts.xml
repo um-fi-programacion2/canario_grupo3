@@ -19,10 +19,14 @@
                 
                     <result name="success">/home.jsp</result>
 			<result name="fail">/index.jsp</result>
-			
-                       
+		</action>	
+                     <action name="logout" class="view.LogoutAction">
+                    <result name="OK">/index.jsp</result>
+                    <result name="FAIL">/home.jsp</result>
+                    
+                </action>   
 
-		</action>
+		
                 <action name="twit" class="view.TwitAction">
                     <result name="success">/home.jsp</result>
                     <result name="fail">/home.jsp</result>
@@ -34,11 +38,7 @@
                     <result name="fail">/index.jsp</result>
                     
                 </action>
-                <action name="perfil2" class="view.traerPerfil">
-                    <result name="fin">/perfil.jsp</result>
-                    <result name="fail">/home.jsp</result>
-                    
-                </action>
+                
                 <action name="GuardarPerfil" class="view.PerfilAction">
                     <result name="success">/perfil.jsp</result>
                     <result name="fail">/perfil.jsp</result>
@@ -58,6 +58,14 @@
                              <result name="input">perfil.jsp</result>
                 </action>
 
+
+   
+                <action name="changeFollowState" class="view.PerfilAction">
+                    <result name="success">/publico.jsp</result>
+                    <result name="fail">/publico.jsp</result>
+                    
+                </action>
+                
 	</package>
         
  <package name="api" namespace="/" extends="json-default">
