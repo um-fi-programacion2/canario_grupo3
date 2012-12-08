@@ -16,15 +16,10 @@
 		</action>
                 
                 <action name="login" class="view.LoginAction">
-<<<<<<< HEAD
                 
                     <result name="success">/home.jsp</result>
 			<result name="fail">/index.jsp</result>
 			
-=======
-			<result name="success">/home.jsp</result>
-			<result name="fail">/index.jsp</result>
->>>>>>> d6ce28456e47ae24c8b0faf8cccbe05e43275ea6
                        
 
 		</action>
@@ -39,45 +34,17 @@
                     <result name="fail">/index.jsp</result>
                     
                 </action>
-<<<<<<< HEAD
-<action name="GuardarPerfil" class="view.PerfilAction">
-=======
                 <action name="perfil2" class="view.traerPerfil">
                     <result name="fin">/perfil.jsp</result>
                     <result name="fail">/home.jsp</result>
                     
                 </action>
                 <action name="GuardarPerfil" class="view.PerfilAction">
->>>>>>> d6ce28456e47ae24c8b0faf8cccbe05e43275ea6
                     <result name="success">/perfil.jsp</result>
                     <result name="fail">/perfil.jsp</result>
                     
                 </action>
 
-<<<<<<< HEAD
-<action name="userImage"
-    class="view.FileUploadAction">
-    <interceptor-ref name="fileUpload">
-        <param name="maximumSize">2097152</param>
-        <param name="allowedTypes">
-            image/png,image/gif,image/jpeg,image/pjpeg
-        </param>
-    </interceptor-ref>
-         <interceptor-ref name="defaultStack"></interceptor-ref>
-            <result name="success">perfil.jsp</result>
-             <result name="input">perfil.jsp</result>
-        </action>
-
-	</package>
-        
- <package name="api" namespace="/" extends="json-default">
-      <action name="getapi" 
-           class="view.ApiAction">
-       	   <result type="json" />
-      </action>
-    </package>
- 
-=======
                 <action name="userImage"
                     class="view.FileUploadAction">
                     <interceptor-ref name="fileUpload">
@@ -91,9 +58,13 @@
                              <result name="input">perfil.jsp</result>
                 </action>
 
-
-
-
 	</package>
->>>>>>> d6ce28456e47ae24c8b0faf8cccbe05e43275ea6
+        
+ <package name="api" namespace="/" extends="json-default">
+      <action name="getapi" 
+           class="view.ApiAction">
+       	   <result type="json" />
+      </action>
+    </package>
+ 
 </struts>

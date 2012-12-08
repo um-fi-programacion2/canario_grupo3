@@ -15,18 +15,26 @@
               <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
               <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
               <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
-              <li class="nav-header">Sidebar</li>
-              <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
-              <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
-              <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
+              <li class="nav-header">Enviar un tweet</li>
+              <s:form action="twit">
+                    <s:textarea cols="40" rows="5" name="string" maxlength="150" placeholder="canarear!!!"></s:textarea> 
+            <s:submit cssClass="btn" value="enviar"></s:submit> 
+            </s:form>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span9">
+        <div class="span8">
           <div class="hero-unit">
-            <h1>Hello, world!</h1>
-            <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-            <p><a class="btn btn-primary btn-large">Learn more »</a></p>
+            <s:iterator value="%{listarTwits}">
+                <table class="table table-striped" widht="500">
+                    <tbody>
+                    <tr>
+                
+                 <td> <s:property value="string" /> </td>
+                  <td> <s:property value="timestam" /> </td>
+                </tr></tbody>
+                </table>
+            </s:iterator>
           </div>
           <div class="row-fluid">
             <div class="span4">
