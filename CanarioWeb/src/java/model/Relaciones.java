@@ -1,5 +1,5 @@
 package model;
-// Generated 05/12/2012 13:20:03 by Hibernate Tools 3.2.1.GA
+// Generated 10/12/2012 11:24:23 by Hibernate Tools 3.2.1.GA
 
 
 
@@ -9,30 +9,38 @@ package model;
 public class Relaciones  implements java.io.Serializable {
 
 
-     private long idusuario;
-     private long seguidor;
+     private Integer idr;
+     private int idusuario;
+     private String siguiendo;
 
     public Relaciones() {
     }
 
-    public Relaciones(long idusuario, long seguidor) {
+    public Relaciones(int idusuario, String siguiendo) {
        this.idusuario = idusuario;
-       this.seguidor = seguidor;
+       this.siguiendo = siguiendo;
     }
    
-    public long getIdusuario() {
+    public Integer getIdr() {
+        return this.idr;
+    }
+    
+    public void setIdr(Integer idr) {
+        this.idr = idr;
+    }
+    public int getIdusuario() {
         return this.idusuario;
     }
     
-    public void setIdusuario(long idusuario) {
+    public void setIdusuario(int idusuario) {
         this.idusuario = idusuario;
     }
-    public long getSeguidor() {
-        return this.seguidor;
+    public String getSiguiendo() {
+        return this.siguiendo;
     }
     
-    public void setSeguidor(long seguidor) {
-        this.seguidor = seguidor;
+    public void setSiguiendo(String siguiendo) {
+        this.siguiendo = siguiendo;
     }
 
 

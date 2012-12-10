@@ -1,8 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package view;
+package api;
 
 /**
  *
@@ -15,7 +11,7 @@ import java.util.Map;
  
 import com.opensymphony.xwork2.Action;
  
-public class ApiAction{
+public class Friends{
  
 	private String string1 = "A";
 	private String[] stringarray1 = {"A1","B1"};
@@ -27,7 +23,7 @@ public class ApiAction{
 	//no getter method, will not include in the JSON
 	private String string2 = "B";
  
-	public ApiAction(){
+	public Friends(){
 		lists.add("list1");
 		lists.add("list2");
 		lists.add("list3");

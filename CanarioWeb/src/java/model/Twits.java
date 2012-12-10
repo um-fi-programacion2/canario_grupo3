@@ -1,10 +1,5 @@
 package model;
-// Generated 05/12/2012 13:20:03 by Hibernate Tools 3.2.1.GA
-
-import com.opensymphony.xwork2.ActionContext;
-import java.sql.Timestamp;
-import java.util.Map;
-
+// Generated 10/12/2012 11:24:23 by Hibernate Tools 3.2.1.GA
 
 
 
@@ -13,7 +8,6 @@ import java.util.Map;
  */
 public class Twits  implements java.io.Serializable {
 
- java.util.Date date= new java.util.Date();
 
      private Long idt;
      private Long idu;
@@ -23,7 +17,7 @@ public class Twits  implements java.io.Serializable {
     public Twits() {
     }
 
-    public Twits(long idu, String string, String timestam) {
+    public Twits(Long idu, String string, String timestam) {
        this.idu = idu;
        this.string = string;
        this.timestam = timestam;
@@ -41,9 +35,7 @@ public class Twits  implements java.io.Serializable {
     }
     
     public void setIdu(Long idu) {
-       Map auth = ActionContext.getContext().getSession();
-         Integer i = auth.get("idusuario").hashCode();
-         this.idu = i.longValue();
+        this.idu = idu;
     }
     public String getString() {
         return this.string;
@@ -57,7 +49,7 @@ public class Twits  implements java.io.Serializable {
     }
     
     public void setTimestam(String timestam) {
-        this.timestam = new Timestamp(date.getTime()).toString();
+        this.timestam = timestam;
     }
 
 

@@ -27,15 +27,15 @@
                 </action>   
 
 		
-                <action name="twit" class="view.TwitAction">
+                <action name="sendtwit" class="view.TwitAction">
                     <result name="success">/home.jsp</result>
                     <result name="fail">/home.jsp</result>
                     
                 </action>
                 
                  <action name="listar" class="view.ListarTwits">
-                    <result name="fin">/home.jsp</result>
-                    <result name="fail">/index.jsp</result>
+                    <result name="fin">/listarTwits.jsp</result>
+                    <result name="fail">/listarTwits.jsp</result>
                     
                 </action>
                 
@@ -69,8 +69,22 @@
 	</package>
         
  <package name="api" namespace="/" extends="json-default">
-      <action name="getapi" 
-           class="view.ApiAction">
+      <action name="twit" class="api.Twit">
+       	   <result type="json" />
+      </action>
+       <action name="timeline" class="api.Timeline">
+       	   <result type="json" />
+      </action>
+       <action name="friends" class="api.Friends">
+       	   <result type="json" />
+      </action>
+       <action name="search" class="api.Search">
+       	   <result type="json" />
+      </action>
+      <action name="follow" class="api.Follow">
+       	   <result type="json" />
+      </action>
+      <action name="unfollow" class="api.Unfollow">
        	   <result type="json" />
       </action>
     </package>

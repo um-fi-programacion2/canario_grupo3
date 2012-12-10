@@ -6,7 +6,7 @@
 
 <%@include file="header.jsp"%>
 <div class="row-fluid">
-        <div class="span3">
+          <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Usuario:</li>
@@ -27,44 +27,18 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span8">
+        <div class="span7">
           <div class="hero-unit">
-            <s:iterator value="%{listarTwits}">
-                <table class="table table-striped" widht="500">
-                    <tbody>
-                    <tr>
-                
-                 <td> <s:property value="string" /> </td>
-                  <td> <s:property value="timestam" /> </td>
-                </tr></tbody>
-                </table>
-     
-                  <div id="images">
-
+            <s:form cssClass="form-inline" action="genKey" method="post">         
+                        <s:textfield cssClass="input-xlarge uneditable-input" label="Nombre" name="nombre" placeholder="asas223234rg22" />
+                        <s:submit cssClass="btn" value="Generar" align="right" />
+            </s:form>
+<div class="well well-small">
+  <strong>Warning!</strong> Best check yo self, you're not looking too good.
 </div>
-
-   
-            </s:iterator>
           </div>
           <div class="row-fluid">
-            <div class="span4">
-              <h2>Menciones:</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Top 10 users:</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Top 10 por Regiones:</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-          <div class="row-fluid">
-           
+            
           </div><!--/row-->
         </div><!--/span-->
       </div><!--/row-->

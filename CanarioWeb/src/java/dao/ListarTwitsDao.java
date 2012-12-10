@@ -26,7 +26,7 @@ public class ListarTwitsDao {
                         Session s = sf.openSession();
 			t = s.beginTransaction(); // start a new transaction
                         
-			 Query query = s.createQuery("FROM Twits t where t.idu = :idu or t.idu in (from Relaciones r where r.seguidor= :idu)");
+			 Query query = s.createQuery("FROM Twits where idu = :idu or idu IN (select siguiendo from Relaciones where idusuario = :idu) order by timestam desc");
      
                          Map auth = ActionContext.getContext().getSession();
                            

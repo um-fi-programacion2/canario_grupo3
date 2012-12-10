@@ -15,16 +15,23 @@ import model.Twits;
  */
 public class ListarTwits {
     
-    public ArrayList <Twits> listarTwits = new ArrayList<Twits>();
-    public List getListarTwits() {
-        return listarTwits;
-    }
+    public ArrayList <Twits> listaTwits = new ArrayList<Twits>();
+    
     
      public String execute() throws Exception {
     
        
-       listarTwits = ListarTwitsDao.getTwitList();
+       listaTwits = ListarTwitsDao.getTwitList();
          
     return "fin";
     }
+
+    public ArrayList<Twits> getlistaTwits() {
+        return listaTwits;
+    }
+
+    public void setlistaTwits(ArrayList<Twits> listaTwits) {
+        this.listaTwits = listaTwits;
+    }
+
 }

@@ -14,32 +14,19 @@
               <li>Twits: <a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
    
               <li class="nav-header">Enviar un tweet</li>
-              <s:form action="twit">
-                    <s:textarea cols="40" rows="5" name="string" maxlength="150" placeholder="canarear!!!"></s:textarea> 
+              <s:form action="sendtwit">
+                    <s:textarea cols="20" rows="4" name="string" maxlength="150" placeholder="canarear!!!"></s:textarea> 
             <s:submit cssClass="btn btn-warning" value="enviar"></s:submit> 
             </s:form>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span8">
+        <div class="span7">
           <div class="hero-unit">
-            <s:iterator value="%{listarTwits}">
-                <table class="table table-striped" widht="500">
-                    <tbody>
-                    <tr>
-                
-                 <td> <s:property value="string" /> </td>
-                  <td> <s:property value="timestam" /> </td>
-                </tr></tbody>
-                </table>
-     
-                  <div id="images">
-
-</div>
-
-   
-            </s:iterator>
+               <div id="divtest">Este contenido va a cambiar :D</div>
           </div>
+            
+            
           <div class="row-fluid">
             <div class="span4">
               <h2>Menciones:</h2>
@@ -64,3 +51,12 @@
       </div><!--/row-->
 
 <%@include file="footer.jsp"%>
+<script>
+ $(document).ready(function() {
+ 	 $("#divtest").load("http://localhost:8084/listar");
+   var refreshId = setInterval(function() {
+      $("#divtest").load('http://localhost:8084/api/listar');
+   }, 9000);
+   $.ajaxSetup({ cache: false });
+});
+</script>
