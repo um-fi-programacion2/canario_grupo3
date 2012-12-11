@@ -48,10 +48,12 @@
                                  <s:submit cssClass="btn" value="Guardar Cambios"/>
              </s:form> 
              
-                <s:form cssClass="well well-small" method="post">   
+                <s:form cssClass="well well-small" method="post" action="guardarFlags">   
                      <li class="nav-header">Recibir Notificaciones por correo electronico cuando:</li>
-                    <h6><s:checkbox name='flag1' value="true">Un usuario me sigue </s:checkbox></h6>
-                    <h6><s:checkbox name='flag2' value="true">Cuando me mencionan en un Tweet </s:checkbox></h6>
+                    <h6><s:checkbox name='flag1' value="1">Un usuario me sigue </s:checkbox></h6>
+                    <h6><s:checkbox name='flag2' value="1">Cuando me mencionan en un Tweet </s:checkbox></h6>
+                    <s:hidden name="idu" value="%{config.idu}"/>
+                    
                     <s:submit cssClass="btn" value="Guardar"/>
                 </s:form>    
         </div>
