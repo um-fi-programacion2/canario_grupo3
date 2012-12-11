@@ -13,7 +13,7 @@ private String bio="sin bio";
 private java.util.Date date;
 private String mail;
 private String pass;
-private String imagen="default.png";
+private String imagen="default.jpg";
 public RegisterAction() {
 }
 

@@ -4,7 +4,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import dao.PerfilDao;
 import dao.RegisterDao;
 import dao.relacionesDao;
-import javax.servlet.http.HttpServletRequest;
+import java.util.Map;
 import model.Usuarios;
 
 
@@ -15,6 +15,7 @@ public class publicoAction extends ActionSupport {
         int followers;
         int following;
         int countTwits;
+        int relacion;
 
 public publicoAction() {
 }
@@ -26,6 +27,16 @@ if (reg != null) {
     followers = relacionesDao.countFollowers(reg.getIdu());
     following = relacionesDao.countFollowing(reg.getIdu());
     countTwits = relacionesDao.countTwits(reg.getIdu());
+        Map auth = ActionContext.getContext().getSession();
+
+    if(((Number)auth.get("idusuario")).longValue() != reg.getIdu()) {
+     
+    relacion = relacionesDao.checkRelacion(((Number)auth.get("idusuario")).longValue(),reg.getIdu());
+    }
+    else {
+        relacion = 2;
+    }
+    System.err.println("Debug-->" + relacion);
 
             return "success";
         }
@@ -72,6 +83,14 @@ else {
 
     public void setCountTwits(int countTwits) {
         this.countTwits = countTwits;
+    }
+
+    public int isRelacion() {
+        return relacion;
+    }
+
+    public void setRelacion(int relacion) {
+        this.relacion = relacion;
     }
 
 

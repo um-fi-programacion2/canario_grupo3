@@ -6,8 +6,17 @@
               <li class="nav-header">Usuario:</li>
               <img src="./img/users/<s:property value="reg.imagen"/>"  width="150" height="310"> 
               <s:form action="changeFollowState" method="post">
-                     <s:submit cssClass="btn btn-success" value="Seguir"/>
-                </s:form> 
+              
+                  <s:if test="relacion == 0"> 
+                      
+                 <s:submit cssClass="btn btn-success" value="Seguir"/>
+                 </s:if>
+               <s:if test="relacion == 1"> 
+                      
+                 <s:submit cssClass="btn btn-success" value="Dejar de Seguir"/>
+                 </s:if>
+                  
+              </s:form> 
               <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
               <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
               <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
