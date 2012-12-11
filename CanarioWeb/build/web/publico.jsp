@@ -6,6 +6,7 @@
               <li class="nav-header">Usuario:</li>
               <img src="./img/users/<s:property value="reg.imagen"/>"  width="150" height="310"> 
               <s:form action="changeFollowState" method="post">
+
               
                   <s:if test="relacion == 0"> 
                       
@@ -20,11 +21,21 @@
               <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
               <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
               <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
+              
+            
+             <li class="nav-header">Biografia:</li>
+             <li align="center"><s:property value="reg.bio"/></li>
+              <li class="divider"></li>
+              <li class="nav-header">Ubicacion:</li>
+              <li><s:property value="reg.localidad"/></li>
+              
+              <li class="divider"></li>
+
               <li class="nav-header">Información:</li>
-              <li>Followers:<a href="http://twitter.github.com/bootstrap/examples/fluid.html#"><s:property value="followers"/></a></li>
-              <li>Following:<a href="http://twitter.github.com/bootstrap/examples/fluid.html#"><s:property value="following"/></a></li>
-              <li>Twits: <a href="http://twitter.github.com/bootstrap/examples/fluid.html#"><s:property value="countTwits"/></a></li>
-              <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
+              Followers:<strong><a href="#"><s:property value="followers"/></a></strong></li><div class="divider"></div>
+              Following:<strong><a href="#"><s:property value="following"/></a></strong></li><div class="divider"></div>
+                  Twits: <strong><a href="#"><s:property value="countTwits"/></a></strong></li>
+              
               
             </ul>
           </div><!--/.well -->
