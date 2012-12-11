@@ -44,9 +44,7 @@
               <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
             </div><!--/span-->
           </div><!--/row-->
-          <div class="row-fluid">
-           
-          </div><!--/row-->
+          
         </div><!--/span-->
       </div><!--/row-->
 

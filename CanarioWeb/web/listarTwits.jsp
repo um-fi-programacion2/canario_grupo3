@@ -2,20 +2,13 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html> 
 
-<html>
-  <head>
-      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-      <title>Ejemplos con Struts 2</title>
-  </head>
-  <body>
+
 <table class="table table-hover">
-  <s:iterator value="listaTwits">
+  <s:iterator value="listaTabla">
 
        <tr>
-        <td><s:property value="string" /></td>
+           <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico.jsp">@<s:property value="nombre" /> </a><strong>dijo:</strong> <s:property value="string" /></td>
         <td><h6><s:property value="timestam" /></h6></td>
     </tr>
       </s:iterator>
 </table>  
-</body>
-</html>
