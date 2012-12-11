@@ -25,6 +25,15 @@ private String nombre;
 private String bio;
 private String mail;
 private String pass;
+private String localidad;
+
+    public String getLocalidad() {
+        return localidad;
+    }
+
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
+    }
 
 public PerfilAction() {
 }
@@ -79,6 +88,7 @@ reg.setBio(bio);
 reg.setMail(mail);
 reg.setNombre(nombre);
 reg.setPass(pass);
+reg.setLocalidad(localidad);
 
 if (PerfilDao.guardarPerfil(reg))
 return "success";
@@ -86,5 +96,6 @@ else
 return "fail";
 }
     
+ 
     
 }

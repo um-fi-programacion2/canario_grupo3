@@ -1,21 +1,22 @@
 <%@include file="header.jsp"%>
 <div class="row-fluid">
         <div class="span3">
-          <div class="well sidebar-nav">
+          <div class="well sidebar-nav" >
             <ul class="nav nav-list">
               <li class="nav-header">Usuario:</li>
-              <img class="img-polaroid" src="./img/users/<%= u.getImagen() %>"  width="150" height="310"> 
+              <li align="center"><img class="img-polaroid" src="./img/users/<%= u.getImagen() %>"  width="150" height="310"> </li>
               <li class="nav-header">Biografia:</li>
-              <li><%= u.getBio() %></li>
+              <li align="center"><%= u.getBio() %></li>
+              <li class="divider"></li>
               <li class="nav-header">Ubicacion:</li>
               <li><%= u.getLocalidad() %></li>
               
               <li class="divider"></li>
               <li class="nav-header">Información:</li>
              
-              <li>Followers:<a href="#"><%= relacionesDao.countFollowers(u.getIdu()) %></a></li>
-              <li>Following:<a href="#"><%= relacionesDao.countFollowing(u.getIdu()) %></a></li>
-              <li>Twits: <a href="#"><%= relacionesDao.countTwits(u.getIdu()) %></a></li>
+              Followers:<a><strong><%= relacionesDao.countFollowers(u.getIdu()) %></strong></a><div class="divider"></div>
+              Following:<a href="#"><strong><%= relacionesDao.countFollowing(u.getIdu()) %></strong></a><div class="divider"></div>
+              Twits: <a href="#"><strong><%= relacionesDao.countTwits(u.getIdu()) %></strong></a>
               
               <li class="divider"></li>
               <li class="nav-header">Enviar un tweet</li>

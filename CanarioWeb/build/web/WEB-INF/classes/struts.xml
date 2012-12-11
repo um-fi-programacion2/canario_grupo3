@@ -71,6 +71,11 @@
                     <result name="fail">/index.jsp</result>
                     
                 </action>
+                 <action name="config" class="view.ConfigPerfilAction">
+                    <result name="bien">/perfil.jsp</result>
+                    <result name="fail">/perfil.jsp</result>
+                    
+                </action>
                 
 	</package>
         

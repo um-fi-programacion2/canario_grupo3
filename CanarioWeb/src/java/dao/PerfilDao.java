@@ -52,12 +52,13 @@ public static boolean guardarPerfil(Usuarios Rgst) {
                 Map auth = ActionContext.getContext().getSession();
                            
 		
-                Query query = s.createQuery("UPDATE Usuarios set nombre = :nombre, mail= :mail, bio = :bio, pass= :pass  where idu= :id");
+                Query query = s.createQuery("UPDATE Usuarios set nombre = :nombre, mail= :mail, bio = :bio, pass= :pass, localidad= :loc  where idu= :id");
                 query.setParameter("nombre", Rgst.getNombre());
                 query.setParameter("mail", Rgst.getMail());
                 query.setParameter("bio", Rgst.getBio());
                 query.setParameter("pass", Rgst.getPass());
                 query.setParameter("id",((Number)auth.get("idusuario")).longValue());
+                query.setParameter("loc", Rgst.getLocalidad());
                
                 
                 try {
