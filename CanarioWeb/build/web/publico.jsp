@@ -4,7 +4,7 @@
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
               <li class="nav-header">Usuario:</li>
-              <img src="./img/users/<%= u.getImagen() %>"  width="150" height="310"> 
+              <img src="./img/users/<s:property value="reg.imagen"/>"  width="150" height="310"> 
               <s:form action="changeFollowState" method="post">
                      <s:submit cssClass="btn btn-success" value="Seguir"/>
                 </s:form> 
@@ -12,9 +12,9 @@
               <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
               <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
               <li class="nav-header">Información:</li>
-              <li>Followers:<a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
-              <li>Following:<a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
-              <li>Twits: <a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
+              <li>Followers:<a href="http://twitter.github.com/bootstrap/examples/fluid.html#"><s:property value="followers"/></a></li>
+              <li>Following:<a href="http://twitter.github.com/bootstrap/examples/fluid.html#"><s:property value="following"/></a></li>
+              <li>Twits: <a href="http://twitter.github.com/bootstrap/examples/fluid.html#"><s:property value="countTwits"/></a></li>
               <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
               
             </ul>
