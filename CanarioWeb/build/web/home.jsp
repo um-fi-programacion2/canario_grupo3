@@ -5,9 +5,12 @@
             <ul class="nav nav-list">
               <li class="nav-header">Usuario:</li>
               <img class="img-polaroid" src="./img/users/<%= u.getImagen() %>"  width="150" height="310"> 
-              <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
-              <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
-              <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
+              <li class="nav-header">Biografia:</li>
+              <li><%= u.getBio() %></li>
+              <li class="nav-header">Ubicacion:</li>
+              <li><%= u.getLocalidad() %></li>
+              
+              <li class="divider"></li>
               <li class="nav-header">Información:</li>
               <li>Followers:<a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
               <li>Following:<a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
@@ -15,9 +18,10 @@
    
               <li class="nav-header">Enviar un tweet</li>
               <s:form action="sendtwit">
-                    <s:textarea cols="20" rows="4" name="string" maxlength="150" placeholder="canarear!!!"></s:textarea> 
+                  <s:textarea id="textarea" cols="20" rows="4" name="string" maxlength="200" placeholder="canarear!!!"></s:textarea> 
             <s:submit cssClass="btn btn-warning" value="enviar"></s:submit> 
             </s:form>
+              <div id="caracteres"></div>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
@@ -58,3 +62,15 @@
    $.ajaxSetup({ cache: false });
 });
 </script>
+<script>
+    $(document).ready(function() {
+    var text_max=200;
+	$('#caracteres').html(text_max + ' caracteres restantes');
+	$('#textarea').keyup(function(){
+		var text_lenght= $('#textarea').val().length;
+		var text_remaining= text_max - text_lenght;
+	$('#caracteres').html(text_remaining + ' caracteres restantes');	
+		})	
+	
+});
+</script> 

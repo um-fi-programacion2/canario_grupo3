@@ -18,7 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
  
 import dao.PerfilDao;
 
-public class FileUploadAction extends ActionSupport implements      ServletRequestAware {
+public class FileUploadAction extends ActionSupport implements ServletRequestAware {
     private File userImage;
     private String userImageContentType;
     private String userImageFileName;
@@ -28,7 +28,8 @@ public class FileUploadAction extends ActionSupport implements      ServletReque
     public String execute() {
         try {
            //String filePath = servletRequest.getSession().getServletContext().getRealPath("/img/users");
-            String filePath = "D:\\nb_proyectos\\repository\\canario_grupo3\\CanarioWeb\\web\\img\\users\\";
+           // String filePath = "D:\\nb_proyectos\\repository\\canario_grupo3\\CanarioWeb\\web\\img\\users\\";
+            String filePath = "C:\\Users\\el pampa\\Documents\\NetBeansProjects\\canario_grupo3\\CanarioWeb\\web\\img\\users\\";
             System.out.println("Server path:" + filePath);
             File fileToCreate = new File(filePath, this.userImageFileName);
  

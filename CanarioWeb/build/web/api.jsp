@@ -33,8 +33,8 @@
                         <s:textfield cssClass="input-xlarge uneditable-input" label="Nombre" name="nombre" placeholder="asas223234rg22" />
                         <s:submit cssClass="btn" value="Generar" align="right" />
             </s:form>
-<div class="well well-small">
-  <strong>Warning!</strong> Best check yo self, you're not looking too good.
+<div class="alert">
+    <strong>Warning!</strong> Best check yo self, you're not looking too good.
 </div>
           </div>
           <div class="row-fluid">
