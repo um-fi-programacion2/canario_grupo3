@@ -28,7 +28,7 @@
         <div class="span6">
           <div class="hero-unit">
               <li class="nav-header">Modificar imagen de perfil!!!</li>
-            <s:form action="userImage" method="post" enctype="multipart/form-data">
+            <s:form cssClass="well well-small" action="userImage" method="post" enctype="multipart/form-data">
                  <s:file name="userImage" label="Imagen de Perfil" />    <s:submit cssClass="btn" value="Subir" align="right" />
             </s:form>
 
@@ -52,7 +52,7 @@
                      <li class="nav-header">Recibir Notificaciones por correo electronico cuando:</li>
                     <h6><s:checkbox name='flag1' value="true">Un usuario me sigue </s:checkbox></h6>
                     <h6><s:checkbox name='flag2' value="true">Cuando me mencionan en un Tweet </s:checkbox></h6>
-                    
+                    <s:submit cssClass="btn" value="Guardar"/>
                 </s:form>    
         </div>
           <div class="row-fluid">
