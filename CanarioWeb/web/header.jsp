@@ -1,9 +1,10 @@
 <!DOCTYPE html> 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s" %>
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en">
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>Canario Web - UM:FI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -58,7 +59,7 @@
         
             <ul class="nav">
                 <li class="active"><a href="/home.jsp"><i class="icon-home"></i>Home</a></li>
-              <li><a href="/perfil.jsp"><i class="icon-white icon-user"></i>ConfiguraciÃ³n</a></li>
+              <li><a href="/perfil.jsp"><i class="icon-white icon-user"></i>Configuración</a></li>
               <li><a href="/api.jsp"><i class="icon-white icon-wrench"></i>Api</a></li>
                   
             </ul>

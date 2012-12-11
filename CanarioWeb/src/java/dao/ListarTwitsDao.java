@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ActionContext;
 import java.util.ArrayList;
 import java.util.Map;
 import model.Twits;
+import model.Usuarios;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -27,7 +28,7 @@ public class ListarTwitsDao {
 			t = s.beginTransaction(); // start a new transaction
                         
 			 Query query = s.createQuery("FROM Twits where idu = :idu or idu IN (select siguiendo from Relaciones where idusuario = :idu) order by timestam desc");
-     
+                         query.setMaxResults(10);
                          Map auth = ActionContext.getContext().getSession();
                            
                          query.setParameter("idu", ((Number)auth.get("idusuario")).longValue());            
@@ -42,5 +43,25 @@ public class ListarTwitsDao {
 		}
   }
 
-    
+     public static Usuarios getSingleUser(Long idu) {
+                	
+		 try {
+			SessionFactory sf = HibernateUtil.getSessionFactory();
+                        Transaction t = null;
+                        Session s = sf.openSession();
+			t = s.beginTransaction(); // start a new transaction
+                        
+			 Query query = s.createQuery("FROM Usuarios where idu = :idu");
+                         query.setParameter("idu", idu);            
+                         
+                        return (Usuarios) query.list().get(0);
+
+		
+		} catch (Exception ex) {
+			System.err.println("Error !-->" + ex.getMessage());
+			
+			return null;
+		}
+  }
+
 }
