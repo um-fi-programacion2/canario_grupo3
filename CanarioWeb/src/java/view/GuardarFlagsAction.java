@@ -17,6 +17,9 @@ public class GuardarFlagsAction extends ActionSupport{
     private String flag2;
     private Long idu;
 
+    public GuardarFlagsAction() {
+    }
+    
     public Long getIdu() {
         return idu;
     }
@@ -41,8 +44,9 @@ public class GuardarFlagsAction extends ActionSupport{
         this.flag2 = flag2;
     }
     
-    public String excecute() throws Exception{
-       
+   public String execute() throws Exception {
+       			
+
         if(GuardarFlagsDao.guardarFlagsDao(idu, flag1,flag2)){
             return "success";
         }

@@ -23,7 +23,7 @@ public class GuardarFlagsDao {
                 Map auth = ActionContext.getContext().getSession();
                            
 		
-                Query query = s.createQuery("UPDATE Usuarios set flag1 = :flag1 and flag2 = :flag2 where idu= :idu");
+                Query query = s.createQuery("UPDATE Usuarios set flag1 = :flag1, flag2 = :flag2 where idu= :idu");
                 
                 query.setParameter("idu",((Number)auth.get("idusuario")).longValue());
                 query.setParameter("flag1", flag1.toString());
@@ -35,7 +35,7 @@ public class GuardarFlagsDao {
            t.commit(); // commit transaction
                 return true;
 		} catch (Exception ex) {
-			System.err.println("Error -->" + ex.getMessage());
+			System.err.println("Error !-->" + ex.getMessage());
 			if (t != null) {
                         t.rollback();
                     }
