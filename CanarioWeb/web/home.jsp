@@ -12,10 +12,12 @@
               
               <li class="divider"></li>
               <li class="nav-header">Información:</li>
-              <li>Followers:<a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
-              <li>Following:<a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
-              <li>Twits: <a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
-   
+             
+              <li>Followers:<a href="#"><%= relacionesDao.countFollowers(u.getIdu()) %></a></li>
+              <li>Following:<a href="#"><%= relacionesDao.countFollowing(u.getIdu()) %></a></li>
+              <li>Twits: <a href="#"><%= relacionesDao.countTwits(u.getIdu()) %></a></li>
+              
+              <li class="divider"></li>
               <li class="nav-header">Enviar un tweet</li>
               <s:form action="sendtwit">
                   <s:textarea id="textarea" cols="20" rows="4" name="string" maxlength="200" placeholder="canarear!!!"></s:textarea> 
