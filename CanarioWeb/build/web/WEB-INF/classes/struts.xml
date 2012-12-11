@@ -66,6 +66,12 @@
                     
                 </action>
                 
+                 <action name="publico" class="view.publicoAction">
+                    <result name="success">/publico.jsp</result>
+                    <result name="fail">/index.jsp</result>
+                    
+                </action>
+                
 	</package>
         
  <package name="api" namespace="/" extends="json-default">
