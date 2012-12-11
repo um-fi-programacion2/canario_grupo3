@@ -49,7 +49,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="http://twitter.github.com/bootstrap/examples/fluid.html#">CanarioWeb</a>
+          <a class="brand" href="#">CanarioWeb</a>
          
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
