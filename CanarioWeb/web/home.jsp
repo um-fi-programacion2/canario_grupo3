@@ -28,7 +28,7 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span7">
+        <div class="span6">
           <div class="hero-unit">
                <div id="divtest">Este contenido va a cambiar :D</div>
           </div>

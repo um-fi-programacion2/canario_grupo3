@@ -25,29 +25,36 @@
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span7">
+        <div class="span6">
           <div class="hero-unit">
               <li class="nav-header">Modificar imagen de perfil!!!</li>
             <s:form action="userImage" method="post" enctype="multipart/form-data">
-    <s:file name="userImage" label="Imagen de Perfil" />    <s:submit cssClass="btn" value="Subir" align="right" />
-</s:form>
+                 <s:file name="userImage" label="Imagen de Perfil" />    <s:submit cssClass="btn" value="Subir" align="right" />
+            </s:form>
 
 
-<s:form sccClass="well well-small" action="GuardarPerfil" method="post">
-<li class="nav-header">Nombre de Usuario</li>
-    <s:textfield label="Nombre" name="nombre" value="%{config.nombre}"/><br>
-<li class="nav-header">Email</li>
-    <s:textfield label="Email" name="mail" value="%{config.mail}"/><br>
-<li class="nav-header">Password</li>
-    <s:password label="Password" name="pass" key="%{config.pass}"/><br>
-</li><li class="nav-header">Localidad</li>
-    <s:textfield label="Localidad" name="localidad" value="%{config.localidad}"/><br>
-<li class="nav-header">Biografia</li>
-    <s:textarea label="Bio"  cols="40" rows="5" name="bio" maxlength="300" value="%{config.bio}"></s:textarea> <br>
+            <s:form cssClass="well well-small" action="GuardarPerfil" method="post">
+            <li class="nav-header">Nombre de Usuario</li>
+                <s:textfield label="Nombre" name="nombre" value="%{config.nombre}"/><br>
+            <li class="nav-header">Email</li>
+                <s:textfield label="Email" name="mail" value="%{config.mail}"/><br>
+            <li class="nav-header">Password</li>
+                <s:password label="Password" name="pass" key="%{config.pass}"/><br>
+            </li><li class="nav-header">Localidad</li>
+                <s:textfield label="Localidad" name="localidad" value="%{config.localidad}"/><br>
+            <li class="nav-header">Biografia</li>
+                <s:textarea label="Bio"  cols="40" rows="5" name="bio" maxlength="300" value="%{config.bio}"></s:textarea> <br>
 
-                     <s:submit cssClass="btn" value="Guardar Cambios"/>
-                </s:form> 
-          </div>
+                                 <s:submit cssClass="btn" value="Guardar Cambios"/>
+             </s:form> 
+             
+                <s:form cssClass="well well-small" method="post">   
+                     <li class="nav-header">Recibir Notificaciones por correo electronico cuando:</li>
+                    <h6><s:checkbox name='flag1' value="true">Un usuario me sigue </s:checkbox></h6>
+                    <h6><s:checkbox name='flag2' value="true">Cuando me mencionan en un Tweet </s:checkbox></h6>
+                    
+                </s:form>    
+        </div>
           <div class="row-fluid">
             
           </div><!--/row-->

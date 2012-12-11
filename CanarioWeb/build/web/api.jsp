@@ -9,25 +9,32 @@
           <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Usuario:</li>
-              <img class="img-polaroid" src="./img/users/<%= u.getImagen() %>"  width="150" height="310"> 
-              <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
-              <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
-              <li><a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
+               <li class="nav-header">Usuario:</li>
+              <li align="center"><img class="img-polaroid" src="./img/users/<%= u.getImagen() %>"  width="150" height="310"> </li>
+              <li class="nav-header">Biografia:</li>
+              <li align="center"><%= u.getBio() %></li>
+              <li class="divider"></li>
+              <li class="nav-header">Ubicacion:</li>
+              <li><%= u.getLocalidad() %></li>
+              
+              <li class="divider"></li>
               <li class="nav-header">Información:</li>
-              <li>Followers:<a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
-              <li>Following:<a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
-              <li>Twits: <a href="http://twitter.github.com/bootstrap/examples/fluid.html#">Link</a></li>
+               Followers:<a><strong><%= relacionesDao.countFollowers(u.getIdu()) %></strong></a><div class="divider"></div>
+              Following:<a href="#"><strong><%= relacionesDao.countFollowing(u.getIdu()) %></strong></a><div class="divider"></div>
+              Twits: <a href="#"><strong><%= relacionesDao.countTwits(u.getIdu()) %></strong></a>
    
-              <li class="nav-header">Enviar un tweet</li>
+        <!--      <li class="nav-header">Enviar un tweet</li>
               <s:form action="twit">
                     <s:textarea cols="40" rows="5" name="string" maxlength="150" placeholder="canarear!!!"></s:textarea> 
             <s:submit cssClass="btn btn-warning" value="enviar"></s:submit> 
             </s:form>
-            </ul>
+        -->
+        
+        
+        </ul>
           </div><!--/.well -->
         </div><!--/span-->
-        <div class="span7">
+        <div class="span6">
           <div class="hero-unit">
             <s:form cssClass="form-inline" action="genKey" method="post">         
                         <s:textfield cssClass="input-xlarge uneditable-input" label="Nombre" name="nombre" placeholder="asas223234rg22" />
