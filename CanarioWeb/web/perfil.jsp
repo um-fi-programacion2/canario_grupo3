@@ -13,8 +13,8 @@
               
               <li class="divider"></li>
               <li class="nav-header">Información:</li>
-               Followers:<a><strong><%= relacionesDao.countFollowers(u.getIdu()) %></strong></a><div class="divider"></div>
-              Following:<a href="#"><strong><%= relacionesDao.countFollowing(u.getIdu()) %></strong></a><div class="divider"></div>
+               Followers:<a href="<s:url action="listarFollowers"/>"><strong><%= relacionesDao.countFollowers(u.getIdu()) %></strong></a><div class="divider"></div>
+              Following:<a href="<s:url action="listarFollowings"/>"><strong><%= relacionesDao.countFollowing(u.getIdu()) %></strong></a><div class="divider"></div>
               Twits: <a href="#"><strong><%= relacionesDao.countTwits(u.getIdu()) %></strong></a>
    
               <li class="nav-header">Enviar un tweet</li>
@@ -28,7 +28,7 @@
         <div class="span6">
           <div class="hero-unit">
               <li class="nav-header">Modificar imagen de perfil!!!</li>
-            <s:form action="userImage" method="post" enctype="multipart/form-data">
+            <s:form cssClass="well well-small" action="userImage" method="post" enctype="multipart/form-data">
                  <s:file name="userImage" label="Imagen de Perfil" />    <s:submit cssClass="btn" value="Subir" align="right" />
             </s:form>
 
@@ -48,11 +48,13 @@
                                  <s:submit cssClass="btn" value="Guardar Cambios"/>
              </s:form> 
              
-                <s:form cssClass="well well-small" method="post">   
+                <s:form cssClass="well well-small"  action="guardarFlags" method="post">   
                      <li class="nav-header">Recibir Notificaciones por correo electronico cuando:</li>
-                    <h6><s:checkbox name='flag1' value="true">Un usuario me sigue </s:checkbox></h6>
-                    <h6><s:checkbox name='flag2' value="true">Cuando me mencionan en un Tweet </s:checkbox></h6>
+                    <h6><s:checkbox name='flag1' value="%{config.flag1}">Un usuario me sigue </s:checkbox></h6>
+                    <h6><s:checkbox name='flag2' value="%{config.flag2}">Cuando me mencionan en un Tweet </s:checkbox></h6>
+                    <s:hidden name="idu" value="%{config.idu}"/>
                     
+                    <s:submit cssClass="btn" value="Guardar"/>
                 </s:form>    
         </div>
           <div class="row-fluid">

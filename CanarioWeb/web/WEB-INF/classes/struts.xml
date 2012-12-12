@@ -77,6 +77,23 @@
                     
                 </action>
                 
+                 <action name="guardarFlags" class="view.GuardarFlagsAction">
+                    <result name="success" type="chain">config</result>
+                    <result name="fail">/home.jsp</result>
+                    
+                </action>
+                
+                 <action name="listarFollowers" class="view.ListarFollowersAction">
+                     <result name="bien">/followers.jsp</result>
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                 <action name="listarFollowings" class="view.ListarFollowingsAction">
+                     <result name="bien">/followings.jsp</result>
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                
 	</package>
         
  <package name="api" namespace="/" extends="json-default">
