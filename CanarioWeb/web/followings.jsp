@@ -14,9 +14,9 @@
               <li class="divider"></li>
               <li class="nav-header">Información:</li>
              
-              Followers:<a href="<s:url action="listarFollowers"/>"><strong><%= relacionesDao.countFollowers(u.getIdu()) %></strong></a><div class="divider"></div>
-              Following:<a href="<s:url action="listarFollowings"/>"><strong><%= relacionesDao.countFollowing(u.getIdu()) %></strong></a><div class="divider"></div>
-              Twits: <a href="#"><strong><%= relacionesDao.countTwits(u.getIdu()) %></strong></a>
+              Followers:<a href="<s:url action="listarFollowers"/>"><strong><%= relacionesDao.countFollowers(u.getIdu()) %></strong></a><br>
+              Following:<a href="<s:url action="listarFollowings"/>"><strong><%= relacionesDao.countFollowing(u.getIdu()) %></strong></a><br>
+              Twits: <strong><%= relacionesDao.countTwits(u.getIdu()) %></strong>
               
               <li class="divider"></li>
               <li class="nav-header">Enviar un tweet</li>
@@ -32,12 +32,12 @@
           <div class="hero-unit">
               
                <table class="table table-hover">
-                <thead>Followers</thead> 
+                <thead>Followings</thead> 
                 <tbody> 
                 <s:iterator value="listaFollowings">
                     
                    <tr>
-                       <td><h6> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /><td><s:submit type="button" value="%{idu}" label="Seguir" cssClass="btn-success"/></td> </a></h6></td>
+                       <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a></td><td><s:submit type="button" value="%{idu}" label="Dejar de Seguir" cssClass="btn-success"/></td> 
 
                     <td><h6><s:property value="timestam" /></h6></td>
                 </tr>
