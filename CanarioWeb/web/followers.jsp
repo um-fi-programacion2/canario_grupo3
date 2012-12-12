@@ -66,6 +66,9 @@
    $.ajaxSetup({ cache: false });
 });
 </script>
+
+
+
 <script>
     $(document).ready(function() {
     var text_max=200;
