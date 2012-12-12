@@ -8,8 +8,11 @@ package dao;
 import model.Relaciones;
 
 import com.opensymphony.xwork2.ActionContext;
+import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
+import java.net.PasswordAuthentication;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Properties;
 import model.Usuarios;
 
 import org.hibernate.Query;
@@ -138,7 +141,7 @@ public class relacionesDao {
                         s.persist(re);
                         t.commit();
                                                  s.disconnect();
-
+                       
                        return 1;
 
 		
@@ -200,4 +203,5 @@ public class relacionesDao {
 		}
                  
   }
+    
 }
