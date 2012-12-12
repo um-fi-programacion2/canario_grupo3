@@ -69,6 +69,11 @@
                   
                     
                 </action>
+                <action name="changeState" class="view.CambiarRelacionAction">
+                  <result name="success" type="chain">/home.jsp</result>
+                  
+                    
+                </action>
                 
                  <action name="publico" class="view.publicoAction">
                     <result name="success">/publico.jsp</result>
@@ -97,7 +102,24 @@
                     <result name="fail">/home.jsp</result>
                      
                  </action>
-                
+                 <action name="followUsuario" class="view.FollowAction">
+                     <result name="bien" type="chain">listarFollowers</result>
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                 
+                <action name="unfollowUsuario" class="view.UnFollowAction">
+                     <result name="bien" type="chain">listarFollowers</result>
+                     
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                 <action name="unfollowU" class="view.UnFollowAction">
+                     <result name="bien" type="chain">listarFollowings</result>
+                     
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
 	</package>
         
  <package name="api" namespace="/" extends="json-default">

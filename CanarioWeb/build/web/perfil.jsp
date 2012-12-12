@@ -13,9 +13,9 @@
               
               <li class="divider"></li>
               <li class="nav-header">Información:</li>
-               Followers:<a href="<s:url action="listarFollowers"/>"><strong><%= relacionesDao.countFollowers(u.getIdu()) %></strong></a><div class="divider"></div>
-              Following:<a href="<s:url action="listarFollowings"/>"><strong><%= relacionesDao.countFollowing(u.getIdu()) %></strong></a><div class="divider"></div>
-              Twits: <a href="#"><strong><%= relacionesDao.countTwits(u.getIdu()) %></strong></a>
+               Followers:<a href="<s:url action="listarFollowers"/>"><strong><%= relacionesDao.countFollowers(u.getIdu()) %></strong></a><br>
+              Following:<a href="<s:url action="listarFollowings"/>"><strong><%= relacionesDao.countFollowing(u.getIdu()) %></strong></a><br>
+              Twits: <strong><%= relacionesDao.countTwits(u.getIdu()) %></strong>
    
               <li class="nav-header">Enviar un tweet</li>
               <s:form action="twit">

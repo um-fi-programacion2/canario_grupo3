@@ -31,9 +31,9 @@
               <li class="divider"></li>
 
               <li class="nav-header">Información:</li>
-              Followers:<strong><a href="<s:url action="listarFollowers"/>"><s:property value="followers"/></a></strong></li><div class="divider"></div>
-              Following:<strong><a href="<s:url action="listarFollowings"/>"><s:property value="following"/></a></strong></li><div class="divider"></div>
-                  Twits: <strong><a href="#"><s:property value="countTwits"/></a></strong></li>
+              Followers:<strong><a href="<s:url action="listarFollowers"/>"><s:property value="followers"/></a></strong></li>
+              Following:<strong><a href="<s:url action="listarFollowings"/>"><s:property value="following"/></a></strong></li>
+                  Twits: <strong><s:property value="countTwits"/></strong></li>
               
               
             </ul>
