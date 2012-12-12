@@ -69,6 +69,11 @@
                   
                     
                 </action>
+                <action name="changeState" class="view.CambiarRelacionAction">
+                  <result name="success" type="chain">/home.jsp</result>
+                  
+                    
+                </action>
                 
                  <action name="publico" class="view.publicoAction">
                     <result name="success">/publico.jsp</result>

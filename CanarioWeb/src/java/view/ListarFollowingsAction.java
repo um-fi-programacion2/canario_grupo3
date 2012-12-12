@@ -15,6 +15,7 @@ import model.Usuarios;
  */
 public class ListarFollowingsAction {
     ArrayList<Usuarios> listaFollowings = new ArrayList<Usuarios>();
+  
 
     public ListarFollowingsAction() {
     }
@@ -29,10 +30,12 @@ public class ListarFollowingsAction {
 
     
     public String execute() throws Exception {
-    
         
+         
        listaFollowings=dao.relacionesDao.getFollowings();
-              
+       
+       
+       
        return "bien";
       
 
