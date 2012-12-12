@@ -60,20 +60,20 @@
 
 
    
-                <action name="changeFollowState" class="view.PerfilAction">
-                    <result name="success">/publico.jsp</result>
-                    <result name="fail">/publico.jsp</result>
+                <action name="changeFollowState" class="view.CambiarRelacionAction">
+                  <result name="success" type="chain">publico</result>
+                  
                     
                 </action>
                 
                  <action name="publico" class="view.publicoAction">
                     <result name="success">/publico.jsp</result>
-                    <result name="fail">/index.jsp</result>
+                    <result name="fail">/publico.jsp</result>
                     
                 </action>
                  <action name="config" class="view.ConfigPerfilAction">
-                    <result name="bien">/perfil.jsp</result>
-                    <result name="fail">/perfil.jsp</result>
+                    <result name="bien">/publico</result>
+                    <result name="fail">/publico</result>
                     
                 </action>
                 

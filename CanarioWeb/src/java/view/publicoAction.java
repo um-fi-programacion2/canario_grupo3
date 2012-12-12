@@ -22,7 +22,13 @@ public publicoAction() {
 
     public String execute() throws Exception {
 
+if(u == null) {
+    Map auth = ActionContext.getContext().getSession();
+            reg= PerfilDao.traerPerfil(Long.parseLong(auth.get("publicocontext").toString()));
+}
+else {
 reg= PerfilDao.traerPerfilNombre(u);
+}
 if (reg != null) {
     followers = relacionesDao.countFollowers(reg.getIdu());
     following = relacionesDao.countFollowing(reg.getIdu());
@@ -36,7 +42,6 @@ if (reg != null) {
     else {
         relacion = 2;
     }
-    System.err.println("Debug-->" + relacion);
 
             return "success";
         }
@@ -92,7 +97,6 @@ else {
     public void setRelacion(int relacion) {
         this.relacion = relacion;
     }
-
 
 
 

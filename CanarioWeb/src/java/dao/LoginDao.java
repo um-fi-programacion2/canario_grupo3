@@ -32,6 +32,8 @@ public class LoginDao {
             listaUsuarios = query.list();
             
             if(listaUsuarios.isEmpty()) {
+                                                     s.disconnect();
+
                 return false;
             }
             else {
@@ -40,7 +42,8 @@ public class LoginDao {
                 usuario=listaUsuarios.get(0);
                 Map auth = ActionContext.getContext().getSession();
                 auth.put("idusuario", usuario.getIdu());
-                 
+                                                      s.disconnect();
+
                 return true;
             }
 

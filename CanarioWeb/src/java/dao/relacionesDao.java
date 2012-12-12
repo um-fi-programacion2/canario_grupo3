@@ -4,7 +4,7 @@
  */
 package dao;
 
-import model.Usuarios;
+import model.Relaciones;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -85,6 +85,8 @@ public class relacionesDao {
 			 Query query = s.createQuery("FROM Relaciones where idusuario = :idu and siguiendo = :siguiendo");
                         query.setLong("idu", idu);
                         query.setParameter("siguiendo", siguiendo.toString());
+                                                 s.disconnect();
+
                         if(query.list().size() > 0) {
                             return 1;
                         }
@@ -101,42 +103,41 @@ public class relacionesDao {
   }
      public static int unfollow(Long idu, Long siguiendo) {
                 	
-		 try {
+                        Relaciones rel = new Relaciones();
 			SessionFactory sf = HibernateUtil.getSessionFactory();
-                        Transaction t = null;
                         Session s = sf.openSession();
-			t = s.beginTransaction(); // start a new transaction
-                        
-			 Query query = s.createQuery("FROM Twits where idu = :idu and siguiendo = :siguiendo");
+                        Transaction t = s.beginTransaction();
+			Query query = s.createQuery("delete Relaciones where idusuario = :idu and siguiendo = :siguiendo");
                         query.setLong("idu", idu);
-                        query.setParameter("idu", idu.toString());
-                        return query.list().size();
+                        query.setParameter("siguiendo", siguiendo.toString());
+                         int rows= query.executeUpdate();
+                         t.commit();
+                         s.disconnect();
+                         			System.err.println("Columnas borradas-->" + rows);
 
-		
-		} catch (Exception ex) {
-			System.err.println("Error !!-->" + ex.getMessage());
-			
-			return 0;
-		}
+                                                return 0;
+                         
   }
      public static int follow(Long idu, Long siguiendo) {
-                	
+                	                	
 		 try {
 			SessionFactory sf = HibernateUtil.getSessionFactory();
                         Transaction t = null;
                         Session s = sf.openSession();
 			t = s.beginTransaction(); // start a new transaction
-                        
-			 Query query = s.createQuery("FROM Twits where idu = :idu and siguiendo = :siguiendo");
-                        query.setLong("idu", idu);
-                        query.setParameter("idu", idu.toString());
-                        return query.list().size();
+                        Relaciones re = new Relaciones();
+                        re.setIdusuario( idu.intValue());
+                        re.setSiguiendo(siguiendo.toString());
+                        s.persist(re);
+                        t.commit();
+                                                 s.disconnect();
+
+                       return 1;
 
 		
 		} catch (Exception ex) {
-			System.err.println("Error !!-->" + ex.getMessage());
-			
+			System.err.println("Error-->" + ex.getMessage());
 			return 0;
 		}
-  }
+    }
 }

@@ -21,6 +21,7 @@ public class RegisterDao {
             
 
             listaUsuarios = query.list();
+
             
             if(!listaUsuarios.isEmpty()) {
                 return false;
@@ -31,6 +32,8 @@ public class RegisterDao {
 			
 			t = s.beginTransaction(); // start a new transaction
 			s.persist(Rgst);
+                                                             s.disconnect();
+
 			t.commit(); // commit transaction
 			return true;
 		} catch (Exception ex) {

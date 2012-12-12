@@ -68,9 +68,7 @@ public static boolean guardarPerfil(Usuarios Rgst) {
                 return true;
 		} catch (Exception ex) {
 			System.err.println("Error -->" + ex.getMessage());
-			if (t != null) {
-                        t.rollback();
-                    }
+		
 			return false;
 		}
 
@@ -81,25 +79,25 @@ public static boolean guardarPerfil(Usuarios Rgst) {
                 	
 		 try {
 			SessionFactory sf = HibernateUtil.getSessionFactory();
-                        Transaction t = null;
+                       
                         Session s = sf.openSession();
-			t = s.beginTransaction(); // start a new transaction
+			
                         
 			 Query query = s.createQuery("FROM Usuarios t where t.idu = :idu");
      
                          Map auth = ActionContext.getContext().getSession();
                            
                          query.setParameter("idu", ((Number)auth.get("idusuario")).longValue());            
-                         
+                    
+
                         return (Usuarios) query.list().get(0);
 
 		
-		 	
 
 		
 		} catch (Exception ex) {
 			System.err.println("Error !-->" + ex.getMessage());
-			
+		
 			return null;
 		}
         }
@@ -130,6 +128,30 @@ public static Usuarios traerPerfilNombre(String nombre) {
 		}
         }
 
+public static Usuarios traerPerfil(Long uid) {
+                	
+		 try {
+			SessionFactory sf = HibernateUtil.getSessionFactory();
+                        Transaction t = null;
+                        Session s = sf.openSession();
+			t = s.beginTransaction(); // start a new transaction
+                        
+			 Query query = s.createQuery("FROM Usuarios t where t.idu = :idu");
+                                
+                         query.setParameter("idu", uid);            
+                         
+                        return (Usuarios) query.list().get(0);
+
+                        
+		 	
+
+		
+		} catch (Exception ex) {
+			System.err.println("Error !-->" + ex.getMessage());
+			
+			return null;
+		}
+        }
 
 }
                 

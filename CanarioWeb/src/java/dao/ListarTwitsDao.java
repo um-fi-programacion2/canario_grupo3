@@ -23,9 +23,9 @@ public class ListarTwitsDao {
                 	
 		 try {
 			SessionFactory sf = HibernateUtil.getSessionFactory();
-                        Transaction t = null;
+                    
                         Session s = sf.openSession();
-			t = s.beginTransaction(); // start a new transaction
+			
                         
 			 Query query = s.createQuery("FROM Twits where idu = :idu or idu IN (select siguiendo from Relaciones where idusuario = :idu) order by timestam desc");
                          query.setMaxResults(10);
@@ -47,13 +47,14 @@ public class ListarTwitsDao {
                 	
 		 try {
 			SessionFactory sf = HibernateUtil.getSessionFactory();
-                        Transaction t = null;
+                      
                         Session s = sf.openSession();
-			t = s.beginTransaction(); // start a new transaction
+			
                         
 			 Query query = s.createQuery("FROM Usuarios where idu = :idu");
                          query.setParameter("idu", idu);            
-                         
+                                                              s.disconnect();
+
                         return (Usuarios) query.list().get(0);
 
 		
