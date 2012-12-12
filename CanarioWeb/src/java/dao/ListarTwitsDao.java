@@ -64,5 +64,27 @@ public class ListarTwitsDao {
 			return null;
 		}
   }
+public static ArrayList <Twits> getPublicTwitList(Long idu) {
+                	
+		 try {
+			SessionFactory sf = HibernateUtil.getSessionFactory();
+                    
+                        Session s = sf.openSession();
+			
+                        
+			 Query query = s.createQuery("FROM Twits where idu = :idu order by timestam desc");
+                         query.setMaxResults(10);
+                           
+                         query.setParameter("idu", idu);            
+                         
+                        return (ArrayList<Twits>)query.list();
+
+		
+		} catch (Exception ex) {
+			System.err.println("Error !-->" + ex.getMessage());
+			
+			return null;
+		}
+  }
 
 }

@@ -41,6 +41,15 @@ public class ListarFollowersAction {
     
     
        listaFollowersU=dao.relacionesDao.getFollowers();
+
+       
+       for(int i=0;i<listaFollowersU.size();i++){
+           FollowersView e = new FollowersView();
+       lista.add(i,e);
+       
+       lista.get(i).setIdu(((Number)auth.get("idusuario")).longValue());
+       
+
        
        for(int i=0;i<listaFollowersU.size();i++){
            FollowersView e = new FollowersView();
@@ -57,6 +66,8 @@ public class ListarFollowersAction {
          
        return "bien";
       
+       
+       
 
     }
 }

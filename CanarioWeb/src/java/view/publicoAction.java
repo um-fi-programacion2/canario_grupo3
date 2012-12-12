@@ -27,7 +27,14 @@ if(u == null) {
             reg= PerfilDao.traerPerfil(Long.parseLong(auth.get("publicocontext").toString()));
 }
 else {
-reg= PerfilDao.traerPerfilNombre(u);
+     Map auth = ActionContext.getContext().getSession();
+    reg= PerfilDao.traerPerfilNombre(u);
+    			System.err.println("U-->" + u);
+                        System.err.println("Reg.nombre-->" + reg.getNombre());
+
+
+                auth.put("publicocontext", reg.getIdu());
+
 }
 if (reg != null) {
     followers = relacionesDao.countFollowers(reg.getIdu());
