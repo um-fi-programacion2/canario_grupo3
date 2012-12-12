@@ -38,7 +38,11 @@
                     <result name="fail">/listarTwits.jsp</result>
                     
                 </action>
-                
+                <action name="listarpublico" class="view.ListarPublicoTwits">
+                    <result name="fin">/listarPublico.jsp</result>
+                    <result name="fail">/listarPublico.jsp</result>
+                    
+                </action>
                 <action name="GuardarPerfil" class="view.PerfilAction">
                     <result name="success">/perfil.jsp</result>
                     <result name="fail">/perfil.jsp</result>
