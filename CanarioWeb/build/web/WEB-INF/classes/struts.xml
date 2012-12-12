@@ -72,8 +72,8 @@
                     
                 </action>
                  <action name="config" class="view.ConfigPerfilAction">
-                    <result name="bien">/publico</result>
-                    <result name="fail">/publico</result>
+                    <result name="bien">/perfil.jsp</result>
+                    <result name="fail">/perfil.jsp</result>
                     
                 </action>
                 
