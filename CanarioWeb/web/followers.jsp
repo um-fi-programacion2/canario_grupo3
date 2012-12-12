@@ -30,27 +30,28 @@
         </div><!--/span-->
         <div class="span6">
           <div class="hero-unit">
-               <div id="divtest">Este contenido va a cambiar :D</div>
+              
+               <table class="table table-hover">
+                <thead>Followers</thead> 
+                <tbody> 
+                <s:iterator value="listaFollowers">
+                    
+                   <tr>
+                       <td><h6> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /><td><s:submit type="button" value="%{idu}" label="Dejar de Seguir" cssClass="btn-success"/></td> </a></h6></td>
+
+                    <td><h6><s:property value="timestam" /></h6></td>
+                </tr>
+
+                  </s:iterator>
+     </tbody>
+    </table>
+               
+               
+               
           </div>
             
             
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Menciones:</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Top 10 users:</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Top 10 por Regiones:</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
+          
           
         </div><!--/span-->
       </div><!--/row-->

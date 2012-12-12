@@ -4,6 +4,9 @@
  */
 package dao;
 
+import com.opensymphony.xwork2.ActionContext;
+import java.util.ArrayList;
+import java.util.Map;
 import model.Usuarios;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -138,5 +141,55 @@ public class relacionesDao {
 			
 			return 0;
 		}
+  }
+     public static ArrayList<Usuarios> getFollowers() {
+                	
+		 try {
+			SessionFactory sf = HibernateUtil.getSessionFactory();
+                        Transaction t = null;
+                        Session s = sf.openSession();
+			t = s.beginTransaction(); // start a new transaction
+                        
+			 Query query = s.createQuery("from Usuarios where idu in (select r.idusuario FROM Relaciones r where r.siguiendo = :idusuario)");
+                         Map auth = ActionContext.getContext().getSession();
+                           
+                        // query.setParameter("idu", ((Number)auth.get("idusuario")));    
+                        //query.setParameter("idusuario", ((Number)auth.get("idusuario")).intValue());
+                         query.setParameter("idusuario", ((Number)auth.get("idusuario")).toString());
+                         			System.err.println("cantidad-->" + query.list().size());
+                        return (ArrayList<Usuarios>)query.list();
+
+		
+		} catch (Exception ex) {
+			System.err.println("Error !-->" + ex.getMessage());
+			
+			return null;
+		}
+                 
+  }
+     public static ArrayList<Usuarios> getFollowings() {
+                	
+		 try {
+			SessionFactory sf = HibernateUtil.getSessionFactory();
+                        Transaction t = null;
+                        Session s = sf.openSession();
+			t = s.beginTransaction(); // start a new transaction
+                        
+			 Query query = s.createQuery("from Usuarios where idu in (select r.siguiendo FROM Relaciones r where r.idusuario = :idusuario)");
+                         Map auth = ActionContext.getContext().getSession();
+                           
+                        // query.setParameter("idu", ((Number)auth.get("idusuario")));    
+                        query.setParameter("idusuario", ((Number)auth.get("idusuario")).intValue());
+                         //query.setParameter("idusuario", ((Number)auth.get("idusuario")).toString());
+                         			System.err.println("cantidad-->" + query.list().size());
+                        return (ArrayList<Usuarios>)query.list();
+
+		
+		} catch (Exception ex) {
+			System.err.println("Error !-->" + ex.getMessage());
+			
+			return null;
+		}
+                 
   }
 }

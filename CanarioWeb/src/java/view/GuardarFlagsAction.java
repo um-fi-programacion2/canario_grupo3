@@ -44,6 +44,7 @@ public class GuardarFlagsAction extends ActionSupport{
         this.flag2 = flag2;
     }
     
+   
    public String execute() throws Exception {
        			
 
