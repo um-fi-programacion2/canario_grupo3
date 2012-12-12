@@ -48,15 +48,6 @@ public class ListarFollowersAction {
        lista.add(i,e);
        
        lista.get(i).setIdu(((Number)auth.get("idusuario")).longValue());
-       
-
-       
-       for(int i=0;i<listaFollowersU.size();i++){
-           FollowersView e = new FollowersView();
-       lista.add(i,e);
-       
-       lista.get(i).setIdu(((Number)auth.get("idusuario")).longValue());
-       
        lista.get(i).setNombre(ListarTwitsDao.getSingleUser(listaFollowersU.get(i).getIdu()).getNombre());
        lista.get(i).setImagen(ListarTwitsDao.getSingleUser(listaFollowersU.get(i).getIdu()).getImagen());
        lista.get(i).setIdseguidor(listaFollowersU.get(i).getIdu());
