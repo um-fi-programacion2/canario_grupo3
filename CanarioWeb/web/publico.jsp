@@ -41,16 +41,7 @@
         </div><!--/span-->
         <div class="span7">
           <div class="hero-unit">
-            <s:iterator value="%{listarTwits}">
-                <table class="table table-striped" widht="500">
-                    <tbody>
-                    <tr>
-                
-                 <td> <s:property value="string" /> </td>
-                  <td> <s:property value="timestam" /> </td>
-                </tr></tbody>
-                </table>
-            </s:iterator>
+        <div id="divdinamico">Cargando.....</div>
           </div>
           <div class="row-fluid">
           
@@ -65,3 +56,12 @@
       
       
 <%@include file="footer.jsp"%>
+<script>
+ $(document).ready(function() {
+ 	 $("#divdinamico").load("http://localhost:8084/listarpublico");
+   var refreshId = setInterval(function() {
+      $("#divdinamico").load('http://localhost:8084/api/listarpublico');
+   }, 9000);
+   $.ajaxSetup({ cache: false });
+});
+</script>
