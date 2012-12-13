@@ -26,14 +26,15 @@
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span6">
-          <div class="hero-unit">
-              <li class="nav-header">Modificar imagen de perfil!!!</li>
+          <div class="well">
+             
             <s:form cssClass="well well-small" action="userImage" method="post" enctype="multipart/form-data">
-                 <s:file name="userImage" label="Imagen de Perfil" />    <s:submit cssClass="btn" value="Subir" align="right" />
+                 <li class="nav-header">Imagen de perfil</li> 
+                <s:file name="userImage" label="Imagen de Perfil" />    <s:submit cssClass="btn" value="Subir" align="right" />
             </s:form>
 
 
-            <s:form cssClass="well well-small" action="GuardarPerfil" method="post">
+            <s:form cssClass="well" action="GuardarPerfil" method="post">
             <li class="nav-header">Nombre de Usuario</li>
                 <s:textfield label="Nombre" name="nombre" value="%{config.nombre}"/><br>
             <li class="nav-header">Email</li>

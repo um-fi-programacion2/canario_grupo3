@@ -14,10 +14,10 @@
     <style type="text/css">
       body {
         padding-top: 60px;
-        padding-bottom: 40px;
+        padding-bottom: 8px;
       }
       .sidebar-nav {
-        padding: 9px 0;
+        padding: 5px 0;
       }
     </style>
     <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">

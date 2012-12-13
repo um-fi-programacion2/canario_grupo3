@@ -3,7 +3,7 @@
 <!DOCTYPE html> 
 
 <table class="table table-hover">
-    <thead>Tweets</thead> 
+    <thead><strong>Tweets</strong></thead> 
     <tbody> 
       
     <s:iterator value="listaTabla">
@@ -25,6 +25,7 @@
         <s:if test="idu == idsesion"> 
        <tr>
            <td><h6> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /> </a><strong>dijo:</strong> <s:property value="string" escapeHtml="false" /></h6></td>
+
         <td><h6><s:property value="timestam" /></h6></td>
         <td>
              
