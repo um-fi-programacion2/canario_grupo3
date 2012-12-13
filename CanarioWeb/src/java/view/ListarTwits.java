@@ -32,7 +32,7 @@ public class ListarTwits {
         listaTabla.add(i, e);
         listaTabla.get(i).setIdt(listaTwits.get(i).getIdt());
         listaTabla.get(i).setIdu(listaTwits.get(i).getIdu());
-        listaTabla.get(i).setString(listaTwits.get(i).getString());
+        listaTabla.get(i).setString(Parser.parseTweet(listaTwits.get(i).getString()));
         listaTabla.get(i).setTimestam(listaTwits.get(i).getTimestam());
         listaTabla.get(i).setNombre(ListarTwitsDao.getSingleUser(listaTwits.get(i).getIdu()).getNombre());
         listaTabla.get(i).setImagen(ListarTwitsDao.getSingleUser(listaTwits.get(i).getIdu()).getImagen());
