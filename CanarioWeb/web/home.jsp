@@ -31,7 +31,7 @@
         </div><!--/span-->
         <div class="span6">
           <div class="well">
-               <div id="divtest">Este contenido va a cambiar :D</div>
+               <div id="divtest"></div>
           </div>
             
             
