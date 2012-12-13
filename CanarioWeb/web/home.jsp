@@ -26,34 +26,39 @@
             <s:submit cssClass="btn btn-warning" value="enviar"></s:submit> 
             </s:form>
               <div id="caracteres"></div>
+              
+              
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span6">
           <div class="well">
-               <div id="divtest"></div>
+               <div id="divtest">aaaaaaaaaaaaaaa</div>
           </div>
+         </div><!--/span-->
+                  
+
+               <div class="span3">
+                   <div class="well">
+                    <h2>Menciones:</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
+                  </div><!--/.well -->
             
-            
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Menciones:</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Top 10 users:</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Top 10 por Regiones:</h2>
-              <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-              <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
-            </div><!--/span-->
-          </div><!--/row-->
-          
-        </div><!--/span-->
+                  <div class="well">
+                    <h2>Top 10 por Regiones:</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
+                  </div> 
+              
+                 <div class="well"> 
+                    <h2>Top 10 users:</h2>
+                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+                    <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
+                </div> 
+                
+               </div><!--/span-->
+             
       </div><!--/row-->
 
 <%@include file="footer.jsp"%>
