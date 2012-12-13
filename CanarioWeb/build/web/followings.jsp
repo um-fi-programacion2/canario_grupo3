@@ -34,15 +34,24 @@
                <table class="table table-hover">
                 <thead>Followings</thead> 
                 <tbody> 
-                <s:iterator value="listaFollowings">
+               <s:iterator value="lista">
                     
+                   
+                <s:if test="relacion == 1">
                    <tr>
-                       <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a></td><td><s:submit type="button" value="%{idu}" label="Dejar de Seguir" cssClass="btn-success"/></td> 
-
-                    <td><h6><s:property value="timestam" /></h6></td>
+                       <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a></td>
+                        
+                      <s:form action="unfollowU" method="post">
+                           <s:hidden name="idusuario" value="%{idu}"/>
+                           <s:hidden name="idseguidor" value="%{idseguidor}"/>
+                           <s:hidden name="relacion" value="%{relacion}"/>
+                    <td><s:submit type="button" label="Dejar de Seguir" cssClass="btn-success"/></td>
+                       </s:form>
                 </tr>
-
-                  </s:iterator>
+              
+                </s:if>
+                 </s:iterator>
+                          
      </tbody>
     </table>
                

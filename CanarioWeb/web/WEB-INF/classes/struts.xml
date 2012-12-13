@@ -102,7 +102,24 @@
                     <result name="fail">/home.jsp</result>
                      
                  </action>
-                
+                 <action name="followUsuario" class="view.FollowAction">
+                     <result name="bien" type="chain">listarFollowers</result>
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                 
+                <action name="unfollowUsuario" class="view.UnFollowAction">
+                     <result name="bien" type="chain">listarFollowers</result>
+                     
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                 <action name="unfollowU" class="view.UnFollowAction">
+                     <result name="bien" type="chain">listarFollowings</result>
+                     
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
 	</package>
         
  <package name="api" namespace="/" extends="json-default">

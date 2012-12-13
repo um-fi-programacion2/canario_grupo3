@@ -36,20 +36,30 @@
                 <tbody> 
                    
                 <s:iterator value="lista">
-                    <s:property value="relacion"/>
+                    
                     <s:if test="relacion == 0">
                    <tr>
-                       <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a></td><td><s:submit type="button" value="%{idu}" label="Seguir" cssClass="btn-success"/></td> 
-
+                       <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a></td>
+                       <s:form action="followUsuario" method="post">
+                           <s:hidden name="idusuario" value="%{idu}"/>
+                           <s:hidden name="idseguidor" value="%{idseguidor}"/>
+                           <s:hidden name="relacion" value="%{relacion}"/>
+                       <td><s:submit type="button" label="Seguir" cssClass="btn-success"/></td> 
+                       </s:form> 
                     <td><h6><s:property value="timestam" /></h6></td>
                 </tr>
               
                 </s:if>
                 <s:if test="relacion == 1">
                    <tr>
-                       <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a></td><td><s:submit type="button" value="%{idu}" label="Dejar de Seguir" cssClass="btn-success"/></td> 
-
-                    <td><h6><s:property value="timestam" /></h6></td>
+                       <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a></td>
+                        
+                      <s:form action="unfollowUsuario" method="post">
+                           <s:hidden name="idusuario" value="%{idu}"/>
+                           <s:hidden name="idseguidor" value="%{idseguidor}"/>
+                           <s:hidden name="relacion" value="%{relacion}"/>
+                    <td><s:submit type="button" label="Dejar de Seguir" cssClass="btn-success"/></td>
+                       </s:form>
                 </tr>
               
                 </s:if>
