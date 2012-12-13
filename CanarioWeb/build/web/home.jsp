@@ -3,7 +3,8 @@
         <div class="span3">
           <div class="well sidebar-nav" >
             <ul class="nav nav-list">
-              <li class="nav-header">Usuario:</li>
+              <li class="nav-header">Usuario:<%= u.getNombre() %></li>
+              
               <li align="center"><img class="img-polaroid" src="./img/users/<%= u.getImagen() %>"  width="150" height="310"> </li>
               <li class="nav-header">Biografia:</li>
               <li align="center"><%= u.getBio() %></li>

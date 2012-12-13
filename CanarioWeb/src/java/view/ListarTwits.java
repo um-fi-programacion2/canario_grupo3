@@ -4,9 +4,11 @@
  */
 package view;
 
+import com.opensymphony.xwork2.ActionContext;
 import dao.ListarTwitsDao;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import model.Twits;
 import model.timelineView;
 
@@ -18,7 +20,7 @@ public class ListarTwits {
     
     public ArrayList <Twits> listaTwits = new ArrayList<Twits>();
     public ArrayList <timelineView> listaTabla = new ArrayList<timelineView>();
-
+     Map auth = ActionContext.getContext().getSession();
     
     
      public String execute() throws Exception {
@@ -36,7 +38,7 @@ public class ListarTwits {
         listaTabla.get(i).setTimestam(listaTwits.get(i).getTimestam());
         listaTabla.get(i).setNombre(ListarTwitsDao.getSingleUser(listaTwits.get(i).getIdu()).getNombre());
         listaTabla.get(i).setImagen(ListarTwitsDao.getSingleUser(listaTwits.get(i).getIdu()).getImagen());
-
+        listaTabla.get(i).setIdsesion(((Number)auth.get("idusuario")).longValue());
 
         }
 

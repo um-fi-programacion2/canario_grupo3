@@ -12,7 +12,15 @@ public class timelineView {
    private String timestam;
    private String nombre;
    private String imagen;
-   
+   private Long idsesion;
+
+    public Long getIdsesion() {
+        return idsesion;
+    }
+
+    public void setIdsesion(Long idsesion) {
+        this.idsesion = idsesion;
+    }
    public timelineView() {    
    }
 
