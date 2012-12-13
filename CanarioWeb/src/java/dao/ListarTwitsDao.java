@@ -20,7 +20,6 @@ import org.hibernate.Transaction;
  */
 public class ListarTwitsDao {
     public static ArrayList <Twits> getTwitList() {
-                	
 		 try {
 			SessionFactory sf = HibernateUtil.getSessionFactory();
                     
@@ -33,7 +32,9 @@ public class ListarTwitsDao {
                            
                          query.setParameter("idu", ((Number)auth.get("idusuario")).longValue());            
                          
-                        return (ArrayList<Twits>)query.list();
+                   
+                         
+                         return (ArrayList<Twits>)query.list();
 
 		
 		} catch (Exception ex) {
