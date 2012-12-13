@@ -5,7 +5,9 @@
 package view;
 
 import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
 import dao.ListarTwitsDao;
+import dao.TwitDao;
 import java.util.ArrayList;
 import java.util.Map;
 import model.FollowersView;
@@ -17,51 +19,87 @@ import model.timelineView;
  *
  * @author el pampa
  */
-public class RetweetAction {
-    
- public ArrayList <Twits> listaTwits = new ArrayList<Twits>();
-    public ArrayList <timelineView> listaTabla = new ArrayList<timelineView>();
 
     
+ public class RetweetAction extends ActionSupport {
+     private Long idt;
+     private Long idu;
+     private String string;
+     private String timestam;
+     private String nombre;
+     private String aux;
+
+    public String getAux() {
+        return aux;
+    }
+
+    public void setAux(String aux) {
+        this.aux = aux;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+   
+    public RetweetAction() {
+    }
     
-     public String execute() throws Exception {
+   
     
-       
-       listaTwits = ListarTwitsDao.getTwitList();
-       
-      
-      for (int i = 0; i < listaTwits.size(); i++) {
-           timelineView e = new timelineView();
-        listaTabla.add(i, e);
-        listaTabla.get(i).setIdt(listaTwits.get(i).getIdt());
-        listaTabla.get(i).setIdu(listaTwits.get(i).getIdu());
-        listaTabla.get(i).setString(listaTwits.get(i).getString());
-        listaTabla.get(i).setTimestam(listaTwits.get(i).getTimestam());
-        listaTabla.get(i).setNombre(ListarTwitsDao.getSingleUser(listaTwits.get(i).getIdu()).getNombre());
-        listaTabla.get(i).setImagen(ListarTwitsDao.getSingleUser(listaTwits.get(i).getIdu()).getImagen());
-
-
-        }
-
+    public Long getIdt() {
+        return this.idt;
+    }
+    
+    public void setIdt(Long idt) {
+        this.idt = idt;
+    }
+    public long getIdu() {
+        return this.idu;
+    }
+    
+    public void setIdu(Long idu) {
          
-    return "fin";
-    }
+        
+         this.idu=idu;
 
-     /*GET AND SET*/
-    public ArrayList<Twits> getlistaTwits() {
-        return listaTwits;
+    
     }
-
-    public void setlistaTwits(ArrayList<Twits> listaTwits) {
-        this.listaTwits = listaTwits;
+    public String getString() {
+        return this.string;
     }
-
-    public ArrayList<timelineView> getListaTabla() {
-        return listaTabla;
+    
+    public void setString(String string) {
+        this.string = string;
     }
-
-    public void setListaTabla(ArrayList<timelineView> listaTabla) {
-        this.listaTabla = listaTabla;
+    public String getTimestam() {
+        return this.timestam;
     }
+    
+    public void setTimestam(String timestam) {
+        this.timestam = timestam;
+    }
+    
+    
+    @Override
+    public String execute() throws Exception {
+       aux= "@"+nombre+" dijo: "+ string;
+    Twits tw = new Twits();
+    tw.setIdt(idt);
+    tw.setIdu(idu);
+    tw.setString(aux);
+    tw.setTimestam(timestam);
 
-}
+    if (TwitDao.saveTwit(tw)) {
+            return "bien";
+        }
+        else
+            return "fail";
+    }
+    
+   
+ }
