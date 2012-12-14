@@ -14,6 +14,15 @@ public class FollowersView {
    private String nombre;
    private String imagen;
    private int relacion;
+   private Long idmia;
+
+    public Long getIdmia() {
+        return idmia;
+    }
+
+    public void setIdmia(Long idmia) {
+        this.idmia = idmia;
+    }
 
     public int getRelacion() {
         return relacion;

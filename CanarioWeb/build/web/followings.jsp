@@ -34,22 +34,45 @@
                <table class="table table-hover">
                 <thead>Followings</thead> 
                 <tbody> 
-               <s:iterator value="lista">
+                  
+                <s:iterator value="lista">
                     
-                   
+                    <s:if test="relacion == 0">
+                   <tr>
+                       <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a></td>
+                       <s:form action="followUsuario" method="post">
+                           <s:hidden name="idusuario" value="%{idmia}"/>
+                           <s:hidden name="idseguidor" value="%{idseguidor}"/>
+                           <s:hidden name="relacion" value="%{relacion}"/>
+                       <td><s:submit type="button" label="Seguir" cssClass="btn-success"/></td> 
+                       </s:form> 
+                    
+                </tr>
+              
+                </s:if>
                 <s:if test="relacion == 1">
                    <tr>
                        <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a></td>
                         
                       <s:form action="unfollowU" method="post">
-                           <s:hidden name="idusuario" value="%{idu}"/>
+                           <s:hidden name="idusuario" value="%{idmia}"/>
                            <s:hidden name="idseguidor" value="%{idseguidor}"/>
                            <s:hidden name="relacion" value="%{relacion}"/>
                     <td><s:submit type="button" label="Dejar de Seguir" cssClass="btn-success"/></td>
                        </s:form>
                 </tr>
+             
+                </s:if>
+                <s:if test="relacion == 2">
+                   <tr>
+                       <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a></td>
+                        
+                      
+                </tr>
               
                 </s:if>
+                
+                
                  </s:iterator>
                           
      </tbody>

@@ -40,25 +40,40 @@ public class ListarFollowersAction {
     public String execute() throws Exception {
     
     
-       listaFollowersU=dao.relacionesDao.getFollowers();
-
+       listaFollowersU=dao.relacionesDao.getFollowers(((Number)auth.get("idusuario")).longValue());
        
        for(int i=0;i<listaFollowersU.size();i++){
            FollowersView e = new FollowersView();
        lista.add(i,e);
-       
+       lista.get(i).setIdmia(((Number)auth.get("idusuario")).longValue());
        lista.get(i).setIdu(((Number)auth.get("idusuario")).longValue());
        lista.get(i).setNombre(ListarTwitsDao.getSingleUser(listaFollowersU.get(i).getIdu()).getNombre());
        lista.get(i).setImagen(ListarTwitsDao.getSingleUser(listaFollowersU.get(i).getIdu()).getImagen());
        lista.get(i).setIdseguidor(listaFollowersU.get(i).getIdu());
        lista.get(i).setRelacion(dao.relacionesDao.checkRelacion(((Number)auth.get("idusuario")).longValue(), listaFollowersU.get(i).getIdu().longValue()));
-       }
-    
-         
+       } 
        return "bien";
-      
+    }
+    public String ListarFollowersPublico() throws Exception{
+        
+        
+        listaFollowersU=dao.relacionesDao.getFollowers(((Number)auth.get("publicocontext")).longValue());
+        
+       for(int i=0;i<listaFollowersU.size();i++){
+           FollowersView e = new FollowersView();
+       lista.add(i,e);
+       lista.get(i).setIdmia(((Number)auth.get("idusuario")).longValue());
+       lista.get(i).setIdu(((Number)auth.get("publicocontext")).longValue());
+       lista.get(i).setNombre(ListarTwitsDao.getSingleUser(listaFollowersU.get(i).getIdu()).getNombre());
+       lista.get(i).setImagen(ListarTwitsDao.getSingleUser(listaFollowersU.get(i).getIdu()).getImagen());
+       lista.get(i).setIdseguidor(listaFollowersU.get(i).getIdu());
        
-       
-
+       if(((Number)auth.get("idusuario")).longValue()==listaFollowersU.get(i).getIdu().longValue()){
+       lista.get(i).setRelacion(2);
+       }else{
+       lista.get(i).setRelacion(dao.relacionesDao.checkRelacion(((Number)auth.get("idusuario")).longValue(), listaFollowersU.get(i).getIdu().longValue()));
+       }
+       } 
+       return "bien";
     }
 }
