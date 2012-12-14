@@ -87,7 +87,7 @@ import model.timelineView;
     
     @Override
     public String execute() throws Exception {
-       aux= "@"+nombre+" dijo: "+ string;
+       aux= "RT @"+nombre+": \" "+ string + "\"";
     Twits tw = new Twits();
     tw.setIdt(idt);
     tw.setIdu(idu);

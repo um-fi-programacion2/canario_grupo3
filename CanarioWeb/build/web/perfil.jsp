@@ -30,7 +30,7 @@
              
             <s:form cssClass="well well-small" action="userImage" method="post" enctype="multipart/form-data">
                  <li class="nav-header">Imagen de perfil</li> 
-                <s:file name="userImage" label="Imagen de Perfil" />    <s:submit cssClass="btn" value="Subir" align="right" />
+                 <s:file name="userImage" label="Imagen de Perfil"/>    <s:submit cssClass="btn" value="Subir" align="right" />
             </s:form>
 
 

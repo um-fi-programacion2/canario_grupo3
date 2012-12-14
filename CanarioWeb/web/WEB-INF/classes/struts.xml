@@ -9,7 +9,7 @@
 	<package name="default" extends="struts-default">
 
 		<action name="register" class="view.RegisterAction">
-			<result name="success">/home.jsp</result>
+			<result name="success" type="chain">login</result>
 			<result name="fail">/index.jsp</result>
                         <result name="input">/index.jsp</result>
 
@@ -126,10 +126,15 @@
                      
                  </action>
                  
+
+                  <action name="topUsuarios" class="view.Top10usuarios">
+                     <result name="fin">topUsuarios.jsp</result>
+                     <result name="fail">topUsuarios.jsp</result>
+                     </action>
+                     
                  <action name="busqueda" class="view.BusquedaAction">
                      <result name="bien">/busqueda.jsp</result>
-                     <result name="fail">/perfil.jsp</result>
-                     
+                     <result name="fail">/perfil.jsp</result>  
                  </action>
                  
 	</package>

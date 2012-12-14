@@ -21,9 +21,10 @@
               
               <li class="divider"></li>
               <li class="nav-header">Enviar un tweet</li>
-              <s:form action="sendtwit">
+              <s:form action="sendtwit" name="enviartwit">
                   <s:textarea id="textarea" cols="20" rows="4" name="string" maxlength="200" placeholder="canarear!!!"></s:textarea> 
-            <s:submit cssClass="btn btn-warning" value="enviar"></s:submit> 
+                  <s:submit cssClass="btn btn-warning" value="enviar"></s:submit>
+
             </s:form>
               <div id="caracteres"></div>
               
@@ -33,35 +34,25 @@
         </div><!--/span-->
         <div class="span6">
           <div class="well">
-               <div id="divtest">aaaaaaaaaaaaaaa</div>
+               <div id="divtest">cargando.....</div>
           </div>
          </div><!--/span-->
                   
 
                <div class="span3">
-                   <div class="well">
-                    <h2>Menciones:</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
-                  </div><!--/.well -->
+                  
             
                   <div class="well">
-                    <h2>Top 10 por Regiones:</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
+                    <h3>Top 10 Usuarios:</h3>             
+                    <div id="topUser">cargando...</div>
                   </div> 
               
                  <div class="well"> 
-                    <h2>Top 10 users:</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
-                </div> 
+                    <h3>Top 10 Temas:</h3>
+                    <div id="topHash">cargando.....</div>
+                 </div> 
                 
                </div><!--/span-->
-               
-              
-            
-               
                
                
       </div><!--/row-->
@@ -71,13 +62,21 @@
  $(document).ready(function() {
  	 $("#divtest").load("http://localhost:8084/listar");
    var refreshId = setInterval(function() {
-      $("#divtest").load('http://localhost:8084/api/listar');
-   }, 9000);
+      $("#divtest").load('http://localhost:8084/listar');
+   }, 8000);
    $.ajaxSetup({ cache: false });
 });
 </script>
 
-
+<script>
+ $(document).ready(function() {
+ 	 $("#topUser").load("http://localhost:8084/topUsuarios");
+   var refreshTopu = setInterval(function() {
+      $("#topUser").load('http://localhost:8084/topUsuarios');
+   }, 8000);
+   $.ajaxSetup({ cache: false });
+});
+</script>
 
 <script>
     $(document).ready(function() {
@@ -90,4 +89,5 @@
 		})	
 	
 });
+
 </script> 
