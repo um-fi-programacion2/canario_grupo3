@@ -53,8 +53,10 @@
                  </div> 
                 
                </div><!--/span-->
-             
-</div>
+               
+               
+      </div><!--/row-->
+
 <%@include file="footer.jsp"%>
 <script>
  $(document).ready(function() {

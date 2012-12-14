@@ -33,7 +33,12 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
-  </head>
+  
+    
+
+    
+    
+    </head>
 
   <%@page import="dao.PerfilDao"%>
   <%@page import="model.Usuarios"%>
@@ -66,11 +71,19 @@
                   
             </ul>
            
+              <s:form cssClass="navbar-search" method="post" action="busqueda">
+                  <s:textfield cssClass="search-query span3" name="buscate"/>
+                  <s:submit cssClass="btn btn-primary" type="button">
+                      <i class="icon-search icon-white"></i>
+                  </s:submit>
+                     
+              </s:form>   
+           
     
                 
             
           </div><!--/.nav-collapse -->
-            
+               
         </div>
          
       </div>

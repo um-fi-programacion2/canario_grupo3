@@ -126,9 +126,15 @@
                      
                  </action>
                  
+
                   <action name="topUsuarios" class="view.Top10usuarios">
                      <result name="fin">topUsuarios.jsp</result>
                      <result name="fail">topUsuarios.jsp</result>
+                     
+                 <action name="busqueda" class="view.BusquedaAction">
+                     <result name="bien">/busqueda.jsp</result>
+                     <result name="fail">/perfil.jsp</result>
+
                      
                  </action>
                  
