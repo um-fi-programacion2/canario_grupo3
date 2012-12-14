@@ -96,6 +96,10 @@ private int valorh=0;
     
     public String execute() throws Exception{
         
+        if (buscate.charAt(0)=='@' | buscate.charAt(0) == '#') {
+        buscate=buscate.substring(1, buscate.length());
+        
+        }
        if(dao.BusquedaDao.getUsuarios(buscate).size()>0){
            nombresUsuarios=dao.BusquedaDao.getUsuarios(buscate);
            valoru=1;
