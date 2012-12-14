@@ -125,6 +125,13 @@
                      <result name="fail">/home.jsp</result>
                      
                  </action>
+                 
+                 <action name="busqueda" class="view.BusquedaAction">
+                     <result name="bien">/busqueda.jsp</result>
+                     <result name="fail">/perfil.jsp</result>
+                     
+                 </action>
+                 
 	</package>
         
  <package name="api" namespace="/" extends="json-default">
