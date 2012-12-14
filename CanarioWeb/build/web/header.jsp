@@ -73,12 +73,9 @@
            
               <s:form cssClass="navbar-search" method="post" action="busqueda">
                   <s:textfield cssClass="search-query span3" name="buscate"/>
-                  
-                      <i class="icon-search icon-white"></i>
-                  
-                     
-              </s:form>   
-           
+                  <i class="icon-search icon-white"></i>
+                  </s:form>   
+            
     
                 
             
