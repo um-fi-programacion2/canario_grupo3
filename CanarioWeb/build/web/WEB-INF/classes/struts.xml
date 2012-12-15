@@ -9,7 +9,7 @@
 	<package name="default" extends="struts-default">
 
 		<action name="register" class="view.RegisterAction">
-			<result name="success">/home.jsp</result>
+			<result name="success" type="chain">login</result>
 			<result name="fail">/index.jsp</result>
                         <result name="input">/index.jsp</result>
 
@@ -100,9 +100,60 @@
                  <action name="listarFollowings" class="view.ListarFollowingsAction">
                      <result name="bien">/followings.jsp</result>
                     <result name="fail">/home.jsp</result>
+                 </action>
+              
+                 <action name="listarFollowingsPublico" class="view.ListarFollowingsAction" method="ListarFollowingsPublico">
+                     <result name="bien">/followings.jsp</result>
+                    <result name="fail">/home.jsp</result>
+                 </action>
+                 
+                 <action name="ListarFollowersPublico" class="view.ListarFollowersAction" method="ListarFollowersPublico">
+                     <result name="bien">/followers.jsp</result>
+                    <result name="fail">/home.jsp</result>
+                 </action>
+
+
+
+
+
+
+
+                 <action name="followUsuario" class="view.FollowAction">
+                     <result name="bien" type="chain">listarFollowings</result>
+                    <result name="fail">/home.jsp</result>
                      
                  </action>
-                
+                 
+                <action name="unfollowUsuario" class="view.UnFollowAction">
+                     <result name="bien" type="chain">listarFollowers</result>
+                     
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                 <action name="unfollowU" class="view.UnFollowAction">
+                     <result name="bien" type="chain">listarFollowings</result>
+                     
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                 
+                 <action name="retweet" class="view.RetweetAction">
+                     <result name="bien">/home.jsp</result>
+                     <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                 
+
+                  <action name="topUsuarios" class="view.Top10usuarios">
+                     <result name="fin">topUsuarios.jsp</result>
+                     <result name="fail">topUsuarios.jsp</result>
+                     </action>
+                     
+                 <action name="busqueda" class="view.BusquedaAction">
+                     <result name="bien">/busqueda.jsp</result>
+                     <result name="fail">/perfil.jsp</result>  
+                 </action>
+                 
 	</package>
         
  <package name="api" namespace="/" extends="json-default">

@@ -119,10 +119,17 @@ input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
-
+texto {
+    resize: vertical;
+  min-height: 20px;
+  max-height: 130px;
+  
+}
 textarea {
   overflow: auto;
   vertical-align: top;
+  min-height: 20px;
+  max-height: 20px;
 }
 
 .clearfix {
@@ -163,7 +170,10 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: #333333;
-  background-color: #ffffff;
+  background-image: url(../img/cielo.jpg);
+  padding-top: 60px;
+  background-color: #92BAC2;
+  
 }
 
 a {
@@ -218,6 +228,10 @@ a:hover {
   float: left;
   min-height: 1px;
   margin-left: 20px;
+  
+ 
+  
+
 }
 
 .container,
@@ -225,6 +239,7 @@ a:hover {
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
   width: 940px;
+  
 }
 
 .span12 {
@@ -324,8 +339,11 @@ a:hover {
 }
 
 .row-fluid {
+	
   width: 100%;
+   
   *zoom: 1;
+  
 }
 
 .row-fluid:before,
@@ -345,10 +363,12 @@ a:hover {
   width: 100%;
   min-height: 30px;
   margin-left: 2.127659574468085%;
+  
   *margin-left: 2.074468085106383%;
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
+         
 }
 
 .row-fluid [class*="span"]:first-child {
@@ -546,10 +566,18 @@ a:hover {
 }
 
 .container {
-  margin-right: auto;
+    position: relative;
+    border-radius: 6px;
+    margin: auto;
+    margin-right: auto;
   margin-left: auto;
-  *zoom: 1;
+  zoom: 0;
+ 
+  background:url('../img/wash-black-30.png')
+  
+  
 }
+
 
 .container:before,
 .container:after {
@@ -565,7 +593,7 @@ a:hover {
 .container-fluid {
   padding-right: 20px;
   padding-left: 20px;
-  *zoom: 1;
+  zoom: 1;
 }
 
 .container-fluid:before,
@@ -941,6 +969,10 @@ button,
 select,
 textarea {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  resize: vertical;
+  min-height: 20px;
+  max-height: 150px;
+  
 }
 
 label {
@@ -2935,10 +2967,11 @@ table [class*=span],
 }
 
 .well {
+    background-color: whitesmoke;
+  
   min-height: 20px;
   padding: 19px;
   margin-bottom: 20px;
-  background-color: #f5f5f5;
   border: 1px solid #e3e3e3;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
@@ -2946,6 +2979,7 @@ table [class*=span],
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05);
+          
 }
 
 .well blockquote {
@@ -5732,6 +5766,8 @@ a.badge:hover {
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
           border-radius: 6px;
+          
+    
 }
 
 .hero-unit h1 {

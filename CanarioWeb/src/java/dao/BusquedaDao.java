@@ -7,6 +7,7 @@ package dao;
 import com.opensymphony.xwork2.ActionContext;
 import java.util.ArrayList;
 import java.util.Map;
+import model.Hashtags;
 import model.Twits;
 import model.Usuarios;
 import org.hibernate.Query;
@@ -15,21 +16,20 @@ import org.hibernate.SessionFactory;
 
 /**
  *
- * @author Franco
+ * @author el pampa
  */
-public class ListarTwitsDao {
-    public static ArrayList <Twits> getTwitList() {
+public class BusquedaDao {
+  public static ArrayList <Twits> getTwitList(String tweet) {
 		 try {
 			SessionFactory sf = HibernateUtil.getSessionFactory();
                     
                         Session s = sf.openSession();
 			
                         
-			 Query query = s.createQuery("FROM Twits where idu = :idu or idu IN (select siguiendo from Relaciones where idusuario = :idu) order by timestam desc");
-                         query.setMaxResults(10);
-                         Map auth = ActionContext.getContext().getSession();
-                           
-                         query.setParameter("idu", ((Number)auth.get("idusuario")).longValue());            
+			 Query query = s.createQuery("FROM Twits where string like CONCAT ('%',:tweet,'%') ");
+                         
+                          query.setString("tweet",tweet);            
+                        
                          
                    
                          
@@ -42,42 +42,21 @@ public class ListarTwitsDao {
 			return null;
 		}
   }
-
-     public static Usuarios getSingleUser(Long idu) {
-                	
-		 try {
-			SessionFactory sf = HibernateUtil.getSessionFactory();
-                      
-                        Session s = sf.openSession();
-			
-                        
-			 Query query = s.createQuery("FROM Usuarios where idu = :idu");
-                         query.setParameter("idu", idu);            
-                                                              s.disconnect();
-
-                        return (Usuarios) query.list().get(0);
-
-		
-		} catch (Exception ex) {
-			System.err.println("Error !-->" + ex.getMessage());
-			
-			return null;
-		}
-  }
-public static ArrayList <Twits> getPublicTwitList(Long idu) {
-                	
+  
+  public static ArrayList <Usuarios> getUsuarios(String nombre) {
 		 try {
 			SessionFactory sf = HibernateUtil.getSessionFactory();
                     
                         Session s = sf.openSession();
 			
                         
-			 Query query = s.createQuery("FROM Twits where idu = :idu order by timestam desc");
-                         query.setMaxResults(10);
-                           
-                         query.setParameter("idu", idu);            
+			 Query query = s.createQuery("FROM Usuarios where nombre like CONCAT ('%',:nombre,'%')");
                          
-                        return (ArrayList<Twits>)query.list();
+                         query.setString("nombre",nombre);            
+                         
+                   
+                         
+                         return (ArrayList<Usuarios>)query.list();
 
 		
 		} catch (Exception ex) {
@@ -86,5 +65,27 @@ public static ArrayList <Twits> getPublicTwitList(Long idu) {
 			return null;
 		}
   }
+  public static ArrayList <Hashtags> getHashtags(String tag) {
+		 try {
+			SessionFactory sf = HibernateUtil.getSessionFactory();
+                    
+                        Session s = sf.openSession();
+			
+                        
+			 Query query = s.createQuery("FROM Hashtags where string like CONCAT ('%',:tag,'%')");
+                         
+                         query.setString("tag",tag);          
+                         
+                         
+                   
+                         
+                         return (ArrayList<Hashtags>)query.list();
 
+		
+		} catch (Exception ex) {
+			System.err.println("Error !-->" + ex.getMessage());
+			
+			return null;
+		}
+  }
 }

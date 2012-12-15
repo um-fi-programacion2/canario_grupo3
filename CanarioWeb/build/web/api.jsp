@@ -23,26 +23,28 @@
               Following:<a href="<s:url action="listarFollowings"/>"><strong><%= relacionesDao.countFollowing(u.getIdu()) %></strong></a><br>
               Twits: <strong><%= relacionesDao.countTwits(u.getIdu()) %></strong>
    
-        <!--      <li class="nav-header">Enviar un tweet</li>
+              <li class="nav-header">Enviar un tweet</li>
               <s:form action="twit">
-                    <s:textarea cols="40" rows="5" name="string" maxlength="150" placeholder="canarear!!!"></s:textarea> 
+                    <s:textarea id="textarea" cssClass="texto"  name="string"  maxlength="200" placeholder="canarear!!!"></s:textarea> 
             <s:submit cssClass="btn btn-warning" value="enviar"></s:submit> 
             </s:form>
-        -->
+              <div id="caracteres"></div>
+       
         
         
         </ul>
           </div><!--/.well -->
         </div><!--/span-->
         <div class="span6">
-          <div class="hero-unit">
+          <div class="well">
             <s:form cssClass="form-inline" action="genKey" method="post">         
-                        <s:textfield cssClass="input-xlarge uneditable-input" label="Nombre" name="nombre" placeholder="asas223234rg22" />
+                        <div class="alert"> <strong>Tu key es:</strong> 334ffdaadt7654dssd
                         <s:submit cssClass="btn" value="Generar" align="right" />
+                        </div> 
+
+                        
             </s:form>
-<div class="alert">
-    <strong>Warning!</strong> Best check yo self, you're not looking too good.
-</div>
+
           </div>
           <div class="row-fluid">
             

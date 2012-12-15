@@ -8,8 +8,11 @@ package dao;
 import model.Relaciones;
 
 import com.opensymphony.xwork2.ActionContext;
+import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
+import java.net.PasswordAuthentication;
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Properties;
 import model.Usuarios;
 
 import org.hibernate.Query;
@@ -138,7 +141,7 @@ public class relacionesDao {
                         s.persist(re);
                         t.commit();
                                                  s.disconnect();
-
+                       
                        return 1;
 
 		
@@ -150,7 +153,7 @@ public class relacionesDao {
     }
 
 
-     public static ArrayList<Usuarios> getFollowers() {
+     public static ArrayList<Usuarios> getFollowers(Long idu) {
                 	
 		 try {
 			SessionFactory sf = HibernateUtil.getSessionFactory();
@@ -163,9 +166,11 @@ public class relacionesDao {
                            
                         // query.setParameter("idu", ((Number)auth.get("idusuario")));    
                         //query.setParameter("idusuario", ((Number)auth.get("idusuario")).intValue());
-                         query.setParameter("idusuario", ((Number)auth.get("idusuario")).toString());
-                         			System.err.println("cantidad-->" + query.list().size());
-                        return (ArrayList<Usuarios>)query.list();
+                         query.setParameter("idusuario", idu.toString());
+                         
+                         
+                        
+                         return (ArrayList<Usuarios>)query.list();
 
 		
 		} catch (Exception ex) {
@@ -175,7 +180,7 @@ public class relacionesDao {
 		}
                  
   }
-     public static ArrayList<Usuarios> getFollowings() {
+     public static ArrayList<Usuarios> getFollowings(Long idu) {
                 	
 		 try {
 			SessionFactory sf = HibernateUtil.getSessionFactory();
@@ -184,12 +189,12 @@ public class relacionesDao {
 			t = s.beginTransaction(); // start a new transaction
                         
 			 Query query = s.createQuery("from Usuarios where idu in (select r.siguiendo FROM Relaciones r where r.idusuario = :idusuario)");
-                         Map auth = ActionContext.getContext().getSession();
+                        
                            
                         // query.setParameter("idu", ((Number)auth.get("idusuario")));    
-                        query.setParameter("idusuario", ((Number)auth.get("idusuario")).intValue());
+                        query.setParameter("idusuario", idu.intValue());
                          //query.setParameter("idusuario", ((Number)auth.get("idusuario")).toString());
-                         			System.err.println("cantidad-->" + query.list().size());
+                         			 System.out.println("entre al getfollowingsdao");
                         return (ArrayList<Usuarios>)query.list();
 
 		
@@ -200,4 +205,5 @@ public class relacionesDao {
 		}
                  
   }
+    
 }
