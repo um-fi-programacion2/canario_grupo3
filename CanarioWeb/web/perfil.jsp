@@ -47,7 +47,7 @@
             <li class="nav-header">Password</li>
                 <s:password label="Password" name="pass" key="%{config.pass}"/><br>
             </li><li class="nav-header">Localidad</li>
-                <s:textfield label="Localidad" name="localidad" value="%{config.localidad}"/><br>
+                <s:textfield label="Localidad" name="localidad" id="localidad" value="%{config.localidad}"/><br>
             <li class="nav-header">Biografia</li>
                 <s:textarea label="Bio"  cols="40" rows="5" name="bio" maxlength="300" value="%{config.bio}"></s:textarea> <br>
 
@@ -71,5 +71,12 @@
 
       
       
-      
+      <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-typeahead.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            var alCities = ['Capital (Mendoza)', 'General Alvear', 'Godoy Cruz', 'Guaymallen', 'Junin', 'La Paz', 'Las Heras', 'Lavalle', 'Lujan de Cuyo', 'Maipu', 'Malargue', 'Rivadavia', 'San Carllos', 'San Martin','San Rafael','Santa Rosa','Tunuyan','Tupungato'].sort();
+            $('#localidad').typeahead({source: alCities, items:5});
+        });
+    </script>
  <%@include file="footer.jsp"%>

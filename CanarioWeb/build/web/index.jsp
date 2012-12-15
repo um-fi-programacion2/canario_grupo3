@@ -42,7 +42,7 @@
           <div class="span8">
           <div class="nav-collapse collapse">
             
-            <s:form cssClass="navbar-form pull-right" action="login" method="post">
+              <s:form cssClass="navbar-form pull-right" action="login" method="post">
                  <s:textfield cssClass="span2" name="mail" placeholder="Ingrese su email"/>
                      <s:password cssClass="span2" name="pass" placeholder="Ingrese su contraseña"/>
                      <s:submit cssClass="btn" value="Logueate"/>
@@ -81,7 +81,7 @@
         
         
         <div class="span4">
-         <br><img src="./img/logor.png"  width="286" height="310">       
+         <br><img src="./img/logor.png"  width="286" height="310">             
         </div>
       </div>
       
