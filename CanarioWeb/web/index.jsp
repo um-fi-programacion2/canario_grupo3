@@ -18,7 +18,7 @@
         padding-bottom: 40px;
       }
     </style>
-    <link href="./css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
 
@@ -31,23 +31,17 @@
   </head>
 
   <body>
-
+      
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          
+          <div class="container-fluid" >
+              <div class="span4"></div>
+              
           <a class="brand" href="#"><img src="./img/logo.png" width="20"> CanarioWeb</a>
+          
+          <div class="span8">
           <div class="nav-collapse collapse">
-            <ul class="nav">
-              
-              
-
-            </ul>
+            
             <s:form cssClass="navbar-form pull-right" action="login" method="post">
                  <s:textfield cssClass="span2" name="mail" placeholder="Ingrese su email"/>
                      <s:password cssClass="span2" name="pass" placeholder="Ingrese su contraseña"/>
@@ -55,16 +49,12 @@
             </s:form>
           </div><!--/.nav-collapse -->
         </div>
+              </div>
       </div>
     </div>
+         
+   <div class="container">
 
-    <div class="container">
-
-      <!-- Main hero unit for a primary marketing message or call to action -->
- 
-
-    
-         <!-- Example row of columns -->
    <div class="hero-unit">
            <h2>BIENVENIDO!</h2>
         <p>Completa los datos y podrás empezar a utilizar canario.</p>
@@ -83,21 +73,18 @@
                    	
                     
                     <label>Contraseña</label>
-                    <s:password name="pass" label="Password" placeholder="elije tu contraseña" />
- 
-               
-                   <br><br>
-
-                <s:submit value="Registrarse" cssClass="btn" />
-        </s:form>   
+                    <s:password name="pass" label="Password" placeholder="elije tu contraseña" /><br>
+                    <s:submit value="Registrarse" cssClass="btn" />
+           </s:form>  
+                
       </div>
         
-        <div class="span4">
         
-       </div>
         <div class="span4">
-         <br><img src="./img/logor.png"  width="286" height="310">        </div>
+         <br><img src="./img/logor.png"  width="286" height="310">       
+        </div>
       </div>
       
       </div>
+    </div>
 <%@include file="footer.jsp"%>

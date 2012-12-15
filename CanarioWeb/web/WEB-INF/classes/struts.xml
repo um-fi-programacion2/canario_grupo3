@@ -100,10 +100,26 @@
                  <action name="listarFollowings" class="view.ListarFollowingsAction">
                      <result name="bien">/followings.jsp</result>
                     <result name="fail">/home.jsp</result>
-                     
                  </action>
+              
+                 <action name="listarFollowingsPublico" class="view.ListarFollowingsAction" method="ListarFollowingsPublico">
+                     <result name="bien">/followings.jsp</result>
+                    <result name="fail">/home.jsp</result>
+                 </action>
+                 
+                 <action name="ListarFollowersPublico" class="view.ListarFollowersAction" method="ListarFollowersPublico">
+                     <result name="bien">/followers.jsp</result>
+                    <result name="fail">/home.jsp</result>
+                 </action>
+
+
+
+
+
+
+
                  <action name="followUsuario" class="view.FollowAction">
-                     <result name="bien" type="chain">listarFollowers</result>
+                     <result name="bien" type="chain">listarFollowings</result>
                     <result name="fail">/home.jsp</result>
                      
                  </action>
@@ -120,6 +136,7 @@
                     <result name="fail">/home.jsp</result>
                      
                  </action>
+                 
                  <action name="retweet" class="view.RetweetAction">
                      <result name="bien">/home.jsp</result>
                      <result name="fail">/home.jsp</result>

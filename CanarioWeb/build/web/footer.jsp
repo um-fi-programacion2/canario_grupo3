@@ -1,4 +1,5 @@
-      <hr>
+</div><!--/container-->
+<hr>
 
       <footer>
         <p>Universidad de Mendoza :: Facultad de Ingeniería :: Programación 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
@@ -6,6 +7,11 @@
 
     </div> <!-- /container -->
 
+    
+  
+    
+    
+    
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -25,3 +31,20 @@
 
   </body>
 </html>
+
+ <script>
+    $(document).ready(function() {
+    var text_max=200;
+	$('#caracteres').html(text_max + ' caracteres restantes');
+	$('#textarea').keyup(function(){
+            $(this).animate({ height: "120px" }, 100);
+		var text_lenght= $('#textarea').val().length;
+		var text_remaining= text_max - text_lenght;
+                
+	$('#caracteres').html(text_remaining + ' caracteres restantes');	
+		});
+               
+});
+
+</script>
+
