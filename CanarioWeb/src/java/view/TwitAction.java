@@ -20,7 +20,7 @@ import model.Twits;
 public class TwitAction extends ActionSupport {
      private Long idt;
      private Long idu;
-     private String string;
+     private String strings;
      private String timestam;
 
    
@@ -47,12 +47,10 @@ public class TwitAction extends ActionSupport {
 
     
     }
-    public String getString() {
-        return this.string;
-    }
     
-    public void setString(String string) {
-        this.string = string;
+    
+    public void setStrings(String strings) {
+        this.strings = strings;
     }
     public String getTimestam() {
         return this.timestam;
@@ -68,7 +66,7 @@ public class TwitAction extends ActionSupport {
 Twits tw = new Twits();
 tw.setIdt(idt);
 tw.setIdu(idu);
-tw.setString(string);
+tw.setString(strings);
 tw.setTimestam(timestam);
 
 if (TwitDao.saveTwit(tw)) {

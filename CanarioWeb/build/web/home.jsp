@@ -1,7 +1,8 @@
 <%@include file="header.jsp"%>
+
 <div class="row-fluid">
         <div class="span3">
-          <div class="well sidebar-nav" >
+         <div class="well" > 
             <ul class="nav nav-list">
               <li class="nav-header">Usuario:<%= u.getNombre() %></li>
               
@@ -21,8 +22,8 @@
               
               <li class="divider"></li>
               <li class="nav-header">Enviar un tweet</li>
-              <s:form action="sendtwit" name="enviartwit">
-                  <s:textarea id="textarea" cols="20" rows="4" name="string" maxlength="200" placeholder="canarear!!!"></s:textarea> 
+              <s:form action="sendtwit" name="enviartwit" id="prueba">
+                  <s:textarea id="textarea"   name="strings"  maxlength="200" placeholder="canarear!!!"></s:textarea> 
                   <s:submit cssClass="btn btn-warning" value="enviar"></s:submit>
 
             </s:form>
@@ -30,7 +31,7 @@
               
               
             </ul>
-          </div><!--/.well -->
+       </div>   <!--/.well -->
         </div><!--/span-->
         <div class="span6">
           <div class="well">
@@ -77,17 +78,4 @@
    $.ajaxSetup({ cache: false });
 });
 </script>
-
-<script>
-    $(document).ready(function() {
-    var text_max=200;
-	$('#caracteres').html(text_max + ' caracteres restantes');
-	$('#textarea').keyup(function(){
-		var text_lenght= $('#textarea').val().length;
-		var text_remaining= text_max - text_lenght;
-	$('#caracteres').html(text_remaining + ' caracteres restantes');	
-		})	
-	
-});
-
-</script> 
+   

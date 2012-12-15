@@ -19,12 +19,8 @@
               Twits: <strong><%= relacionesDao.countTwits(u.getIdu()) %></strong>
               
               <li class="divider"></li>
-              <li class="nav-header">Enviar un tweet</li>
-              <s:form action="sendtwit">
-                  <s:textarea id="textarea" cols="20" rows="4" name="string" maxlength="200" placeholder="canarear!!!"></s:textarea> 
-            <s:submit cssClass="btn btn-warning" value="enviar"></s:submit> 
-            </s:form>
-              <div id="caracteres"></div>
+              
+              
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

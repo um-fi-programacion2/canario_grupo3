@@ -8,10 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-
-    <!-- Le styles -->
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
-    <style type="text/css">
+<link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon"
+      <!-- Le  styles -->
+  <!-- -->   <link href="./css/bootstrap.css" rel="stylesheet"> 
+   <!-- <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet"> -->
+   
+    
+     
+    
+<style type="text/css">
       body {
         padding-top: 60px;
         padding-bottom: 8px;
@@ -52,14 +57,12 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">CanarioWeb</a>
+          
+         <a class="brand" href="#"><img src="./img/logo.png" width="20"> CanarioWeb</a>
          
+          
           <div class="nav-collapse collapse">
+            
             <p class="navbar-text pull-right">
               Logeado como <a href="<s:url action="logout"/>" class="navbar-link">@<%= u.getNombre() %> <i class="icon-white icon-off"></i></a>
             </p>
@@ -75,10 +78,7 @@
                   <s:textfield cssClass="search-query span3" name="buscate"/>
                   <i class="icon-search icon-white"></i>
                   </s:form>   
-            
-    
-                
-            
+     
           </div><!--/.nav-collapse -->
                
         </div>
@@ -87,3 +87,4 @@
     </div>
 
     <div class="container-fluid">
+        <div class="container">

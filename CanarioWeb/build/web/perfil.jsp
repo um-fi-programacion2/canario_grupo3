@@ -19,9 +19,10 @@
    
               <li class="nav-header">Enviar un tweet</li>
               <s:form action="twit">
-                    <s:textarea cols="40" rows="5" name="string" maxlength="150" placeholder="canarear!!!"></s:textarea> 
+                    <s:textarea id="textarea" cssClass="texto"  name="string"  maxlength="200" placeholder="canarear!!!"></s:textarea> 
             <s:submit cssClass="btn btn-warning" value="enviar"></s:submit> 
             </s:form>
+              <div id="caracteres"></div>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
