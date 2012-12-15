@@ -23,9 +23,16 @@
               <li class="divider"></li>
               <li class="nav-header">Enviar un tweet</li>
               <s:form action="sendtwit" name="enviartwit" id="prueba">
-                  <s:textarea id="textarea"   name="strings"  maxlength="200" placeholder="canarear!!!"></s:textarea> 
-                  <s:submit cssClass="btn btn-warning" value="enviar"></s:submit>
-
+                  <s:textarea id="strings"   name="strings"  maxlength="200" placeholder="canarear!!!"></s:textarea> 
+                  
+                  <div class="control-group">
+                    <label class="control-label"></label>
+                    <div class="controls">
+                    
+                        <button type="submit" class="btn btn-warning" >enviar</button>
+                    
+                    </div>
+                    </div>
             </s:form>
               <div id="caracteres"></div>
               
@@ -88,16 +95,7 @@
 });
 </script>
 
-<script>
-    $(document).ready(function() {
-    var text_max=200;
-	$('#caracteres').html(text_max + ' caracteres restantes');
-	$('#textarea').keyup(function(){
-		var text_lenght= $('#textarea').val().length;
-		var text_remaining= text_max - text_lenght;
-	$('#caracteres').html(text_remaining + ' caracteres restantes');	
-		})	
-	
-});
 
-</script>
+
+
+

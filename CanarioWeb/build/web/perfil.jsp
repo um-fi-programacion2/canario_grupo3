@@ -18,8 +18,8 @@
               Twits: <strong><%= relacionesDao.countTwits(u.getIdu()) %></strong>
    
               <li class="nav-header">Enviar un tweet</li>
-              <s:form action="twit">
-                    <s:textarea id="textarea" cssClass="texto"  name="string"  maxlength="200" placeholder="canarear!!!"></s:textarea> 
+              <s:form action="sendtwit" id="prueba">
+                    <s:textarea id="strings" cssClass="texto"  name="strings"  maxlength="200" placeholder="canarear!!!"></s:textarea> 
             <s:submit cssClass="btn btn-warning" value="enviar"></s:submit> 
             </s:form>
               <div id="caracteres"></div>
@@ -71,8 +71,8 @@
 
       
       
-      <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
-    <script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-typeahead.js"></script>
+      
+      <script type="text/javascript" src="./js/jquery.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
             var alCities = ['Capital (Mendoza)', 'General Alvear', 'Godoy Cruz', 'Guaymallen', 'Junin', 'La Paz', 'Las Heras', 'Lavalle', 'Lujan de Cuyo', 'Maipu', 'Malargue', 'Rivadavia', 'San Carllos', 'San Martin','San Rafael','Santa Rosa','Tunuyan','Tupungato'].sort();
