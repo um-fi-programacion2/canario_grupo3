@@ -21,7 +21,9 @@ public class Usuarios  implements java.io.Serializable {
      private String flag1;
      private String flag2;
      private String localidad;
+     private String usuario;
 
+    
     public Usuarios() {
     }
 
@@ -33,7 +35,7 @@ public class Usuarios  implements java.io.Serializable {
         this.pass = pass;
         this.imagen = imagen;
     }
-    public Usuarios(String nombre, String bio, Date date, String mail, String pass, String imagen, String apikey, String flag1, String flag2, String localidad) {
+    public Usuarios(String nombre, String bio, Date date, String mail, String pass, String imagen, String apikey, String flag1, String flag2, String localidad, String usuario) {
        this.nombre = nombre;
        this.bio = bio;
        this.date = date;
@@ -44,6 +46,7 @@ public class Usuarios  implements java.io.Serializable {
        this.flag1 = flag1;
        this.flag2 = flag2;
        this.localidad = localidad;
+       this.usuario=usuario;
     }
    
     public Long getIdu() {
@@ -124,6 +127,13 @@ public class Usuarios  implements java.io.Serializable {
         this.localidad = localidad;
     }
 
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
 
 
 

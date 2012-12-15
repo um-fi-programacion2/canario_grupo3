@@ -25,7 +25,8 @@
         padding: 5px 0;
       }
     </style>
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./css/bootstrap-responsive.css" rel="stylesheet">
+   <!-- <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -49,7 +50,7 @@
   <%@page import="model.Usuarios"%>
   <%@page import="dao.relacionesDao"%>
   <% Usuarios u = PerfilDao.traerPerfil(); %>  
-  
+  <% Usuarios publico = PerfilDao.traerPerfilPublico(); %>  
 
   
   <body>

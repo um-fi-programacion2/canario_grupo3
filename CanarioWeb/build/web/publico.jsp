@@ -3,11 +3,12 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Usuario:</li>
+                <li class="nav-header">Usuario: <strong><s:property value="reg.usuario"/></strong></li>
               <img src="./img/users/<s:property value="reg.imagen"/>"  width="150" height="310"> 
               <s:form action="changeFollowState" method="post">
                   <s:hidden name="user" value="%{reg.idu}" />
                   <s:hidden name="r" value="%{relacion}" />
+                  <s:hidden name="usuariopublico" value="%{usuariopublico}"/>
 
                   <s:if test="relacion == 0"> 
                       
@@ -31,7 +32,7 @@
               <li class="divider"></li>
 
               <li class="nav-header">Información:</li>
-              Followers:<strong><a href="<s:url action="ListarFollowersPublico"/>"><s:property value="followers"/></a></strong></li>
+              Followers:<strong><a href="<s:url action="listarFollowersPublico"/>"><s:property value="followers"/></a></strong></li>
               Following:<strong><a href="<s:url action="listarFollowingsPublico"/>"><s:property value="following"/></a></strong></li>
                   Twits: <strong><s:property value="countTwits"/></strong></li>
               

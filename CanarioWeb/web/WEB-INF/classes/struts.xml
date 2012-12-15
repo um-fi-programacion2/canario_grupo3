@@ -44,7 +44,7 @@
                     
                 </action>
                 <action name="GuardarPerfil" class="view.PerfilAction">
-                    <result name="success">/perfil.jsp</result>
+                    <result name="success" type="chain">config</result>
                     <result name="fail">/perfil.jsp</result>
                     
                 </action>
@@ -66,9 +66,16 @@
    
                 <action name="changeFollowState" class="view.CambiarRelacionAction">
                   <result name="success" type="chain">publico</result>
-                  
-                    
-                </action>
+                   </action>
+                   
+                   <action name="changeFollowStateInFollowings" class="view.CambiarRelacionAction" method="cambiarRelacionPublico">
+                  <result name="success" type="chain">listarFollowingsPublico</result>
+                   </action>
+                   <action name="changeFollowStateInFollowers" class="view.CambiarRelacionAction" method="cambiarRelacionPublico">
+                  <result name="success" type="chain">listarFollowersPublico</result>
+                   </action>
+                
+                
                 <action name="changeState" class="view.CambiarRelacionAction">
                   <result name="success" type="chain">/home.jsp</result>
                   
@@ -103,21 +110,16 @@
                  </action>
               
                  <action name="listarFollowingsPublico" class="view.ListarFollowingsAction" method="ListarFollowingsPublico">
-                     <result name="bien">/followings.jsp</result>
+                     <result name="bien">/followingsPublico.jsp</result>
                     <result name="fail">/home.jsp</result>
                  </action>
                  
-                 <action name="ListarFollowersPublico" class="view.ListarFollowersAction" method="ListarFollowersPublico">
-                     <result name="bien">/followers.jsp</result>
+                 <action name="listarFollowersPublico" class="view.ListarFollowersAction" method="ListarFollowersPublico">
+                     <result name="bien">/followersPublico.jsp</result>
                     <result name="fail">/home.jsp</result>
                  </action>
 
-
-
-
-
-
-
+                    
                  <action name="followUsuario" class="view.FollowAction">
                      <result name="bien" type="chain">listarFollowings</result>
                     <result name="fail">/home.jsp</result>
@@ -136,6 +138,28 @@
                     <result name="fail">/home.jsp</result>
                      
                  </action>
+                 
+                 <action name="followUsuariop" class="view.FollowAction">
+                     <result name="bien" type="chain">listarFollowingsPublico</result>
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                 
+                <action name="unfollowUsuariop" class="view.UnFollowAction">
+                     <result name="bien" type="chain">listarFollowersPublico</result>
+                     
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                 <action name="unfollowUp" class="view.UnFollowAction">
+                     <result name="bien" type="chain">listarFollowingsPublico</result>
+                     
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                 
+                 
+                 
                  
                  <action name="retweet" class="view.RetweetAction">
                      <result name="bien">/home.jsp</result>

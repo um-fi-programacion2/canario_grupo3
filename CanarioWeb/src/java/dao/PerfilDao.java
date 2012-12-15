@@ -52,13 +52,14 @@ public static boolean guardarPerfil(Usuarios Rgst) {
                 Map auth = ActionContext.getContext().getSession();
                            
 		
-                Query query = s.createQuery("UPDATE Usuarios set nombre = :nombre, mail= :mail, bio = :bio, pass= :pass, localidad= :loc  where idu= :id");
-                query.setParameter("nombre", Rgst.getNombre());
+                Query query = s.createQuery("UPDATE Usuarios set mail= :mail, bio = :bio, pass= :pass, localidad= :loc, usuario= :usuario  where idu= :id");
+                //query.setParameter("nombre", Rgst.getNombre());  UPDATE Usuarios set nombre = :nombre,
                 query.setParameter("mail", Rgst.getMail());
                 query.setParameter("bio", Rgst.getBio());
                 query.setParameter("pass", Rgst.getPass());
                 query.setParameter("id",((Number)auth.get("idusuario")).longValue());
                 query.setParameter("loc", Rgst.getLocalidad());
+                query.setParameter("usuario", Rgst.getUsuario());
                
                 
                 try {
@@ -153,7 +154,34 @@ public static Usuarios traerPerfil(Long uid) {
 		}
         }
 
-}
+
                 
  
 
+public static Usuarios traerPerfilPublico() {
+                	
+		 try {
+			SessionFactory sf = HibernateUtil.getSessionFactory();
+                       
+                        Session s = sf.openSession();
+			
+                        
+			 Query query = s.createQuery("FROM Usuarios t where t.idu = :idu");
+     
+                         Map auth = ActionContext.getContext().getSession();
+                           
+                         query.setParameter("idu", ((Number)auth.get("publicocontext")).longValue());            
+                    
+
+                        return (Usuarios) query.list().get(0);
+
+		
+
+		
+		} catch (Exception ex) {
+			System.err.println("Error !-->" + ex.getMessage());
+		
+			return null;
+		}
+        }
+}

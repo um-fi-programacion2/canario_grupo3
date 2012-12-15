@@ -3,7 +3,7 @@
           <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Usuario:</li>
+                <li class="nav-header">Usuario: <strong><%= u.getUsuario() %></strong> </li>
               <li align="center"><img class="img-polaroid" src="./img/users/<%= u.getImagen() %>"  width="150" height="310"> </li>
               <li class="nav-header">Biografia:</li>
               <li align="center"><%= u.getBio() %></li>
@@ -36,8 +36,12 @@
 
 
             <s:form cssClass="well" action="GuardarPerfil" method="post">
+               <li class="nav-header">Usuario</li>
+                 <s:textfield label="Nombre" name="usuario" value="%{config.usuario}"/><br>        
+               <br>  
+               
             <li class="nav-header">Nombre de Usuario</li>
-                <s:textfield label="Nombre" name="nombre" value="%{config.nombre}"/><br>
+                 <li><%= u.getNombre() %></li>
             <li class="nav-header">Email</li>
                 <s:textfield label="Email" name="mail" value="%{config.mail}"/><br>
             <li class="nav-header">Password</li>

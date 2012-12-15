@@ -17,24 +17,25 @@ public class CambiarRelacionAction extends ActionSupport{
  
 	private String r;
         private String user;
+        private int relacion;
+        private long usuariopublico;
+
+    public int getRelacion() {
+        return relacion;
+    }
+
+    public void setRelacion(int relacion) {
+        this.relacion = relacion;
+    }
+
+    public long getUsuariopublico() {
+        return usuariopublico;
+    }
+
+    public void setUsuariopublico(long usuariopublico) {
+        this.usuariopublico = usuariopublico;
+    }
  
-	public String execute() {
-                  Map auth = ActionContext.getContext().getSession();
-                auth.put("publicocontext", user);
-    
-           
-            
-    if(r.equalsIgnoreCase("1")) {
-            relacionesDao.unfollow(((Number)auth.get("idusuario")).longValue(), Long.parseLong(user));
-
-    }
-    else { 
-            relacionesDao.follow(((Number)auth.get("idusuario")).longValue(), Long.parseLong(user));
-
-    }
-		return SUCCESS;
-	}
-
     public String getR() {
         return r;
     }
@@ -51,4 +52,36 @@ public class CambiarRelacionAction extends ActionSupport{
         this.user = user;
     }
  
+	
+    
+    
+    public String execute() {
+                  Map auth = ActionContext.getContext().getSession();
+                auth.put("publicocontext", user);
+    
+           
+            
+    if(r.equalsIgnoreCase("1")) {
+            relacionesDao.unfollow(((Number)auth.get("idusuario")).longValue(), Long.parseLong(user));
+
+    }
+    else { 
+            relacionesDao.follow(((Number)auth.get("idusuario")).longValue(), Long.parseLong(user));
+
+    }
+		return SUCCESS;
+	}
+    public String cambiarRelacionPublico() throws Exception{
+     Map auth = ActionContext.getContext().getSession();
+        
+        if(relacion==1) {
+            relacionesDao.unfollow(((Number)auth.get("idusuario")).longValue(), usuariopublico);
+
+        }
+        else { 
+            relacionesDao.follow(((Number)auth.get("idusuario")).longValue(), usuariopublico);
+
+            }
+		return SUCCESS;
+    }
 }
