@@ -37,7 +37,7 @@
     var text_max=200;
 	$('#caracteres').html(text_max + ' caracteres restantes');
 	$('#textarea').keyup(function(){
-            $(this).animate({ height: "120px" }, 100);
+            $(this).animate({ height: "120px" }, 50);
 		var text_lenght= $('#textarea').val().length;
 		var text_remaining= text_max - text_lenght;
                 
