@@ -10,12 +10,14 @@ package dao;
  */
 import com.opensymphony.xwork2.ActionContext;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import model.Hashaux;
+import model.Hashtags;
 import model.Twits;
-import org.apache.tomcat.jni.Time;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -37,6 +39,7 @@ public class TwitDao {
 			t = s.beginTransaction(); // start a new transaction
 			s.persist(datos);
 			t.commit(); // commit transaction
+                        saveHash(datos.getString(), datos);
 			return true;
 		} catch (Exception ex) {
 			System.err.println("Error -->" + ex.getMessage());
@@ -45,6 +48,59 @@ public class TwitDao {
 			return false;
 		}
   }
+        public static boolean saveHash(String mensaje, Twits datos ) {
+                SessionFactory sf = HibernateUtil.getSessionFactory();
+		Transaction t = null;
+                Session s = sf.openSession();
+                
+                String patternStr = "(?:\\s|\\A)[##]+([A-Za-z0-9-_]+)";
+                Pattern pattern = Pattern.compile(patternStr);
+                Matcher matcher = pattern.matcher(mensaje);
+                String foundValue = "";
+                
+                while (matcher.find()){
+                    foundValue = matcher.group();
+                    foundValue = foundValue.replace(" ","");
+      
+                     try {
+                         
+                         //Primero check si el Hashtag ya existe
+                         Query query = s.createQuery("FROM Hashtags where string = :hash");
+                         query.setParameter("hash", foundValue);
+                         if(query.list().size() == 0) { //si no existe, guardar el nuevo hash
+			
+                             Hashtags h= new Hashtags();
+                        
+                        h.setString(foundValue);
+                        h.setIdu(datos.getIdu());
+                        
+			t = s.beginTransaction(); // start a new transaction
+			s.persist(h);
+			t.commit(); // commit transaction
 
+                         }
+                         //Ahora guardar la referencia en la tabla auxiliar (esto siempre)
+                         Hashaux ha= new Hashaux();
+                         Hashtags haux = new Hashtags();
 
+                         Query query2 = s.createQuery("FROM Hashtags where string = :hash");
+                         query2.setParameter("hash", foundValue);
+                         haux =  (Hashtags) query2.list().get(0);
+                         ha.setIdh(haux.getIdh());
+                         ha.setIdt(datos.getIdt());
+                        
+                         t = s.beginTransaction(); // start a new transaction
+                         s.persist(ha);
+                         t.commit();
+                         
+		} catch (Exception ex) {
+			System.err.println("ErrorHash -->" + ex.getMessage());
+			if (t != null)
+				t.rollback();
+			return false;
+		}
+    }
+    s.disconnect();
+    return true;
+    }
 }

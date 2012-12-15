@@ -4,10 +4,13 @@
 <!-- Generated 10/12/2012 11:24:25 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="model.Hashaux" table="hashaux" catalog="prueba">
-        <id name="idh" type="long">
-            <column name="idh" />
+        <id name="idha" type="long">
+            <column name="idha" />
             <generator class="assigned" />
         </id>
+        <property name="idh" type="long">
+            <column name="idh" not-null="true" />
+        </property>
         <property name="idt" type="long">
             <column name="idt" not-null="true" />
         </property>

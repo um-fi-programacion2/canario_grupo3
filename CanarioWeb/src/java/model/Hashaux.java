@@ -8,14 +8,15 @@ package model;
  */
 public class Hashaux  implements java.io.Serializable {
 
-
+     private long idha;
      private long idh;
      private long idt;
 
     public Hashaux() {
     }
 
-    public Hashaux(long idh, long idt) {
+    public Hashaux(long idha, long idh, long idt) {
+       this.idh = idha;
        this.idh = idh;
        this.idt = idt;
     }
@@ -33,6 +34,14 @@ public class Hashaux  implements java.io.Serializable {
     
     public void setIdt(long idt) {
         this.idt = idt;
+    }
+
+    public long getIdha() {
+        return idha;
+    }
+
+    public void setIdha(long idha) {
+        this.idha = idha;
     }
 
 

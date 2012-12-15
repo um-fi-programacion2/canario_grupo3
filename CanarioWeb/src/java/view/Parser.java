@@ -10,11 +10,11 @@ import java.util.regex.Pattern;
 public class Parser {
     
     public static String parseTweet(String inTweet){
+    //hash tags
     String patternStr = "(?:\\s|\\A)[##]+([A-Za-z0-9-_]+)";
     Pattern pattern = Pattern.compile(patternStr);
     Matcher matcher = pattern.matcher(inTweet);
     String foundValue = "";
-    //hash tags
     while (matcher.find()){
       foundValue = matcher.group();
       foundValue = foundValue.replace(" ","");

@@ -1,6 +1,7 @@
 package dao;
 
 import java.util.ArrayList;
+import model.Hashtags;
 import model.Usuarios;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -26,6 +27,26 @@ public class TopDao {
                          			System.err.println("Debug !-->" + query1.list().size());
 
                          return (ArrayList<Usuarios>)query1.list();
+
+		
+		} catch (Exception ex) {
+			System.err.println("Error !p-->" + ex.getMessage());
+			
+			return null;
+		}
+  }
+    
+     public static ArrayList <Hashtags> getHashtags() {
+		 try {
+			SessionFactory sf = HibernateUtil.getSessionFactory();
+                    
+                        Session s = sf.openSession();
+			
+                        Query query1 = s.createSQLQuery("SELECT * FROM hashtags h LEFT JOIN hashaux ha ON h.idh = ha.idh GROUP BY ha.idh ORDER BY count(ha.idh) desc;")
+                                .addEntity(Hashtags.class);
+			 
+
+                         return (ArrayList<Hashtags>)query1.list();
 
 		
 		} catch (Exception ex) {
