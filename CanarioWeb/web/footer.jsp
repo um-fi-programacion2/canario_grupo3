@@ -28,7 +28,7 @@
     <script src="./js/bootstrap-collapse.js"></script>
     <script src="./js/bootstrap-carousel.js"></script>
     <script src="./js/bootstrap-typeahead.js"></script>
-
+<script type="text/javascript" src="./js/jquery-validate.js"></script>
   </body>
 </html>
 
@@ -36,9 +36,9 @@
     $(document).ready(function() {
     var text_max=200;
 	$('#caracteres').html(text_max + ' caracteres restantes');
-	$('#textarea').keyup(function(){
+	$('#strings').keyup(function(){
             $(this).animate({ height: "120px" }, 50);
-		var text_lenght= $('#textarea').val().length;
+		var text_lenght= $('#strings').val().length;
 		var text_remaining= text_max - text_lenght;
                 
 	$('#caracteres').html(text_remaining + ' caracteres restantes');	
@@ -48,3 +48,33 @@
 
 </script>
 
+<script>
+$(document).ready(function()
+{
+
+// Validation
+$("#prueba").validate({
+rules:{
+
+
+strings:{required:true,minlength: 3}
+},
+
+messages:{
+strings:"Ingrese al menos 3 caracteres"
+},
+
+errorClass: "help-inline",
+errorElement: "span",
+highlight:function(element, errorClass, validClass)
+{
+$(element).parents('.control-group').addClass('error');
+},
+unhighlight: function(element, errorClass, validClass)
+{
+$(element).parents('.control-group').removeClass('error');
+$(element).parents('.control-group').addClass('success');
+}
+});
+});
+</script>
