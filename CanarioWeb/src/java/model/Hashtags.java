@@ -11,7 +11,6 @@ public class Hashtags  implements java.io.Serializable {
 
      private Long idh;
      private String string;
-     private String firstcreator;
      private long idu;
 
     public Hashtags() {
@@ -19,7 +18,6 @@ public class Hashtags  implements java.io.Serializable {
 
     public Hashtags(String string, String firstcreator, long idu) {
        this.string = string;
-       this.firstcreator = firstcreator;
        this.idu = idu;
     }
    
@@ -36,13 +34,6 @@ public class Hashtags  implements java.io.Serializable {
     
     public void setString(String string) {
         this.string = string;
-    }
-    public String getFirstcreator() {
-        return this.firstcreator;
-    }
-    
-    public void setFirstcreator(String firstcreator) {
-        this.firstcreator = firstcreator;
     }
     public long getIdu() {
         return this.idu;

@@ -79,6 +79,16 @@
 </script>
 
 <script>
+ $(document).ready(function() {
+ 	 $("#topHash").load("http://localhost:8084/topHashtags");
+   var refreshTopu = setInterval(function() {
+      $("#topHash").load('http://localhost:8084/topHashtags');
+   }, 8000);
+   $.ajaxSetup({ cache: false });
+});
+</script>
+
+<script>
     $(document).ready(function() {
     var text_max=200;
 	$('#caracteres').html(text_max + ' caracteres restantes');
