@@ -60,21 +60,24 @@
         <p>Completa los datos y podrás empezar a utilizar canario.</p>
       <div class="row">
         <div class="span6"> 
-        <s:form action="register" method="post">
+        <s:form action="register" id="registerHere" method="post">
                 <legend>Formulario de registro:</legend>
                 <label>Nombre Completo</label>
-                    <s:textfield name="usuario" label="User"  placeholder="Ingresa tu nombre"/>
-                    <label>Nombre de usuario</label>
-                    <s:textfield name="nombre" label="Name"  placeholder="Elige un nombre de usuario"/>
-
-                    <label>Email</label>
-                    <s:textfield name="mail" label="Email" placeholder="email para ingresar"/>
+                    <s:textfield id="nombre" name="nombre" label="Name"  placeholder="Ingresa tu nombre"/>
+                <label>Nombre de usuario</label>
+                    <s:textfield id="usuario" name="usuario" label="User"  placeholder="Elige un nombre de usuario"/>
+                <label>Email</label>
+                    <s:textfield id="mail" name="mail" label="Email" placeholder="email para ingresar"/>
+                <label>Contraseña</label>
+                    <s:password id="pass" name="pass" label="Password" placeholder="elije tu contraseña" /><br>
                     
-                   	
-                    
-                    <label>Contraseña</label>
-                    <s:password name="pass" label="Password" placeholder="elije tu contraseña" /><br>
-                    <s:submit value="Registrarse" cssClass="btn" />
+                    <!--s:submit value="Registrarse" cssClass="btn" /-->
+                <div class="control-group">
+                    <label class="control-label" for="input01"></label>
+                        <div class="controls">
+                        <button type="submit" class="btn btn-success" rel="tooltip" title="first tooltip">Registrarse</button>
+	        </div>
+                
            </s:form>  
                 
       </div>
@@ -88,3 +91,45 @@
       </div>
     </div>
 <%@include file="footer.jsp"%>
+
+   
+<script type="text/javascript">
+	  $(document).ready(function(){
+			
+			$("#registerHere").validate({
+				rules:{ 
+                                        nombre:"required",
+                                        usuario:"required",
+					mail:{
+							required:true,
+							email: true
+						},
+					pass:{
+						required:true,
+						minlength: 6
+					}
+				},
+				messages:{
+                                        nombre:"Ingrese Nombre Completo",
+                                        usuario:"Ingrese un Usuario",
+					mail:{
+						required:"Ingrese una dirección de correo",
+						email:"Ingrese una dirección de correo valida"
+					},
+					pass:{
+						required:"Ingrese una Contraseña",
+						minlength:"La Contraseña  debe contener por lo menos 6 caracteres"
+					}
+				},
+				errorClass: "help-inline",
+				errorElement: "span",
+				highlight:function(element, errorClass, validClass) {
+					$(element).parents('.control-group').addClass('error');
+				},
+				unhighlight: function(element, errorClass, validClass) {
+					$(element).parents('.control-group').removeClass('error');
+					$(element).parents('.control-group').addClass('success');
+				}
+			});
+		});
+	  </script>
