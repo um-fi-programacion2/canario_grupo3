@@ -11,9 +11,6 @@
         <property name="string" type="string">
             <column name="string" length="100" not-null="true" />
         </property>
-        <property name="firstcreator" type="string">
-            <column name="firstcreator" length="100" not-null="true" />
-        </property>
         <property name="idu" type="long">
             <column name="idu" not-null="true" />
         </property>

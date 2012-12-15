@@ -149,6 +149,11 @@
                      <result name="fail">topUsuarios.jsp</result>
                      </action>
                      
+                      <action name="topHashtags" class="view.Top10Hashtags">
+                     <result name="fin">topHash.jsp</result>
+                     <result name="fail">topHash.jsp</result>
+                     </action>
+                     
                  <action name="busqueda" class="view.BusquedaAction">
                      <result name="bien">/busqueda.jsp</result>
                      <result name="fail">/perfil.jsp</result>  
