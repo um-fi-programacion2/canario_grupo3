@@ -26,6 +26,15 @@ private String bio;
 private String mail;
 private String pass;
 private String localidad;
+private String usuario;
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
 
     public String getLocalidad() {
         return localidad;
@@ -89,7 +98,7 @@ reg.setMail(mail);
 reg.setNombre(nombre);
 reg.setPass(pass);
 reg.setLocalidad(localidad);
-
+reg.setUsuario(usuario);
 if (PerfilDao.guardarPerfil(reg))
 return "success";
 else

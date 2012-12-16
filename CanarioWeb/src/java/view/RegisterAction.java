@@ -14,6 +14,8 @@ private java.util.Date date;
 private String mail;
 private String pass;
 private String imagen="default.jpg";
+private String usuario;
+
 public RegisterAction() {
 }
 
@@ -75,6 +77,14 @@ return this.imagen;
 public void setImagen(String imagen) {
 this.imagen = imagen;
 }
+@Column (name= "usuario")
+public String getUsuario() {
+        return usuario;
+}
+
+public void setUsuario(String usuario) {
+        this.usuario = usuario;
+ }
 public String execute() throws Exception {
 Usuarios reg = new Usuarios();
 reg.setBio(bio);
@@ -84,6 +94,8 @@ reg.setMail(mail);
 reg.setNombre(nombre);
 reg.setPass(pass);
 reg.setImagen(imagen);
+reg.setUsuario(usuario);
+
 if (RegisterDao.registerUser(reg))
 return "success";
 else

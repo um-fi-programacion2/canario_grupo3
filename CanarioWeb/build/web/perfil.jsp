@@ -3,7 +3,7 @@
           <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Usuario:</li>
+                <li class="nav-header">Usuario: <strong><%= u.getUsuario() %></strong> </li>
               <li align="center"><img class="img-polaroid" src="./img/users/<%= u.getImagen() %>"  width="150" height="310"> </li>
               <li class="nav-header">Biografia:</li>
               <li align="center"><%= u.getBio() %></li>
@@ -18,8 +18,8 @@
               Twits: <strong><%= relacionesDao.countTwits(u.getIdu()) %></strong>
    
               <li class="nav-header">Enviar un tweet</li>
-              <s:form action="twit">
-                    <s:textarea id="textarea" cssClass="texto"  name="string"  maxlength="200" placeholder="canarear!!!"></s:textarea> 
+              <s:form action="sendtwit" id="prueba">
+                    <s:textarea id="strings" cssClass="texto"  name="strings"  maxlength="200" placeholder="canarear!!!"></s:textarea> 
             <s:submit cssClass="btn btn-warning" value="enviar"></s:submit> 
             </s:form>
               <div id="caracteres"></div>
@@ -36,14 +36,18 @@
 
 
             <s:form cssClass="well" action="GuardarPerfil" method="post">
+               <li class="nav-header">Usuario</li>
+                 <s:textfield label="Nombre" name="usuario" value="%{config.usuario}"/><br>        
+               <br>  
+               
             <li class="nav-header">Nombre de Usuario</li>
-                <s:textfield label="Nombre" name="nombre" value="%{config.nombre}"/><br>
+                 <li><%= u.getNombre() %></li>
             <li class="nav-header">Email</li>
                 <s:textfield label="Email" name="mail" value="%{config.mail}"/><br>
             <li class="nav-header">Password</li>
                 <s:password label="Password" name="pass" key="%{config.pass}"/><br>
             </li><li class="nav-header">Localidad</li>
-                <s:textfield label="Localidad" name="localidad" value="%{config.localidad}"/><br>
+                <s:textfield label="Localidad" name="localidad" id="localidad" value="%{config.localidad}"/><br>
             <li class="nav-header">Biografia</li>
                 <s:textarea label="Bio"  cols="40" rows="5" name="bio" maxlength="300" value="%{config.bio}"></s:textarea> <br>
 
@@ -68,4 +72,11 @@
       
       
       
+      <script type="text/javascript" src="./js/jquery.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function() {
+            var alCities = ['Capital (Mendoza)', 'General Alvear', 'Godoy Cruz', 'Guaymallen', 'Junin', 'La Paz', 'Las Heras', 'Lavalle', 'Lujan de Cuyo', 'Maipu', 'Malargue', 'Rivadavia', 'San Carllos', 'San Martin','San Rafael','Santa Rosa','Tunuyan','Tupungato'].sort();
+            $('#localidad').typeahead({source: alCities, items:5});
+        });
+    </script>
  <%@include file="footer.jsp"%>

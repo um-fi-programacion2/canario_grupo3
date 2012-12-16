@@ -16,6 +16,15 @@ public class publicoAction extends ActionSupport {
         int following;
         int countTwits;
         int relacion;
+        long usuariopublico;
+
+    public long getUsuariopublico() {
+        return usuariopublico;
+    }
+
+    public void setUsuariopublico(long idu) {
+        this.usuariopublico = usuariopublico;
+    }
 
 public publicoAction() {
 }
@@ -25,6 +34,7 @@ public publicoAction() {
 if(u == null) {
     Map auth = ActionContext.getContext().getSession();
             reg= PerfilDao.traerPerfil(Long.parseLong(auth.get("publicocontext").toString()));
+           
 }
 else {
      Map auth = ActionContext.getContext().getSession();
@@ -37,11 +47,12 @@ else {
 
 }
 if (reg != null) {
+    usuariopublico=reg.getIdu();
     followers = relacionesDao.countFollowers(reg.getIdu());
     following = relacionesDao.countFollowing(reg.getIdu());
     countTwits = relacionesDao.countTwits(reg.getIdu());
         Map auth = ActionContext.getContext().getSession();
-
+        
     if(((Number)auth.get("idusuario")).longValue() != reg.getIdu()) {
      
     relacion = relacionesDao.checkRelacion(((Number)auth.get("idusuario")).longValue(),reg.getIdu());

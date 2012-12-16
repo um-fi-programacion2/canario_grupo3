@@ -1,24 +1,41 @@
 <%@include file="header.jsp"%>
 <div class="row-fluid">
         <div class="span3">
-          <div class="well sidebar-nav" >
+          <div class="well sidebar-nav">
             <ul class="nav nav-list">
-              <li class="nav-header">Usuario:<strong><%= u.getUsuario() %></strong></li>
-              <li align="center"><img class="img-polaroid" src="./img/users/<%= u.getImagen() %>"  width="150" height="310"> </li>
-              <li class="nav-header">Biografia:</li>
-              <li align="center"><%= u.getBio() %></li>
+                <li class="nav-header">Usuario: <strong><%= publico.getUsuario() %></strong></li>
+              <img src="./img/users/<%= publico.getImagen() %>"  width="150" height="310"> 
+              <s:form action="changeFollowStateInFollowings" method="post">
+                  <s:hidden name="usuariopublico" value="%{reg.idu}" />
+                  
+                  <s:hidden name="relacion" value="%{relacion}" />
+                  
+                  <s:if test="relacion == 0"> 
+                      
+                 <s:submit cssClass="btn btn-success" value="Seguir"/>
+                 </s:if>
+               <s:if test="relacion == 1"> 
+                      
+                 <s:submit cssClass="btn btn-success" value="Dejar de Seguir"/>
+                 </s:if>
+                  
+              </s:form> 
+             
+              
+            
+             <li class="nav-header">Biografia:</li>
+             <li align="center"><%= publico.getBio() %></li>
               <li class="divider"></li>
               <li class="nav-header">Ubicacion:</li>
-              <li><%= u.getLocalidad() %></li>
+              <li><%= publico.getLocalidad() %></li>
               
               <li class="divider"></li>
+
               <li class="nav-header">Información:</li>
-             
-              Followers:<a href="<s:url action="listarFollowers"/>"><strong><%= relacionesDao.countFollowers(u.getIdu()) %></strong></a><br>
-              Following:<a href="<s:url action="listarFollowings"/>"><strong><%= relacionesDao.countFollowing(u.getIdu()) %></strong></a><br>
-              Twits: <strong><%= relacionesDao.countTwits(u.getIdu()) %></strong>
+              Followers:<strong><a href="<s:url action="listarFollowersPublico"/>"><%= relacionesDao.countFollowers(publico.getIdu()) %></a></strong></li>
+              Following:<strong><a href="<s:url action="listarFollowingsPublico"/>"><%= relacionesDao.countFollowing(publico.getIdu()) %></a></strong></li>
+                  Twits: <strong><%= relacionesDao.countTwits(publico.getIdu()) %></strong></li>
               
-              <li class="divider"></li>
               
             </ul>
           </div><!--/.well -->
@@ -27,15 +44,15 @@
           <div class="hero-unit">
               
                <table class="table table-hover">
-                <thead>Followers</thead> 
+                <thead>Followings</thead> 
                 <tbody> 
-                   
+                  
                 <s:iterator value="lista">
                     
                     <s:if test="relacion == 0">
                    <tr>
                        <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a></td>
-                       <s:form action="followUsuario" method="post">
+                       <s:form action="followUsuariop" method="post">
                            <s:hidden name="idusuario" value="%{idmia}"/>
                            <s:hidden name="idseguidor" value="%{idseguidor}"/>
                            <s:hidden name="relacion" value="%{relacion}"/>
@@ -49,7 +66,7 @@
                    <tr>
                        <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a></td>
                         
-                      <s:form action="unfollowUsuario" method="post">
+                      <s:form action="unfollowUp" method="post">
                            <s:hidden name="idusuario" value="%{idmia}"/>
                            <s:hidden name="idseguidor" value="%{idseguidor}"/>
                            <s:hidden name="relacion" value="%{relacion}"/>
@@ -61,7 +78,7 @@
                 <s:if test="relacion == 2">
                    <tr>
                        <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a></td>
-                        
+                       <td></td>  
                       
                 </tr>
               

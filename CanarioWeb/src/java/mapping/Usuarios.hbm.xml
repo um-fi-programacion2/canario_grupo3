@@ -38,5 +38,8 @@
         <property name="localidad" type="string">
             <column name="localidad" />
         </property>
+        <property name="usuario" type="string">
+            <column name="usuario" />
+        </property>
     </class>
 </hibernate-mapping>

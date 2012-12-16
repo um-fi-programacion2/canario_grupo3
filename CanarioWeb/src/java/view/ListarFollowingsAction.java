@@ -6,6 +6,8 @@ package view;
 
 import com.opensymphony.xwork2.ActionContext;
 import dao.ListarTwitsDao;
+import dao.PerfilDao;
+import dao.relacionesDao;
 import java.util.ArrayList;
 import java.util.Map;
 import model.FollowersView;
@@ -19,6 +21,60 @@ public class ListarFollowingsAction {
   ArrayList<Usuarios> listaFollowersU = new ArrayList<Usuarios>();
     ArrayList<FollowersView> lista = new ArrayList<FollowersView>();
     Map auth = ActionContext.getContext().getSession();
+    private Usuarios reg = new Usuarios();
+        int followers;
+        int following;
+
+    public Usuarios getReg() {
+        return reg;
+    }
+
+    public void setReg(Usuarios reg) {
+        this.reg = reg;
+    }
+
+    public int getFollowers() {
+        return followers;
+    }
+
+    public void setFollowers(int followers) {
+        this.followers = followers;
+    }
+
+    public int getFollowing() {
+        return following;
+    }
+
+    public void setFollowing(int following) {
+        this.following = following;
+    }
+
+    public int getCountTwits() {
+        return countTwits;
+    }
+
+    public void setCountTwits(int countTwits) {
+        this.countTwits = countTwits;
+    }
+
+    public int getRelacion() {
+        return relacion;
+    }
+
+    public void setRelacion(int relacion) {
+        this.relacion = relacion;
+    }
+        int countTwits;
+        int relacion;
+        
+        
+    public Map getAuth() {
+        return auth;
+    }
+
+    public void setAuth(Map auth) {
+        this.auth = auth;
+    }
     
     public ArrayList<Usuarios> getListaFollowersU() {
         return listaFollowersU;
@@ -58,6 +114,25 @@ public class ListarFollowingsAction {
        return "bien";
     }
       public String ListarFollowingsPublico() throws Exception{
+          
+          reg= PerfilDao.traerPerfil(Long.parseLong(auth.get("publicocontext").toString()));
+       
+        if (reg != null) {
+            followers = relacionesDao.countFollowers(reg.getIdu());
+            following = relacionesDao.countFollowing(reg.getIdu());
+            countTwits = relacionesDao.countTwits(reg.getIdu());
+               
+
+            if(((Number)auth.get("idusuario")).longValue() != reg.getIdu()) {
+
+            relacion = relacionesDao.checkRelacion(((Number)auth.get("idusuario")).longValue(),reg.getIdu());
+            }
+            else {
+                relacion = 2;
+            }
+        }
+        
+          
           
           System.out.println("este es el id publico: "+((Number)auth.get("publicocontext")).longValue());
         listaFollowersU=dao.relacionesDao.getFollowings(((Number)auth.get("publicocontext")).longValue());
