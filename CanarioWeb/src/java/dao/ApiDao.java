@@ -9,6 +9,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
+import model.Relaciones;
 import model.Twits;
 import model.Usuarios;
 import org.hibernate.Query;
@@ -34,9 +35,11 @@ public class ApiDao {
                          query.setParameter("key", key);            
                          
                         if(query.list().size() >= 1) {
+                            s.disconnect();
                             return true;
                         }
                         else {
+                            s.disconnect();
                             return false;
                         }
 
@@ -64,9 +67,11 @@ public class ApiDao {
                          query.setParameter("aplication", aplication);            
                          
                         if(query.list().size() >= 1) {
+                            s.disconnect();
                             return true;
                         }
                         else {
+                            s.disconnect();
                             return false;
                         }
 
@@ -95,6 +100,7 @@ public class ApiDao {
             listaUsuarios = query.list();
             
             if(listaUsuarios.isEmpty()) {
+                s.disconnect();
                 return false;
             }
             else {
@@ -104,8 +110,6 @@ public class ApiDao {
                         mensaje.setIdu(listaUsuarios.get(0).getIdu());
                         mensaje.setString(twit);
                         
-                        Map auth = ActionContext.getContext().getSession();
-                 mensaje.setIdu(((Number)auth.get("idusuario")).longValue());
                  Calendar cal = Calendar.getInstance();
                 SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
                 mensaje.setTimestam(sdf.format(cal.getTime()));
@@ -113,7 +117,8 @@ public class ApiDao {
 			t = s.beginTransaction(); // start a new transaction
 			s.persist(mensaje);
 			t.commit(); // commit transaction
-			return true;
+			s.disconnect();
+                        return true;
 		} catch (Exception ex) {
 			System.err.println("Error -->" + ex.getMessage());
 			if (t != null)
@@ -137,6 +142,7 @@ public class ApiDao {
             listaUsuarios = query.list();
             
             if(listaUsuarios.isEmpty()) {
+               s.disconnect();
                 return null;
             }
             else {
@@ -149,13 +155,112 @@ public class ApiDao {
                         query2.setParameter("idu", listaUsuarios.get(0).getIdu());
                         listaTwits = query2.list();
 			t.commit(); // commit transaction
-			return listaTwits;
+			s.disconnect();
+                        return listaTwits;
 		} catch (Exception ex) {
 			System.err.println("Error -->" + ex.getMessage());
 			if (t != null) {
                         t.rollback();
                     }
 			return null;
+		}
+            }
+	}
+
+    public static List<Usuarios> Friends(String key, String type) {
+                List<Usuarios> listaUsuarios = null;
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+                Session s = sf.openSession();
+		
+                Query query = s.createQuery("FROM Usuarios u where u.apikey = :key");
+                query.setParameter("key", key);
+            
+
+            listaUsuarios = query.list();
+            
+            if(listaUsuarios.isEmpty()) {
+                s.disconnect();
+                return null;
+            }
+            else {
+                
+                try {
+                    if(type.equals("1")) {
+                        return relacionesDao.getFollowers(listaUsuarios.get(0).getIdu());
+                    }
+                    if(type.equals("2")) {
+                        return relacionesDao.getFollowings(listaUsuarios.get(0).getIdu());
+
+                    }
+                    else {
+                     return null;   
+                    }
+		} catch (Exception ex) {
+			System.err.println("Error -->" + ex.getMessage());
+                        return null;
+		}
+            }
+	}
+
+    
+    public static boolean Follow(String key, String siguiendo) {
+                List<Usuarios> listaUsuarios = null;
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Transaction t = null;
+                Session s = sf.openSession();
+		
+                Query query = s.createQuery("FROM Usuarios u where u.apikey = :key");
+                query.setParameter("key", key);
+            
+
+            listaUsuarios = query.list();
+            
+            if(listaUsuarios.isEmpty()) {
+                return false;
+            }
+            else {
+                
+                try {
+                                       
+                      relacionesDao.follow(listaUsuarios.get(0).getIdu().longValue(),PerfilDao.traerPerfilNombre(siguiendo).getIdu());                        
+			
+			return true;
+		} catch (Exception ex) {
+			System.err.println("Error -->" + ex.getMessage());
+			if (t != null)
+				t.rollback();
+			return false;
+		}
+            }
+	}
+    
+    public static boolean Unfollow(String key, String siguiendo) {
+                List<Usuarios> listaUsuarios = null;
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Transaction t = null;
+                Session s = sf.openSession();
+		
+                Query query = s.createQuery("FROM Usuarios u where u.apikey = :key");
+                query.setParameter("key", key);
+            
+
+            listaUsuarios = query.list();
+            
+            if(listaUsuarios.isEmpty()) {
+                return false;
+            }
+            else {
+                
+                try {
+                                       
+                      relacionesDao.unfollow(listaUsuarios.get(0).getIdu().longValue(),PerfilDao.traerPerfilNombre(siguiendo).getIdu());                        
+		s.disconnect();	
+			return true;
+		} catch (Exception ex) {
+			System.err.println("Error -->" + ex.getMessage());
+			if (t != null)
+				t.rollback();
+			return false;
 		}
             }
 	}

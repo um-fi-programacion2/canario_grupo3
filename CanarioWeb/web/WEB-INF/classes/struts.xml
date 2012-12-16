@@ -48,6 +48,12 @@
                     <result name="fail">/perfil.jsp</result>
                     
                 </action>
+                
+                <action name="genKey" class="view.GenkeyAction">
+                    <result name="success" type="chain">api</result>
+                    <result name="fail" type="chain">api</result>
+                    
+                </action>
 
                 <action name="userImage"
                     class="view.FileUploadAction">
@@ -83,6 +89,25 @@
                  <action name="config" class="view.ConfigPerfilAction">
                     <result name="bien">/perfil.jsp</result>
                     <result name="fail">/perfil.jsp</result>
+                    
+                </action>
+                 
+                 <action name="api" class="view.ApiAction">
+                    <result name="bien">/api.jsp</result>
+                    <result name="fail">/api.jsp</result>
+                    
+                </action>
+                
+                 <action name="addapp" class="view.AddappAction">
+                    <result name="success" type="chain">api</result>
+                    <result name="fail" type="chain">api</result>
+                    
+                </action>
+                
+                 
+                 <action name="dellapp" class="view.DellappAction">
+                    <result name="success" type="chain">api</result>
+                    <result name="fail" type="chain">api</result>
                     
                 </action>
                 
@@ -169,9 +194,6 @@
        	   <result type="json" />
       </action>
        <action name="friends" class="api.Friends">
-       	   <result type="json" />
-      </action>
-       <action name="search" class="api.Search">
        	   <result type="json" />
       </action>
       <action name="follow" class="api.Follow">

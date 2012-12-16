@@ -70,7 +70,7 @@
             <ul class="nav">
                 <li class="active"><a href="home.jsp"><i class="icon-home"></i>Home</a></li>
               <li><a href="<s:url action="config"/>"><i class="icon-white icon-user"></i>Configuración</a></li>
-              <li><a href="/api.jsp"><i class="icon-white icon-wrench"></i>Api</a></li>
+              <li><a href="<s:url action="api"/>"><i class="icon-white icon-wrench"></i>Api</a></li>
                   
             </ul>
            

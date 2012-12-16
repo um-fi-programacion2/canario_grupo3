@@ -40,6 +40,7 @@ public class TwitDao {
 			s.persist(datos);
 			t.commit(); // commit transaction
                         saveHash(datos.getString(), datos);
+                        s.disconnect();
 			return true;
 		} catch (Exception ex) {
 			System.err.println("Error -->" + ex.getMessage());
@@ -92,6 +93,7 @@ public class TwitDao {
                          t = s.beginTransaction(); // start a new transaction
                          s.persist(ha);
                          t.commit();
+                         
                          
 		} catch (Exception ex) {
 			System.err.println("ErrorHash -->" + ex.getMessage());

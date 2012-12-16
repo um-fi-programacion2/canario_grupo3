@@ -32,7 +32,8 @@ public class ListarTwitsDao {
                          query.setParameter("idu", ((Number)auth.get("idusuario")).longValue());            
                          
                    
-                         
+                                                  s.disconnect();
+
                          return (ArrayList<Twits>)query.list();
 
 		
@@ -76,7 +77,8 @@ public static ArrayList <Twits> getPublicTwitList(Long idu) {
                          query.setMaxResults(10);
                            
                          query.setParameter("idu", idu);            
-                         
+                                                  s.disconnect();
+
                         return (ArrayList<Twits>)query.list();
 
 		

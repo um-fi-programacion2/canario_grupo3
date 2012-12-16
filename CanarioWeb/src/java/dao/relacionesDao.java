@@ -55,6 +55,7 @@ public class relacionesDao {
                         
 			 Query query = s.createQuery("FROM Relaciones where idusuario = :idu");
                          query.setLong("idu", idu);
+                         s.disconnect();
                         return query.list().size();
 
 		
@@ -75,6 +76,7 @@ public class relacionesDao {
                         
 			 Query query = s.createQuery("FROM Twits where idu = :idu");
                          query.setLong("idu", idu);
+                         s.disconnect();
                         return query.list().size();
 
 		
@@ -169,7 +171,8 @@ public class relacionesDao {
                          query.setParameter("idusuario", idu.toString());
                          
                          
-                        
+                                                 s.disconnect();
+
                          return (ArrayList<Usuarios>)query.list();
 
 		
@@ -194,7 +197,8 @@ public class relacionesDao {
                         // query.setParameter("idu", ((Number)auth.get("idusuario")));    
                         query.setParameter("idusuario", idu.intValue());
                          //query.setParameter("idusuario", ((Number)auth.get("idusuario")).toString());
-                         			 System.out.println("entre al getfollowingsdao");
+                         			                          s.disconnect();
+
                         return (ArrayList<Usuarios>)query.list();
 
 		

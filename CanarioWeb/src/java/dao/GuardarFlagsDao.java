@@ -33,6 +33,7 @@ public class GuardarFlagsDao {
                     t = s.beginTransaction();
            query.executeUpdate();
            t.commit(); // commit transaction
+           s.disconnect();
                 return true;
 		} catch (Exception ex) {
 			System.err.println("Error !-->" + ex.getMessage());

@@ -32,7 +32,7 @@ public class BusquedaDao {
                         
                          
                    
-                         
+                         s.close();
                          return (ArrayList<Twits>)query.list();
 
 		
@@ -55,7 +55,7 @@ public class BusquedaDao {
                          query.setString("nombre",nombre);            
                          
                    
-                         
+                         s.close();
                          return (ArrayList<Usuarios>)query.list();
 
 		
@@ -78,7 +78,7 @@ public class BusquedaDao {
                          
                          
                    
-                         
+                         s.close();
                          return (ArrayList<Hashtags>)query.list();
 
 		

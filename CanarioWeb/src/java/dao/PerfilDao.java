@@ -10,8 +10,9 @@ package dao;
  */
 import com.opensymphony.xwork2.ActionContext;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
-import model.Twits;
+import model.Aplicaciones;
 import model.Usuarios;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -139,7 +140,8 @@ public static Usuarios traerPerfil(Long uid) {
 			 Query query = s.createQuery("FROM Usuarios t where t.idu = :idu");
                                 
                          query.setParameter("idu", uid);            
-                         
+                                                  s.disconnect();
+
                         return (Usuarios) query.list().get(0);
 
                         
@@ -153,6 +155,95 @@ public static Usuarios traerPerfil(Long uid) {
 		}
         }
 
+
+	public static boolean saveKey(Long idu, String key) {
+                Transaction t = null;
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+                Session s = sf.openSession();
+                Map auth = ActionContext.getContext().getSession();
+                           
+		
+                Query query = s.createQuery("UPDATE Usuarios set apikey = :key where idu= :idu");
+                query.setParameter("key", key);
+                query.setParameter("idu",idu);
+               
+                
+                try {
+                    t = s.beginTransaction();
+           query.executeUpdate();
+           t.commit(); // commit transaction
+                                    s.disconnect();
+
+                return true;
+		} catch (Exception ex) {
+			System.err.println("Error -->" + ex.getMessage());
+			if (t != null) {
+                        t.rollback();
+                    }
+			return false;
+		}
+        }
+
+    public static  ArrayList <Aplicaciones> getApps() {
+                	
+		 try {
+			SessionFactory sf = HibernateUtil.getSessionFactory();
+                       
+                        Session s = sf.openSession();
+			
+                        
+			 Query query = s.createQuery("FROM Aplicaciones where idusuario = :idu");
+     
+                         Map auth = ActionContext.getContext().getSession();
+                           
+                         query.setParameter("idu", ((Number)auth.get("idusuario")).intValue());            
+                    
+                         s.disconnect();
+
+                        return (ArrayList<Aplicaciones>)query.list();
+
+		
+
+		
+		} catch (Exception ex) {
+			System.err.println("Error !-->" + ex.getMessage());
+		
+			return null;
+		}
+        }
+
+
+public static boolean saveApp(String name, String key) {
+                Aplicaciones app= new Aplicaciones();
+                Map auth = ActionContext.getContext().getSession();
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Transaction t = null;
+                Session s = sf.openSession();
+		
+                app.setApikey(key);
+                app.setNombre(name);
+                app.setIdusuario(((Number)auth.get("idusuario")).intValue());
+
+                
+                try {
+			
+			t = s.beginTransaction(); // start a new transaction
+			s.persist(app);
+                        s.disconnect();
+			t.commit(); // commit transaction
+			return true;
+		} catch (Exception ex) {
+			System.err.println("Error -->" + ex.getMessage());
+			if (t != null)
+				t.rollback();
+			return false;
+		}
+            
+	}
+
+
+
+   
 }
                 
  

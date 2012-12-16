@@ -25,6 +25,7 @@ public class TopDao {
                          //ArrayList top10 = query.list();
                         
                          			System.err.println("Debug !-->" + query1.list().size());
+                         s.disconnect();
 
                          return (ArrayList<Usuarios>)query1.list();
 
@@ -45,6 +46,7 @@ public class TopDao {
                         Query query1 = s.createSQLQuery("SELECT * FROM hashtags h LEFT JOIN hashaux ha ON h.idh = ha.idh GROUP BY ha.idh ORDER BY count(ha.idh) desc;")
                                 .addEntity(Hashtags.class);
 			 
+                         s.disconnect();
 
                          return (ArrayList<Hashtags>)query1.list();
 
