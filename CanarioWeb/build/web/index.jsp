@@ -82,14 +82,15 @@
                 
       </div>
         
-        
+        </div>
         <div class="span4">
          <br><img src="./img/logor.png"  width="286" height="310">             
         </div>
-      </div>
+      
       
       </div>
     </div>
+   </div>    
 <%@include file="footer.jsp"%>
 
    

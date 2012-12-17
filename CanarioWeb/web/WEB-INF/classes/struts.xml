@@ -208,6 +208,11 @@
                      <result name="fail">/perfil.jsp</result>  
                  </action>
                  
+                 <action name="hashtag" class="view.ListarHashtagAction">
+                     <result name="bien">/hashtag.jsp</result>
+                     <result name="fail">/home.jsp</result>  
+                 </action>
+                 
 	</package>
         
  <package name="api" namespace="/" extends="json-default">

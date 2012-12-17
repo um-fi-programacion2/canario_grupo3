@@ -4,9 +4,9 @@
 <!-- Generated 10/12/2012 11:24:25 by Hibernate Tools 3.2.1.GA -->
 <hibernate-mapping>
     <class name="model.Hashaux" table="hashaux" catalog="prueba">
-        <id name="idha" type="long">
+        <id name="idha" type="java.lang.Long">
             <column name="idha" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <property name="idh" type="long">
             <column name="idh" not-null="true" />

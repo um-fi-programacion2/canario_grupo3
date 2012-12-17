@@ -165,7 +165,7 @@
                  </action>
                  
                  <action name="followUsuariop" class="view.FollowAction">
-                     <result name="bien" type="chain">listarFollowingsPublico</result>
+                     <result name="bien" type="chain">listarFollowersPublico</result>
                     <result name="fail">/home.jsp</result>
                      
                  </action>
@@ -206,6 +206,11 @@
                  <action name="busqueda" class="view.BusquedaAction">
                      <result name="bien">/busqueda.jsp</result>
                      <result name="fail">/perfil.jsp</result>  
+                 </action>
+                 
+                 <action name="hashtag" class="view.ListarHashtagAction">
+                     <result name="bien">/hashtag.jsp</result>
+                     <result name="fail">/home.jsp</result>  
                  </action>
                  
 	</package>
