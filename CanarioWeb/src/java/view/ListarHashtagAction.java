@@ -28,12 +28,21 @@ public class ListarHashtagAction extends ActionSupport {
         private ArrayList<timelineView> listaTablaHash = new ArrayList<timelineView>();
         private ArrayList<Twits> listaTwits=new ArrayList<Twits>();
         private String h;
+        private String creador;
+
         int followers;
         int following;
         int countTwits;
         int relacion;
         long usuariopublico;
 
+    public String getCreador() {
+        return creador;
+    }
+
+    public void setCreador(String creador) {
+        this.creador = creador;
+    }
     public long getUsuariopublico() {
         return usuariopublico;
     }
@@ -149,6 +158,7 @@ public class ListarHashtagAction extends ActionSupport {
       //  System.out.println("este es el contenido de h: "+this.getH());
          // if(dao.ListarHashTagsDao.getListaHashTags(this.getH()).size() >0){
             listaTwits=dao.ListarHashTagsDao.getListaHashTags(this.getH());
+            
                     for (int i = 0; i < listaTwits.size(); i++) {
                        timelineView e = new timelineView();
                             listaTablaHash.add(i, e);
@@ -161,7 +171,7 @@ public class ListarHashtagAction extends ActionSupport {
                             listaTablaHash.get(i).setIdsesion(((Number)auth.get("idusuario")).longValue());
 
                     }
-    
+                    creador=listaTablaHash.get(0).getNombre();
               
     //}
        return "bien";

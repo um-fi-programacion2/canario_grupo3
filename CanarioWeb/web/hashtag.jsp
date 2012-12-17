@@ -45,23 +45,17 @@
         <div>
 
                                 <table class="table table-hover">
-                        <thead><strong>Temas</strong></thead> 
-                        <tbody> 
-
+                                    <thead><strong>Tema:</strong> <a href="http://localhost:8084/hashtag?h=<s:property value="h" escapeHtml="false"/>"><s:property value="h"/></a>
+                                    <br><strong>Creado por: </strong><a href="http://localhost:8084/publico?u=<s:property value="creador" escapeHtml="false"/>"><s:property value="creador"/></a></thead>
+                                <tbody> 
+                                    <tr><td align="center" colspan="3"><strong>Tweets en los que aparece:</strong></td></tr>
                         <s:iterator value="listaTablaHash">
 
                             
                            <tr>
-                               <td><img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"></td><td> <a href="http://localhost:8084/publico?u=<s:property value="nombre"/>">@<s:property value="nombre" /> </a><br><s:property escapeHtml="false" value="string" /></td>
-                            <td><br><s:property value="timestam" /></td>
-                            <td>
-                                <s:form action="retweet" method="post">
-
-                                    <s:hidden name="nombre" value="%{nombre}"/>
-                                    <s:hidden name="string" value="%{string}"/>
-                                    <s:submit cssClass="badge badge-info" type="button" title="retweet"><i class="icon-retweet icon-white"></i></s:submit>
-                                    </s:form>
-                                </td>       
+                               <td><img src="./img/users/<s:property value="imagen" />" class="img-rounded" style="width: 80px; height: 45px;"></td><td> <a href="http://localhost:8084/publico?u=<s:property value="nombre"/>">@<s:property value="nombre" /> </a><br><s:property escapeHtml="false" value="string" /></td>
+                               <td><h6><s:property value="timestam" /></h6></td>
+                             
                             </tr>
                             
 

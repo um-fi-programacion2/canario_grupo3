@@ -1,8 +1,8 @@
 </div><!--/container-->
-<br>
+<hr>
 
       <footer>
-          <p>Universidad de Mendoza :: Facultad de Ingeniería :: Programación 2</p>
+          <p><strong>Universidad de Mendoza :: Facultad de Ingeniería :: Programación 2 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong></p>
       </footer>
 
     </div> <!-- /container -->
