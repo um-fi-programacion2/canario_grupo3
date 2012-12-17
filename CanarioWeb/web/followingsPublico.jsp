@@ -3,38 +3,37 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-                <li class="nav-header">Usuario: <strong><%= publico.getUsuario() %></strong></li>
-              <img src="./img/users/<%= publico.getImagen() %>"  width="150" height="310"> 
-              <s:form action="changeFollowStateInFollowings" method="post">
+                <li class="nav-header">Usuario: <strong><s:property value="reg.usuario"/></strong></li>
+              <img src="./img/users/<s:property value="reg.imagen"/>"  width="150" height="310"> 
+              <s:form action="changeFollowStateInFollowers" method="post">
                   <s:hidden name="usuariopublico" value="%{reg.idu}" />
-                  
                   <s:hidden name="relacion" value="%{relacion}" />
-                  
+                    
                   <s:if test="relacion == 0"> 
                       
                  <s:submit cssClass="btn btn-success" value="Seguir"/>
                  </s:if>
                <s:if test="relacion == 1"> 
-                      
                  <s:submit cssClass="btn btn-success" value="Dejar de Seguir"/>
                  </s:if>
                   
+                 
               </s:form> 
              
               
             
              <li class="nav-header">Biografia:</li>
-             <li align="center"><%= publico.getBio() %></li>
+             <li align="center"><s:property value="reg.bio"/></li>
               <li class="divider"></li>
               <li class="nav-header">Ubicacion:</li>
-              <li><%= publico.getLocalidad() %></li>
+              <li><s:property value="reg.localidad"/></li>
               
               <li class="divider"></li>
 
               <li class="nav-header">Información:</li>
-              Followers:<strong><a href="<s:url action="listarFollowersPublico"/>"><%= relacionesDao.countFollowers(publico.getIdu()) %></a></strong></li>
-              Following:<strong><a href="<s:url action="listarFollowingsPublico"/>"><%= relacionesDao.countFollowing(publico.getIdu()) %></a></strong></li>
-                  Twits: <strong><%= relacionesDao.countTwits(publico.getIdu()) %></strong></li>
+              Followers:<strong><a href="<s:url action="listarFollowersPublico"/>"><s:property value="followers"/></a></strong></li>
+              Following:<strong><a href="<s:url action="listarFollowingsPublico"/>"><s:property value="following"/></a></strong></li>
+                  Twits: <strong><s:property value="countTwits"/></strong></li>
               
               
             </ul>
