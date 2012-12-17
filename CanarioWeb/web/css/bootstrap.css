@@ -768,7 +768,7 @@ h5 {
 }
 
 h6 {
-  font-size: 11.9px;
+  font-size: 10.2px;
 }
 
 h1 small {
@@ -5992,9 +5992,9 @@ a.badge:hover {
 }
 
 .hero-unit {
-  padding: 60px;
-  margin-bottom: 30px;
-  font-size: 18px;
+  padding: 15px;
+  margin-bottom: 0px;
+  font-size: 15px;
   font-weight: 200;
   line-height: 30px;
   color: inherit;
