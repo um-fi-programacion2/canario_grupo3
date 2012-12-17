@@ -39,7 +39,7 @@
           <div class="well">
 
                <div class="well">
-                   <li class="nav-header">Webservices</li>
+                   <li class="nav-header">JSON Webservices</li>
                    <h6>Enviar un tweet:<h6>
                    <code>/api/<strong>twit</strong>?key=[key]&aplication=[app]&twit=[msj]</code><br>
                    <h6>Traer mensajes:<h6>
@@ -58,7 +58,7 @@
                    <tr><td><code>[app]</code> </td><td>Llave de aplicación autorizada a usar el WS</td></tr>
                    <tr><td><code>[msj]</code> </td><td>String de tweet que quieras enviar</td></tr>
                    <tr><td><code>[oset]</code> </td><td>Omite los primeros [oset] valores de la lista</td></tr>
-                   <tr><td><code>[tipo]</code> </td><td>tipo "1" trae followers, tipo "2" trae following</td></tr>
+                   <tr><td><code>[tipo]</code> </td><td>Tipo "1" trae followers, tipo "2" trae following</td></tr>
                    <tr><td><code>[nombre]</code> </td><td>Espesifica el usuario al que seguir/dejar</td></tr>
                    </table>
               </div>
@@ -103,7 +103,7 @@
 </table>  
                           <s:form cssClass="form-inline" action="addapp" method="post">
                             <s:textfield label="Nombre" name="nombre" cssClass="input-small" placeholder="Nombre"/>
-                            <s:submit cssClass="btn" value="guardar" type="button"/>
+                            <s:submit cssClass="btn" value="Autorizar" type="button"/>
                         </s:form>
                           </div>
                   </div> 

@@ -23,7 +23,7 @@
               <li class="divider"></li>
               <li class="nav-header">Enviar un tweet</li>
               <s:form action="sendtwit" name="enviartwit" id="prueba">
-                  <s:textarea id="strings"   name="strings"  maxlength="200" placeholder="canarear!!!"></s:textarea> 
+                  <s:textarea id="strings"   name="strings"  maxlength="200" rows="2" placeholder="canarear!!!"></s:textarea> 
                   
                   <div class="control-group">
                     <label class="control-label"></label>
@@ -51,12 +51,16 @@
                   
             
                   <div class="well">
-                    <h3>Top 10 Usuarios:</h3>             
+                    <h4>Top 10 Usuarios:</h4>
+
+                        
                     <div id="topUser">cargando...</div>
                   </div> 
               
                  <div class="well"> 
-                    <h3>Top 10 Temas:</h3>
+                      <h4>Top 10 Temas:</h4>
+                   
+                   
                     <div id="topHash">cargando.....</div>
                  </div> 
                 
@@ -94,8 +98,3 @@
    $.ajaxSetup({ cache: false });
 });
 </script>
-
-
-
-
-

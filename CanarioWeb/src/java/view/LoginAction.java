@@ -90,10 +90,6 @@ reg.setNombre(nombre);
 reg.setPass(pass);
 reg.setImagen(imagen);
 if (LoginDao.LoginUser(reg)) {
-   // SendMail mail = new SendMail(); // Step 1: Create an object representing the task  
- //Thread t = new Thread(mail);  // Step 2: Create a new thread for executing the task  
- //t.start();  
-    //view.SendMail.SendMail();
 return "success";
 }
 else

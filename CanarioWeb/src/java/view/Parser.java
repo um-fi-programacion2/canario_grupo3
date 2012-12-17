@@ -18,7 +18,10 @@ public class Parser {
     while (matcher.find()){
       foundValue = matcher.group();
       foundValue = foundValue.replace(" ","");
-      inTweet = inTweet.replace(foundValue, "<a href='http://localhost:8084/hashtag?h=" + foundValue + "'>" + foundValue + "</a>");
+      String rawValue = foundValue.replace("#","");
+      			System.err.println("Hash -->" +rawValue);
+
+      inTweet = inTweet.replace(foundValue, "<a href='http://localhost:8084/hashtag?h=" + rawValue + "'>" + foundValue + "</a>");
     }
  
     //Users

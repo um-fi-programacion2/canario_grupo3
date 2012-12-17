@@ -17,11 +17,20 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
  
-public class SendMail implements Runnable{
- public void run() {  
-      this.SendNotification();  
+public final class SendMail implements Runnable{
+    String mail;
+    String nombre;
+    Integer tipo;
+    
+    public SendMail(String mail, String nombre, Integer tipo) {
+        this.setMail(mail);
+        this.setNombre(nombre);
+        this.setTipo(tipo);
+    }
+    public void run() {  
+      SendMail.SendNotification(mail,nombre,tipo);  
 }  
-	public static void SendNotification() {
+	public static void SendNotification(String mail, String nombre,Integer tipo) {
  
 		final String username = "notificaciones.canarioweb@gmail.com";
 		final String password = "nanopico4321";
@@ -42,13 +51,26 @@ public class SendMail implements Runnable{
 		try {
  
 			Message message = new MimeMessage(session);
-			message.setFrom(new InternetAddress("notificaciones.canarioweb@gmail.com"));
+			message.setFrom(new InternetAddress("notificaciones@canarioweb.com.ar"));
 			message.setRecipients(Message.RecipientType.TO,
-				InternetAddress.parse("poguijuaz@gmail.com"));
-			message.setSubject("Alerta:Canarioweb   ");
-			message.setText("Querido usuario de Canario:,"
-				+ "\n\n Tiene una nueva notificación en la web.");
- 
+				InternetAddress.parse(mail));
+			
+                        if(tipo == 1) {
+                        message.setSubject("Bienvenido:Canarioweb   ");
+			message.setText("Estimado/a "+nombre +":,"
+				+ "\n\n Bienvenido a CanarioWeb, esperamos que sea de su agrado.");
+                        }
+                          if(tipo == 2) {
+                        message.setSubject("Alerta:Canarioweb");
+			message.setText("Estimado/a "+nombre +":,"
+				+ "\n\n Tiene un nuevo seguidor!");
+                        }
+                            if(tipo == 3) {
+                        message.setSubject("Alerta:Canarioweb   ");
+			message.setText("Estimado/a "+nombre +":,"
+				+ "\n\n Fué mencionado en un tweet de CanarioWeb.");
+                        }
+                            
 			Transport.send(message);
  
 			System.out.println("Done");
@@ -57,4 +79,31 @@ public class SendMail implements Runnable{
 			throw new RuntimeException(e);
 		}
 	}
-}
+
+/*Getter y Setter*/
+
+    public String getMail() {
+        return mail;
+    }
+
+    public final void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public final void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public Integer getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Integer tipo) {
+        this.tipo = tipo;
+    }
+
+} //Fin sendMail
