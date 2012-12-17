@@ -94,7 +94,9 @@ public class relacionesDao {
                         Transaction t = null;
                         Session s = sf.openSession();
 			t = s.beginTransaction(); // start a new transaction
-                        
+                        if(idu==siguiendo) {
+                            return 2;
+                        }
 			 Query query = s.createQuery("FROM Relaciones where idusuario = :idu and siguiendo = :siguiendo");
                         query.setLong("idu", idu);
                         query.setParameter("siguiendo", siguiendo.toString());

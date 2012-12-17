@@ -16,7 +16,7 @@ public class ListarPublicoTwits {
     
     public ArrayList <Twits> listaTwits = new ArrayList<Twits>();
     public ArrayList <timelineView> listaTabla = new ArrayList<timelineView>();
-
+    int retweet;
     
     
      public String execute() throws Exception {
@@ -35,7 +35,7 @@ public class ListarPublicoTwits {
         listaTabla.get(i).setTimestam(listaTwits.get(i).getTimestam());
         listaTabla.get(i).setNombre(ListarTwitsDao.getSingleUser(listaTwits.get(i).getIdu()).getNombre());
         listaTabla.get(i).setImagen(ListarTwitsDao.getSingleUser(listaTwits.get(i).getIdu()).getImagen());
-
+        listaTabla.get(i).setIdsesion(((Number)auth.get("idusuario")).longValue());
 
         }
 

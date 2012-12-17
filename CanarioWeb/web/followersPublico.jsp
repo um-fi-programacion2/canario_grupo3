@@ -74,7 +74,7 @@
                 </tr>
              
                 </s:if>
-                <s:if test="relacion == 2">
+                <s:if test="relacion != 2">
                    <tr>
                        <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a></td>
                         <td></td>

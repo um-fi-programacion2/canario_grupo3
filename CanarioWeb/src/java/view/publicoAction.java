@@ -58,7 +58,7 @@ if (reg != null) {
     relacion = relacionesDao.checkRelacion(((Number)auth.get("idusuario")).longValue(),reg.getIdu());
     }
     else {
-        relacion = 2;
+        relacion= 2;
     }
 
             return "success";
