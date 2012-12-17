@@ -10,7 +10,7 @@
         
         <s:if test="idu != idsesion"> 
        <tr>
-           <td><img src="./img/users/<s:property value="imagen" />" class="img-rounded" style="width: 80px; height: 45px;"></td><td> <a href="http://localhost:8084/publico?u=<s:property value="nombre"/>">@<s:property value="nombre" /> </a> <strong>dijo:</strong><br><s:property escapeHtml="false" value="string" /></td>
+           <td><img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="35px"></td><td> <a href="http://localhost:8084/publico?u=<s:property value="nombre"/>">@<s:property value="nombre" /> </a> <strong>dijo:</strong><br><s:property escapeHtml="false" value="string" /></td>
         <td><h6><s:property value="timestam" /><h6></td>
         <td>
             <s:form action="retweet" method="post">
@@ -26,7 +26,7 @@
         <s:if test="idu == idsesion"> 
        <tr>
 
-           <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" style="width: 80px; height: 45px;"> <td><a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /> </a><br> <s:property value="string" escapeHtml="false" /></td>
+           <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="35px"> <td><a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /> </a><br> <s:property value="string" escapeHtml="false" /></td>
 
         <td><br><h6><s:property value="timestam" /></h6></td>
 
