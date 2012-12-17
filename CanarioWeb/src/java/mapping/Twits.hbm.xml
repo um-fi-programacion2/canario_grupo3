@@ -15,7 +15,7 @@
             <column name="string" length="100" not-null="true" />
         </property>
         <property name="timestam" type="string">
-            <column name="timestam" length="100" not-null="true" />
+            <column name="timestam" length="255" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>
