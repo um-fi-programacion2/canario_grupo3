@@ -64,8 +64,8 @@
                         </param>
                     </interceptor-ref>
                          <interceptor-ref name="defaultStack"></interceptor-ref>
-                            <result name="success">perfil.jsp</result>
-                             <result name="input">perfil.jsp</result>
+                            <result name="success" type="chain">config</result>
+                             <result name="input" type="chain">config</result>
                 </action>
 
 

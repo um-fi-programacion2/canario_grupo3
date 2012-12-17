@@ -1,9 +1,4 @@
 </div><!--/container-->
-<br>
-
-      <footer>
-          <p>Universidad de Mendoza :: Facultad de Ingeniería :: Programación 2</p>
-      </footer>
 
     </div> <!-- /container -->
 
