@@ -162,7 +162,7 @@ public class ListarFollowersAction {
            lista.get(i).setRelacion(2);
        }else{
        lista.get(i).setRelacion(dao.relacionesDao.checkRelacion(((Number)auth.get("idusuario")).longValue(), listaFollowersU.get(i).getIdu().longValue()));
-           System.out.println("aca esta el error");
+           
        }
        } 
        return "bien";
