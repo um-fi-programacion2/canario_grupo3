@@ -145,13 +145,19 @@
 
                     
                  <action name="followUsuario" class="view.FollowAction">
-                     <result name="bien" type="chain">listarFollowings</result>
+                     <result name="bien" type="chain">listarFollowers</result>
                     <result name="fail">/home.jsp</result>
                      
                  </action>
                  
                 <action name="unfollowUsuario" class="view.UnFollowAction">
                      <result name="bien" type="chain">listarFollowers</result>
+                     
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                 <action name="followU" class="view.FollowAction">
+                     <result name="bien" type="chain">listarFollowings</result>
                      
                     <result name="fail">/home.jsp</result>
                      
@@ -175,6 +181,14 @@
                     <result name="fail">/home.jsp</result>
                      
                  </action>
+                 
+                 <action name="followUp" class="view.FollowAction">
+                     <result name="bien" type="chain">listarFollowingsPublico</result>
+                     
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                 
                  <action name="unfollowUp" class="view.UnFollowAction">
                      <result name="bien" type="chain">listarFollowingsPublico</result>
                      
