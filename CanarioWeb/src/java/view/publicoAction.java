@@ -40,7 +40,7 @@ else {
      Map auth = ActionContext.getContext().getSession();
     reg= PerfilDao.traerPerfilNombre(u);
     			System.err.println("U-->" + u);
-                        System.err.println("Reg.nombre-->" + reg.getNombre());
+                        //System.err.println("Reg.nombre-->" + reg.getNombre());
 
 
                 auth.put("publicocontext", reg.getIdu());

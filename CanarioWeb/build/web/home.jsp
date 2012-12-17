@@ -51,54 +51,15 @@
                   
             
                   <div class="well">
-                    <h4>Top 10 Usuarios:</h4>             
-                    <select name=select1 onchange='OnChange(this.form.select1);'>
-                        <option>Todos</option>
-                        <option>Capital (Mendoza)</option>
-                        <option>General Alvear</option>
-                         <option>Godoy Cruz</option>
-                          <option>Guaymallen</option>
-                           <option>Junin</option>
-                            <option>La Paz</option>
-                             <option>Las Heras</option>
-                              <option>Lavalle</option>
-                               <option>Lujan de Cuyo</option>
-                                <option>Maipu</option>
-                                 <option>Malargue</option>
-                                  <option>Rivadavia</option>
-                                  <option>San Carlos</option>
-                                   <option>San Martin</option>
-                                    <option>San Rafael</option>
-                                     <option>Santa Rosa</option>
-                                      <option>Tunuyan</option>
-                                       <option>Tupungato</option>            
-                   </select>
+                    <h4>Top 10 Usuarios:</h4>
+
+                        
                     <div id="topUser">cargando...</div>
                   </div> 
               
                  <div class="well"> 
                       <h4>Top 10 Temas:</h4>
-                      <select name=select2 onchange='OnChange(this.form.select2);'>
-                        <option>Todos</option>
-                        <option>Capital (Mendoza)</option>
-                        <option>General Alvear</option>
-                        <option>Godoy Cruz</option>
-                        <option>Guaymallen</option>
-                        <option>Junin</option>
-                        <option>La Paz</option>
-                        <option>Las Heras</option>
-                        <option>Lavalle</option>
-                        <option>Lujan de Cuyo</option>
-                        <option>Maipu</option>
-                        <option>Malargue</option>
-                        <option>Rivadavia</option>
-                        <option>San Carlos</option>
-                        <option>San Martin</option>
-                        <option>San Rafael</option>
-                        <option>Santa Rosa</option>
-                        <option>Tunuyan</option>
-                        <option>Tupungato</option>            
-                   </select>
+                   
                    
                     <div id="topHash">cargando.....</div>
                  </div> 
@@ -137,18 +98,3 @@
    $.ajaxSetup({ cache: false });
 });
 </script>
-
-<script>
-function OnChange(dropdown)
-{
-    var myindex  = dropdown.selectedIndex
-    var SelValue = dropdown.options[myindex].value
-    var baseURL  = <Some value based on SelValue>
-    top.location.href =  '${base}/' + setfilter;
-    
-    return true;
-}
-</script>   
-
-
-

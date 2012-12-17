@@ -63,9 +63,9 @@
         <s:form action="register" id="registerHere" method="post">
                 <legend>Formulario de registro:</legend>
                 <label>Nombre Completo</label>
-                    <s:textfield id="nombre" name="nombre" label="Name"  placeholder="Ingresa tu nombre"/>
+                    <s:textfield id="usuario" name="usuario" label="User"  placeholder="Ingresa tu nombre"/>
                 <label>Nombre de usuario</label>
-                    <s:textfield id="usuario" name="usuario" label="User"  placeholder="Elige un nombre de usuario"/>
+                    <s:textfield id="nombre" name="nombre" label="Name"  placeholder="Elige un nombre de usuario"/>
                 <label>Email</label>
                     <s:textfield id="mail" name="mail" label="Email" placeholder="email para ingresar"/>
                 <label>Contraseña</label>

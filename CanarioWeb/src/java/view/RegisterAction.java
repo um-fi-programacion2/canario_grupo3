@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import model.Usuarios;
+
 public class RegisterAction extends ActionSupport {
 private Long idu;
 private String nombre;
@@ -99,7 +100,7 @@ reg.setUsuario(usuario);
 /*Mail de bienvenida*/
 SendMail correo = new SendMail(reg.getMail(),reg.getNombre(),1);  
  Thread t = new Thread(correo);  
- t.start();  
+ t.start();
  
 if (RegisterDao.registerUser(reg))
 return "success";

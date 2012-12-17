@@ -19,6 +19,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import view.SendMail;
 
 /**
  *
@@ -142,13 +143,17 @@ public class relacionesDao {
                         re.setSiguiendo(siguiendo.toString());
                         s.persist(re);
                         t.commit();
-                                                 s.disconnect();
+                        s.close();
+                        
+                        
+                        sendNotificationFollow(re.getSiguiendo());
+                       
                        
                        return 1;
 
 		
 		} catch (Exception ex) {
-			System.err.println("Error-->" + ex.getMessage());
+			System.err.println("Error-0->" + ex.getMessage());
 			return 0;
 		}
 
@@ -209,5 +214,30 @@ public class relacionesDao {
 		}
                  
   }
-    
+     public static boolean sendNotificationFollow(String idu) {
+         SessionFactory sf = HibernateUtil.getSessionFactory();
+                        Transaction t = null;
+                        Session s = sf.openSession();
+			t = s.beginTransaction(); // start a new transaction
+                   try {    
+                                              System.err.println("idu parametro-->" + idu);
+                       
+                       Usuarios seguidor = new Usuarios();
+                       seguidor = PerfilDao.traerPerfil(Long.parseLong(idu));
+                     
+                       if(seguidor.getFlag1().compareTo("true") == 0) {
+                      
+
+                       SendMail correo = new SendMail(seguidor.getMail(),seguidor.getNombre(),2);  
+                       Thread thread = new Thread(correo);  
+                       thread.start(); 
+                       }
+                       s.close();
+                       return true;
+     }
+                       catch (Exception ex) {
+			System.err.println("Error-:p->" + ex.getMessage());
+			return false;
+		}
+    }
 }

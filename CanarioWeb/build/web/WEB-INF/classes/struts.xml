@@ -83,10 +83,9 @@
                 
                 
                 <action name="changeState" class="view.CambiarRelacionAction">
-                  <result name="success" type="chain">/home.jsp</result>
-                  
-                    
+                  <result name="success" type="chain">/home.jsp</result>        
                 </action>
+                
                 
                  <action name="publico" class="view.publicoAction">
                     <result name="success">/publico.jsp</result>
@@ -165,7 +164,7 @@
                  </action>
                  
                  <action name="followUsuariop" class="view.FollowAction">
-                     <result name="bien" type="chain">listarFollowingsPublico</result>
+                     <result name="bien" type="chain">listarFollowersPublico</result>
                     <result name="fail">/home.jsp</result>
                      
                  </action>

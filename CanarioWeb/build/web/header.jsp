@@ -45,9 +45,11 @@
   <%@page import="dao.PerfilDao"%>
   <%@page import="model.Usuarios"%>
   <%@page import="dao.relacionesDao"%>
-  <% Usuarios u = PerfilDao.traerPerfil(); %>  
-  <% Usuarios publico = PerfilDao.traerPerfilPublico(); %>  
 
+  <% Usuarios u = PerfilDao.traerPerfil(); %>  
+  <% Usuarios publico = PerfilDao.traerPerfilPublico(); %>
+  
+  
   
   <body>
       
