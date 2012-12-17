@@ -17,9 +17,15 @@
                
                 <s:hidden name="nombre" value="%{nombre}"/>
                 <s:hidden name="string" value="%{string}"/>
+<<<<<<< .mine
+                <s:submit cssClass="badge badge-info" type="button" title="retweet"><i class="icon-retweet icon-white"></i></s:submit>
+
+
+=======
 
                 <s:submit cssClass="badge badge-info" type="button" title="retweet"><i class="icon-retweet icon-white"></i></s:submit>
 
+>>>>>>> .theirs
                 </s:form>
             </td>       
         </tr>
