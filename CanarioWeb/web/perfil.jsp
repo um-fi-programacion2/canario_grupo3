@@ -17,12 +17,7 @@
               Following:<a href="<s:url action="listarFollowings"/>"><strong><%= relacionesDao.countFollowing(u.getIdu()) %></strong></a><br>
               Twits: <strong><%= relacionesDao.countTwits(u.getIdu()) %></strong>
    
-              <li class="nav-header">Enviar un tweet</li>
-              <s:form action="sendtwit" id="prueba">
-                    <s:textarea id="strings" cssClass="texto"  name="strings"  maxlength="200" placeholder="canarear!!!"></s:textarea> 
-            <s:submit cssClass="btn btn-warning" value="enviar"></s:submit> 
-            </s:form>
-              <div id="caracteres"></div>
+              
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

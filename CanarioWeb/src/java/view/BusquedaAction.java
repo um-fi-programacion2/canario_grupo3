@@ -20,13 +20,13 @@ import model.timelineView;
 public class BusquedaAction {
 private String buscate;    
 private ArrayList<Usuarios>nombresUsuarios=new ArrayList<Usuarios> ();
-private int valoru=0;
+private int valoru=2;
 private ArrayList<Twits>twitsUsuarios=new ArrayList<Twits> ();
 private ArrayList<timelineView>listaTabla=new ArrayList<timelineView>();
  
-private int valort=0;
+private int valort=2;
 private ArrayList<Hashtags>temasUsuarios=new ArrayList<Hashtags> ();
-private int valorh=0;
+private int valorh=2;
 private int valor=1;
 
  public ArrayList<timelineView> getListaTabla() {
@@ -98,6 +98,10 @@ private int valor=1;
     public String execute() throws Exception{
         Map auth = ActionContext.getContext().getSession();
         
+        if(buscate.compareTo("#")==0 | buscate.compareTo("@")==0 | buscate.compareTo("")==0 | buscate.compareTo(" ")==0 ){
+            return "fail";
+        }
+        
         if (buscate.charAt(0)=='@' | buscate.charAt(0) == '#') {
        
             buscate=buscate.substring(1, buscate.length());
@@ -151,6 +155,8 @@ private int valor=1;
         System.out.println("nombres de temas: "+valorh);
        return "bien";
         }
+        
+     
    
     
 }

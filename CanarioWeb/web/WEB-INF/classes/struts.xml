@@ -218,7 +218,7 @@
                      
                  <action name="busqueda" class="view.BusquedaAction">
                      <result name="bien">/busqueda.jsp</result>
-                     <result name="fail">/perfil.jsp</result>  
+                     <result name="fail">/busqueda.jsp</result>  
                  </action>
                  
                  <action name="hashtag" class="view.ListarHashtagAction">
