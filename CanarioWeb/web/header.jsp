@@ -8,10 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-<link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon"
+    <link href="/img/favicon.ico" rel="shortcut icon" type="image/x-icon">
       <!-- Le  styles -->
-  <!-- -->   <link href="./css/bootstrap.css" rel="stylesheet"> 
-   <!-- <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet"> -->
+    <link href="./css/bootstrap.css" rel="stylesheet">
+ <!--   <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet">   -->
    
     
      
@@ -25,8 +25,8 @@
         padding: 5px 0;
       }
     </style>
-    <link href="./css/bootstrap-responsive.css" rel="stylesheet">
-   <!-- <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
+   <link href="./css/bootstrap-responsive.css" rel="stylesheet"> 
+ <!--    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet"> -->
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -39,12 +39,8 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
-  
-    
-
-    
-    
-    </head>
+ 
+   </head>
 
   <%@page import="dao.PerfilDao"%>
   <%@page import="model.Usuarios"%>
@@ -54,38 +50,48 @@
 
   
   <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          
-         <a class="brand" href="#"><img src="./img/logo.png" width="20"> CanarioWeb</a>
-         
-          
-          <div class="nav-collapse collapse">
-            
-            <p class="navbar-text pull-right">
-              Logeado como <a href="<s:url action="logout"/>" class="navbar-link">@<%= u.getNombre() %> <i class="icon-white icon-off"></i></a>
-            </p>
-        
-            <ul class="nav">
-                <li class="active"><a href="home.jsp"><i class="icon-home"></i>Home</a></li>
-              <li><a href="<s:url action="config"/>"><i class="icon-white icon-user"></i>Configuración</a></li>
-              <li><a href="<s:url action="api"/>"><i class="icon-white icon-wrench"></i>Api</a></li>
+      
+      <div class="navbar navbar-inverse navbar-fixed-top">
+              <div class="navbar-inner">
+                  <a href="#" class="brand"><img src="./img/logo.png" width="20"> CanarioWeb</a>
+                
+                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </a>
                   
-            </ul>
-           
-              <s:form cssClass="navbar-search" method="post" action="busqueda">
-                  <s:textfield cssClass="search-query span3" name="buscate"/>
-                  <i class="icon-search icon-white"></i>
-                  </s:form>   
-     
-          </div><!--/.nav-collapse -->
+                  <div class="nav-collapse collapse navbar-inverse-collapse">
+                    <ul class="nav">
+                      
+                      <li><a href="home.jsp"><i class="icon-home"></i>Home</a></li><li class="divider-vertical"></li>
+                      <li><a href="<s:url action="config"/>"><i class="icon-white icon-user"></i>Configuración</a></li><li class="divider-vertical"></li>
+                      <li><a href="<s:url action="api"/>"><i class="icon-white icon-wrench"></i>Api</a></li>
+                      
+                    </ul>
+                        <s:form cssClass="navbar-search " method="post" action="busqueda" title="realiza una busqueda">
+                            <s:textfield cssClass="search-query span3" name="buscate" id="buscate"></s:textfield>&nbsp;
+                            <i class="icon-search icon-white"></i>
+                         </s:form>   
+                    <ul class="nav pull-right">
+                      
+                      <li class="divider-vertical"></li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="icon-white icon-off"></i><b class="caret"></b></a>
+                        <ul class="dropdown-menu" style="background-color: #252525; color: #ffffff;">
+                            <p class="active">Logeado como: </p><a href="<s:url action="logout"/>" class="navbar-link active">@<%= u.getNombre() %> <i class="icon-white icon-off"></i></a>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div><!-- /.nav-collapse -->
                
-        </div>
-         
-      </div>
-    </div>
+              </div><!-- /navbar-inner -->
+            </div>
+      
+     
+    
+       
 
     <div class="container-fluid">
         <div class="container">
+            

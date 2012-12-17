@@ -23,10 +23,11 @@ private ArrayList<Usuarios>nombresUsuarios=new ArrayList<Usuarios> ();
 private int valoru=0;
 private ArrayList<Twits>twitsUsuarios=new ArrayList<Twits> ();
 private ArrayList<timelineView>listaTabla=new ArrayList<timelineView>();
- Map auth = ActionContext.getContext().getSession();
+ 
 private int valort=0;
 private ArrayList<Hashtags>temasUsuarios=new ArrayList<Hashtags> ();
 private int valorh=0;
+private int valor=1;
 
  public ArrayList<timelineView> getListaTabla() {
         return listaTabla;
@@ -95,9 +96,12 @@ private int valorh=0;
     }
     
     public String execute() throws Exception{
+        Map auth = ActionContext.getContext().getSession();
         
         if (buscate.charAt(0)=='@' | buscate.charAt(0) == '#') {
-        buscate=buscate.substring(1, buscate.length());
+       
+            buscate=buscate.substring(1, buscate.length());
+           
         
         }
        if(dao.BusquedaDao.getUsuarios(buscate).size()>0){
@@ -146,7 +150,7 @@ private int valorh=0;
         System.out.println("nombres de tweets: "+valort);
         System.out.println("nombres de temas: "+valorh);
        return "bien";
+        }
    
-   } 
     
 }

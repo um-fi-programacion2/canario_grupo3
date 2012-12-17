@@ -145,22 +145,24 @@ public class ListarFollowersAction {
             }
         }
         
-                
-        listaFollowersU=dao.relacionesDao.getFollowers(((Number)auth.get("publicocontext")).longValue());
+       
+        listaFollowersU=dao.relacionesDao.getFollowers(reg.getIdu());
         
        for(int i=0;i<listaFollowersU.size();i++){
            FollowersView e = new FollowersView();
        lista.add(i,e);
        lista.get(i).setIdmia(((Number)auth.get("idusuario")).longValue());
-       lista.get(i).setIdu(((Number)auth.get("publicocontext")).longValue());
+       lista.get(i).setIdu(reg.getIdu());
        lista.get(i).setNombre(ListarTwitsDao.getSingleUser(listaFollowersU.get(i).getIdu()).getNombre());
        lista.get(i).setImagen(ListarTwitsDao.getSingleUser(listaFollowersU.get(i).getIdu()).getImagen());
        lista.get(i).setIdseguidor(listaFollowersU.get(i).getIdu());
-       
-       if(((Number)auth.get("idusuario")).longValue()==listaFollowersU.get(i).getIdu().longValue()){
-       lista.get(i).setRelacion(2);
+           
+       if(lista.get(i).getIdmia() ==listaFollowersU.get(i).getIdu().longValue()){
+      
+           lista.get(i).setRelacion(2);
        }else{
        lista.get(i).setRelacion(dao.relacionesDao.checkRelacion(((Number)auth.get("idusuario")).longValue(), listaFollowersU.get(i).getIdu().longValue()));
+           System.out.println("aca esta el error");
        }
        } 
        return "bien";

@@ -32,7 +32,7 @@ public class BusquedaDao {
                         
                          
                    
-                         s.close();
+                         //s.close(); rompe rompe rompe
                          return (ArrayList<Twits>)query.list();
 
 		
@@ -55,12 +55,12 @@ public class BusquedaDao {
                          query.setString("nombre",nombre);            
                          
                    
-                         s.close();
+                       // s.close(); rompe todo!!!
                          return (ArrayList<Usuarios>)query.list();
-
+                        
 		
 		} catch (Exception ex) {
-			System.err.println("Error !-->" + ex.getMessage());
+			System.err.println("Error 123!-->" + ex.getMessage());
 			
 			return null;
 		}
@@ -78,7 +78,7 @@ public class BusquedaDao {
                          
                          
                    
-                         s.close();
+                         //s.disconnect(); rompe todoooo
                          return (ArrayList<Hashtags>)query.list();
 
 		

@@ -33,6 +33,7 @@
         </div><!--/span-->
         <div class="span6">
             <div class="well">
+                
             <strong><h2>Resultados de la Busqueda:</h2></strong>
               
               
@@ -63,7 +64,7 @@
                 
                             <s:iterator value="temasUsuarios">
                            <br>
-                           <s:property value="valorh"/>
+                           
                            <s:if test="valorh==1">
                            <s:property value="string" />
                            </s:if>

@@ -1,6 +1,6 @@
 <%@include file="header.jsp"%>
 
-<div class="row-fluid">
+<div class="row-fluid"> 
         <div class="span3">
          <div class="well" > 
             <ul class="nav nav-list">
@@ -28,20 +28,20 @@
                   <div class="control-group">
                     <label class="control-label"></label>
                     <div class="controls">
-                    
+                    <div id="caracteres"></div>
                         <button type="submit" class="btn btn-warning" >enviar</button>
                     
                     </div>
                     </div>
             </s:form>
-              <div id="caracteres"></div>
+              
               
               
             </ul>
        </div>   <!--/.well -->
         </div><!--/span-->
         <div class="span6">
-          <div class="well">
+          <div class="hero-unit">
                <div id="divtest">cargando.....</div>
           </div>
          </div><!--/span-->

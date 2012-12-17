@@ -24,6 +24,15 @@ public class ListarFollowingsAction {
     private Usuarios reg = new Usuarios();
         int followers;
         int following;
+        int relacion=2;
+
+    public int getRelacion() {
+        return relacion;
+    }
+
+    public void setRelacion(int relacion) {
+        this.relacion = relacion;
+    }
 
     public Usuarios getReg() {
         return reg;
@@ -57,15 +66,9 @@ public class ListarFollowingsAction {
         this.countTwits = countTwits;
     }
 
-    public int getRelacion() {
-        return relacion;
-    }
-
-    public void setRelacion(int relacion) {
-        this.relacion = relacion;
-    }
+   
         int countTwits;
-        int relacion;
+      
         
         
     public Map getAuth() {
@@ -114,7 +117,7 @@ public class ListarFollowingsAction {
        return "bien";
     }
       public String ListarFollowingsPublico() throws Exception{
-          
+            
           reg= PerfilDao.traerPerfil(Long.parseLong(auth.get("publicocontext").toString()));
        
         if (reg != null) {
@@ -134,22 +137,25 @@ public class ListarFollowingsAction {
         
           
           
-          System.out.println("este es el id publico: "+((Number)auth.get("publicocontext")).longValue());
-        listaFollowersU=dao.relacionesDao.getFollowings(((Number)auth.get("publicocontext")).longValue());
-          System.out.println("entre al listarfollowingspublico");
+        
+        listaFollowersU=dao.relacionesDao.getFollowings(reg.getIdu());
+          System.out.println("entre al listarfollowingspublico, cantidad de encontrados: "+listaFollowersU.size());
        for(int i=0;i<listaFollowersU.size();i++){
            FollowersView e = new FollowersView();
        lista.add(i,e);
        lista.get(i).setIdmia(((Number)auth.get("idusuario")).longValue());
-       lista.get(i).setIdu(((Number)auth.get("publicocontext")).longValue());
+       lista.get(i).setIdu(reg.getIdu());
        lista.get(i).setNombre(ListarTwitsDao.getSingleUser(listaFollowersU.get(i).getIdu()).getNombre());
        lista.get(i).setImagen(ListarTwitsDao.getSingleUser(listaFollowersU.get(i).getIdu()).getImagen());
        lista.get(i).setIdseguidor(listaFollowersU.get(i).getIdu());
-       
+           System.out.println("prueba");
             if(((Number)auth.get("idusuario")).longValue()==listaFollowersU.get(i).getIdu().longValue()){
-            lista.get(i).setRelacion(2);
-            }else{
-            lista.get(i).setRelacion(dao.relacionesDao.checkRelacion(((Number)auth.get("idusuario")).longValue(), listaFollowersU.get(i).getIdu().longValue()));
+            
+                lista.get(i).setRelacion(2);
+                 
+            }else{               
+            
+                lista.get(i).setRelacion(dao.relacionesDao.checkRelacion(lista.get(i).getIdmia(), listaFollowersU.get(i).getIdu().longValue()));
             }
        } 
        return "bien";
