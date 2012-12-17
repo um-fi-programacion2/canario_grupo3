@@ -96,6 +96,11 @@ reg.setPass(pass);
 reg.setImagen(imagen);
 reg.setUsuario(usuario);
 
+/*Mail de bienvenida*/
+SendMail correo = new SendMail(reg.getMail(),reg.getNombre(),1);  
+ Thread t = new Thread(correo);  
+ t.start();  
+ 
 if (RegisterDao.registerUser(reg))
 return "success";
 else
