@@ -143,6 +143,4 @@ public class TwitDao {
     }
     return true;
     }
-
-
 }

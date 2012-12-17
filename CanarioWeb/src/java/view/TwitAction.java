@@ -68,7 +68,8 @@ tw.setIdt(idt);
 tw.setIdu(idu);
 tw.setString(strings);
 tw.setTimestam(timestam);
-
+String aux = this.wrap(tw.getString());
+tw.setString(aux);
 if (TwitDao.saveTwit(tw)) {
         return "success";
     }
@@ -76,5 +77,20 @@ if (TwitDao.saveTwit(tw)) {
         return "fail";
 }
     
-   
+   public static String wrap(String in) {
+       int i;
+       String out="";
+       String [] palabras =in.split(" ");
+    for(i = 0; i < palabras.length; i++){
+if (palabras[i].length() > 40) { 
+    palabras[i] = palabras[i].substring(0, 40);
+        }
+    }
+    for(i=0; i<palabras.length; i++) {
+        out=out.concat(palabras[i] + " ");
+    }
+    return out;
+            
+ }
+  
 }
