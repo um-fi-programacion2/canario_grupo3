@@ -7,56 +7,61 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="false" />
 	<package name="default" extends="struts-default">
-
-		<action name="register" class="view.RegisterAction">
+                
+		<action name="register" class="controler.RegisterAction">
 			<result name="success" type="chain">login</result>
 			<result name="fail">/index.jsp</result>
                         <result name="input">/index.jsp</result>
 
 		</action>
+                <action name="home" class="controler.HomeAction">
+                        <result name="success">/home.jsp</result>
+			<result name="empty">/index.jsp</result>
+		</action>
                 
-                <action name="login" class="view.LoginAction">
+                <action name="login" class="controler.LoginAction">
                 
                     <result name="success">/home.jsp</result>
 			<result name="fail">/index.jsp</result>
 		</action>	
-                     <action name="logout" class="view.LogoutAction">
+                     <action name="logout" class="controler.LogoutAction">
                     <result name="OK">/index.jsp</result>
                     <result name="FAIL">/home.jsp</result>
                     
                 </action>   
 
 		
-                <action name="sendtwit" class="view.TwitAction">
+                <action name="sendtwit" class="controler.TwitAction">
                     <result name="success">/home.jsp</result>
                     <result name="fail">/home.jsp</result>
+                    <result name="empty">/index.jsp</result> 
                     
                 </action>
                 
-                 <action name="listar" class="view.ListarTwits">
+                 <action name="listar" class="controler.ListarTwits">
                     <result name="fin">/listarTwits.jsp</result>
                     <result name="fail">/listarTwits.jsp</result>
                     
                 </action>
-                <action name="listarpublico" class="view.ListarPublicoTwits">
+                <action name="listarpublico" class="controler.ListarPublicoTwits">
                     <result name="fin">/listarPublico.jsp</result>
                     <result name="fail">/listarPublico.jsp</result>
                     
                 </action>
-                <action name="GuardarPerfil" class="view.PerfilAction">
+                <action name="GuardarPerfil" class="controler.PerfilAction">
                     <result name="success" type="chain">config</result>
                     <result name="fail">/perfil.jsp</result>
                     
                 </action>
                 
-                <action name="genKey" class="view.GenkeyAction">
+                <action name="genKey" class="controler.GenkeyAction">
                     <result name="success" type="chain">api</result>
                     <result name="fail" type="chain">api</result>
                     
                 </action>
 
                 <action name="userImage"
-                    class="view.FileUploadAction">
+                    class="controler.FileUploadAction">
                     <interceptor-ref name="fileUpload">
                         <param name="maximumSize">2097152</param>
                         <param name="allowedTypes">
@@ -70,160 +75,157 @@
 
 
    
-                <action name="changeFollowState" class="view.CambiarRelacionAction">
+                <action name="changeFollowState" class="controler.CambiarRelacionAction">
                   <result name="success" type="chain">publico</result>
                    </action>
                    
-                   <action name="changeFollowStateInFollowings" class="view.CambiarRelacionAction" method="cambiarRelacionPublico">
+                   <action name="changeFollowStateInFollowings" class="controler.CambiarRelacionAction" method="cambiarRelacionPublico">
                   <result name="success" type="chain">listarFollowingsPublico</result>
                    </action>
-                   <action name="changeFollowStateInFollowers" class="view.CambiarRelacionAction" method="cambiarRelacionPublico">
+                   <action name="changeFollowStateInFollowers" class="controler.CambiarRelacionAction" method="cambiarRelacionPublico">
                   <result name="success" type="chain">listarFollowersPublico</result>
                    </action>
                 
                 
-                <action name="changeState" class="view.CambiarRelacionAction">
+                <action name="changeState" class="controler.CambiarRelacionAction">
                   <result name="success" type="chain">/home.jsp</result>        
                 </action>
                 
                 
-                 <action name="publico" class="view.publicoAction">
+                 <action name="publico" class="controler.publicoAction">
                     <result name="success">/publico.jsp</result>
-                    <result name="fail">/publico.jsp</result>
+                    <result name="fail">/erroru.jsp</result>
+                    <result name="empty">/index.jsp</result> 
                     
                 </action>
-                 <action name="config" class="view.ConfigPerfilAction">
+                 <action name="config" class="controler.ConfigPerfilAction">
                     <result name="bien">/perfil.jsp</result>
                     <result name="fail">/perfil.jsp</result>
-                    
+                    <result name="empty">/index.jsp</result>
                 </action>
                  
-                 <action name="api" class="view.ApiAction">
+                 <action name="api" class="controler.ApiAction">
                     <result name="bien">/api.jsp</result>
                     <result name="fail">/api.jsp</result>
-                    
+                    <result name="empty">/index.jsp</result>
                 </action>
                 
-                 <action name="addapp" class="view.AddappAction">
+                 <action name="addapp" class="controler.AddappAction">
                     <result name="success" type="chain">api</result>
                     <result name="fail" type="chain">api</result>
                     
                 </action>
                 
                  
-                 <action name="dellapp" class="view.DellappAction">
+                 <action name="dellapp" class="controler.DellappAction">
                     <result name="success" type="chain">api</result>
                     <result name="fail" type="chain">api</result>
                     
                 </action>
                 
-                 <action name="guardarFlags" class="view.GuardarFlagsAction">
+                 <action name="guardarFlags" class="controler.GuardarFlagsAction">
                     <result name="success" type="chain">config</result>
                     <result name="fail">/home.jsp</result>
                     
                 </action>
                 
-                 <action name="listarFollowers" class="view.ListarFollowersAction">
+                 <action name="listarFollowers" class="controler.ListarFollowersAction">
                      <result name="bien">/followers.jsp</result>
                     <result name="fail">/home.jsp</result>
-                     
+                     <result name="empty">/index.jsp</result>
                  </action>
-                 <action name="listarFollowings" class="view.ListarFollowingsAction">
+                 <action name="listarFollowings" class="controler.ListarFollowingsAction">
                      <result name="bien">/followings.jsp</result>
                     <result name="fail">/home.jsp</result>
+                    <result name="empty">/index.jsp</result>
                  </action>
               
-                 <action name="listarFollowingsPublico" class="view.ListarFollowingsAction" method="ListarFollowingsPublico">
+                 <action name="listarFollowingsPublico" class="controler.ListarFollowingsAction" method="ListarFollowingsPublico">
                      <result name="bien">/followingsPublico.jsp</result>
                     <result name="fail">/home.jsp</result>
+                    <result name="empty">/index.jsp</result>
                  </action>
                  
-                 <action name="listarFollowersPublico" class="view.ListarFollowersAction" method="ListarFollowersPublico">
+                 <action name="listarFollowersPublico" class="controler.ListarFollowersAction" method="ListarFollowersPublico">
                      <result name="bien">/followersPublico.jsp</result>
                     <result name="fail">/home.jsp</result>
+                    <result name="empty">/index.jsp</result>
                  </action>
 
                     
-                 <action name="followUsuario" class="view.FollowAction">
+                 <action name="followUsuario" class="controler.FollowAction">
                      <result name="bien" type="chain">listarFollowers</result>
                     <result name="fail">/home.jsp</result>
                      
                  </action>
                  
-                <action name="unfollowUsuario" class="view.UnFollowAction">
+                <action name="unfollowUsuario" class="controler.UnFollowAction">
                      <result name="bien" type="chain">listarFollowers</result>
                      
                     <result name="fail">/home.jsp</result>
                      
                  </action>
-                 <action name="followU" class="view.FollowAction">
+                 <action name="followU" class="controler.FollowAction">
                      <result name="bien" type="chain">listarFollowings</result>
                      
                     <result name="fail">/home.jsp</result>
                      
                  </action>
-                 <action name="unfollowU" class="view.UnFollowAction">
+                 <action name="unfollowU" class="controler.UnFollowAction">
                      <result name="bien" type="chain">listarFollowings</result>
                      
                     <result name="fail">/home.jsp</result>
                      
                  </action>
                  
-                 <action name="followUsuariop" class="view.FollowAction">
+                 <action name="followUsuariop" class="controler.FollowAction">
                      <result name="bien" type="chain">listarFollowersPublico</result>
                     <result name="fail">/home.jsp</result>
                      
                  </action>
                  
-                <action name="unfollowUsuariop" class="view.UnFollowAction">
+                <action name="unfollowUsuariop" class="controler.UnFollowAction">
                      <result name="bien" type="chain">listarFollowersPublico</result>
                      
                     <result name="fail">/home.jsp</result>
                      
                  </action>
                  
-                 <action name="followUp" class="view.FollowAction">
+                 <action name="followUp" class="controler.FollowAction">
                      <result name="bien" type="chain">listarFollowingsPublico</result>
                      
                     <result name="fail">/home.jsp</result>
                      
                  </action>
                  
-                 <action name="unfollowUp" class="view.UnFollowAction">
+                 <action name="unfollowUp" class="controler.UnFollowAction">
                      <result name="bien" type="chain">listarFollowingsPublico</result>
                      
                     <result name="fail">/home.jsp</result>
-                     
-                 </action>
-                 
-                 
-                 
-                 
-                 <action name="retweet" class="view.RetweetAction">
-                     <result name="bien">/home.jsp</result>
-                     <result name="fail">/home.jsp</result>
                      
                  </action>
                  
 
-                  <action name="topUsuarios" class="view.Top10usuarios">
+                  <action name="topUsuarios" class="controler.Top10usuarios">
                      <result name="fin">topUsuarios.jsp</result>
                      <result name="fail">topUsuarios.jsp</result>
                      </action>
                      
-                      <action name="topHashtags" class="view.Top10Hashtags">
+                      <action name="topHashtags" class="controler.Top10Hashtags">
                      <result name="fin">topHash.jsp</result>
                      <result name="fail">topHash.jsp</result>
                      </action>
                      
-                 <action name="busqueda" class="view.BusquedaAction">
+                 <action name="busqueda" class="controler.BusquedaAction">
                      <result name="bien">/busqueda.jsp</result>
-                     <result name="fail">/busqueda.jsp</result>  
+                     <result name="fail">/busqueda.jsp</result> 
+                     <result name="empty">/index.jsp</result> 
                  </action>
                  
-                 <action name="hashtag" class="view.ListarHashtagAction">
+                 <action name="hashtag" class="controler.ListarHashtagAction">
                      <result name="bien">/hashtag.jsp</result>
-                     <result name="fail">/home.jsp</result>  
+                     <result name="fail">/errorh.jsp</result>  
+                     <result name="empty">/index.jsp</result>
                  </action>
                  
 	</package>

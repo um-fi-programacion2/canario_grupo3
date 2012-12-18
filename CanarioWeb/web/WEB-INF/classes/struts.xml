@@ -94,7 +94,7 @@
                 
                  <action name="publico" class="controler.publicoAction">
                     <result name="success">/publico.jsp</result>
-                    <result name="fail">/publico.jsp</result>
+                    <result name="fail">/erroru.jsp</result>
                     <result name="empty">/index.jsp</result> 
                     
                 </action>
@@ -224,7 +224,7 @@
                  
                  <action name="hashtag" class="controler.ListarHashtagAction">
                      <result name="bien">/hashtag.jsp</result>
-                     <result name="fail">/home.jsp</result>  
+                     <result name="fail">/errorh.jsp</result>  
                      <result name="empty">/index.jsp</result>
                  </action>
                  

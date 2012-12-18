@@ -172,6 +172,10 @@ public class ListarHashtagAction extends ActionSupport {
                             listaTablaHash.get(i).setIdsesion(((Number)auth.get("idusuario")).longValue());
 
                     }
+                    if(listaTablaHash.isEmpty()) {
+                return "fail";
+            }
+                    
                     creador=listaTablaHash.get(0).getNombre();
               
     

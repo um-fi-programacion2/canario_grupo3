@@ -19,7 +19,6 @@
     <script src="./js/bootstrap-button.js"></script>
     <script src="./js/bootstrap-collapse.js"></script>
     <script src="./js/bootstrap-carousel.js"></script>
-    <script src="./js/bootstrap-typeahead.js"></script>
     <script src="./js/bootstrap-select.js"></script>
 <script type="text/javascript" src="./js/jquery-validate.js"></script>
 

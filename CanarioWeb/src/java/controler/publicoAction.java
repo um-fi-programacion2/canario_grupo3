@@ -39,10 +39,13 @@ public publicoAction() {
                 }
                 else {
                      Map auth = ActionContext.getContext().getSession();
-                    reg= PerfilDao.traerPerfilNombre(u);
-                                        System.err.println("U-->" + u);
+                  
+                        reg= PerfilDao.traerPerfilNombre(u);
+                        System.err.println("U-->" + u);
                                         //System.err.println("Reg.nombre-->" + reg.getNombre());
-
+                    if(reg == null)
+                        return "fail";
+               
 
                                 auth.put("publicocontext", reg.getIdu());
 
