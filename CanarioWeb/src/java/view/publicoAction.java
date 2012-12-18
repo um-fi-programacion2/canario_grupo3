@@ -30,43 +30,47 @@ public publicoAction() {
 }
 
     public String execute() throws Exception {
+       Map auth1 = ActionContext.getContext().getSession();
+     if(!auth1.isEmpty()){
+                if(u == null) {
+                    Map auth = ActionContext.getContext().getSession();
+                            reg= PerfilDao.traerPerfil(Long.parseLong(auth.get("publicocontext").toString()));
 
-if(u == null) {
-    Map auth = ActionContext.getContext().getSession();
-            reg= PerfilDao.traerPerfil(Long.parseLong(auth.get("publicocontext").toString()));
-           
-}
-else {
-     Map auth = ActionContext.getContext().getSession();
-    reg= PerfilDao.traerPerfilNombre(u);
-    			System.err.println("U-->" + u);
-                        //System.err.println("Reg.nombre-->" + reg.getNombre());
+                }
+                else {
+                     Map auth = ActionContext.getContext().getSession();
+                    reg= PerfilDao.traerPerfilNombre(u);
+                                        System.err.println("U-->" + u);
+                                        //System.err.println("Reg.nombre-->" + reg.getNombre());
 
 
-                auth.put("publicocontext", reg.getIdu());
+                                auth.put("publicocontext", reg.getIdu());
 
-}
-if (reg != null) {
-    usuariopublico=reg.getIdu();
-    followers = relacionesDao.countFollowers(reg.getIdu());
-    following = relacionesDao.countFollowing(reg.getIdu());
-    countTwits = relacionesDao.countTwits(reg.getIdu());
-        Map auth = ActionContext.getContext().getSession();
-        
-    if(((Number)auth.get("idusuario")).longValue() != reg.getIdu()) {
-     
-    relacion = relacionesDao.checkRelacion(((Number)auth.get("idusuario")).longValue(),reg.getIdu());
-    }
-    else {
-        relacion= 2;
-    }
+                }
+                if (reg != null) {
+                    usuariopublico=reg.getIdu();
+                    followers = relacionesDao.countFollowers(reg.getIdu());
+                    following = relacionesDao.countFollowing(reg.getIdu());
+                    countTwits = relacionesDao.countTwits(reg.getIdu());
+                        Map auth = ActionContext.getContext().getSession();
 
-            return "success";
+                    if(((Number)auth.get("idusuario")).longValue() != reg.getIdu()) {
+
+                    relacion = relacionesDao.checkRelacion(((Number)auth.get("idusuario")).longValue(),reg.getIdu());
+                    }
+                    else {
+                        relacion= 2;
+                    }
+
+                            return "success";
+                        }
+                else {
+                            return "fail";
+                        }
+        }else{
+         return "empty";
         }
-else {
-            return "fail";
-        }
-}
+    }
 
     public String getU() {
         return u;

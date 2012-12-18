@@ -98,6 +98,8 @@ public class ListarFollowingsAction {
     public ListarFollowingsAction() {
     }
     public String execute() throws Exception {
+     Map auth1 = ActionContext.getContext().getSession();
+     if(!auth1.isEmpty()){
     
     
        listaFollowersU=dao.relacionesDao.getFollowings(((Number)auth.get("idusuario")).longValue());
@@ -115,9 +117,13 @@ public class ListarFollowingsAction {
        }
         
        return "bien";
+    }else {
+         return "empty";
+     }
     }
       public String ListarFollowingsPublico() throws Exception{
-            
+            Map auth1 = ActionContext.getContext().getSession();
+        if(!auth1.isEmpty()){
           reg= PerfilDao.traerPerfil(Long.parseLong(auth.get("publicocontext").toString()));
        
         if (reg != null) {
@@ -159,5 +165,9 @@ public class ListarFollowingsAction {
             }
        } 
        return "bien";
+     }
+     else {
+         return "empty";
+     }
     }
 }

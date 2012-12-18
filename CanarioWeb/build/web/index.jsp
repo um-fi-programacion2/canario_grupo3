@@ -1,7 +1,27 @@
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s" %>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+<script type="text/javascript" src="./js/noty/jquery.noty.js"></script>
+<script type="text/javascript" src="./js/noty/layouts/bottom.js"></script>
+<script type="text/javascript" src="./js/noty/layouts/bottomCenter.js"></script>
+<!-- You can add more layouts if you want -->
+<script type="text/javascript" src="./js/noty/themes/default.js"></script>
 
+
+<script src="./js/bootstrap-transition.js"></script>
+    <script src="./js/bootstrap-alert.js"></script>
+    <script src="./js/bootstrap-modal.js"></script>
+    <script src="./js/bootstrap-dropdown.js"></script>
+    <script src="./js/bootstrap-scrollspy.js"></script>
+    <script src="./js/bootstrap-tab.js"></script>
+    <script src="./js/bootstrap-tooltip.js"></script>
+    <script src="./js/bootstrap-popover.js"></script>
+    <script src="./js/bootstrap-button.js"></script>
+    <script src="./js/bootstrap-collapse.js"></script>
+    <script src="./js/bootstrap-carousel.js"></script>
+    <script src="./js/bootstrap-typeahead.js"></script>
+<script type="text/javascript" src="./js/jquery-validate.js"></script>
 <html lang="es">
   <head>
     <meta charset="utf-8">
@@ -18,9 +38,9 @@
         padding-bottom: 40px;
       }
     </style>
-    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="./css/bootstrap-responsive.css" rel="stylesheet">
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
-    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
+    
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -31,27 +51,41 @@
   </head>
 
   <body>
+      <div class="navbar navbar-inverse navbar-fixed-top">
+              <div class="navbar-inner">
+                  
+                
+                  <a class="btn btn-navbar" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </a>
+                  
+                  <div class="nav-collapse collapse navbar-inverse-collapse">
+                    <ul class="nav">
+                      <li class="span6 pull-right"><a href="#" class="brand"><img src="./img/logo.png" width="20"> CanarioWeb</a></li>
+                    </ul>
+                          
+                    <ul class="nav pull-right">
+                      
+                      <li class="divider-vertical"></li>
+                      <li class="dropdown">         
+                             <s:form cssClass="navbar-form pull-right" action="login" method="post">
+                                <s:textfield cssClass="span2" name="mail" placeholder="Ingrese su email"/>
+                                <s:password cssClass="span2" name="pass" placeholder="Ingrese su contraseña"/>
+                                <s:submit cssClass="btn" value="Logueate"/>
+                            </s:form>
+                        
+                      </li>
+                    </ul>
+                  </div><!-- /.nav-collapse -->
+               
+              </div><!-- /navbar-inner -->
+            </div>
       
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-          <div class="container-fluid" >
-              <div class="span4"></div>
-              
-          <a class="brand" href="#"><img src="./img/logo.png" width="20"> CanarioWeb</a>
-          
-          <div class="span8">
-          <div class="nav-collapse collapse">
-            
-              <s:form cssClass="navbar-form pull-right" action="login" method="post">
-                 <s:textfield cssClass="span2" name="mail" placeholder="Ingrese su email"/>
-                     <s:password cssClass="span2" name="pass" placeholder="Ingrese su contraseña"/>
-                     <s:submit cssClass="btn" value="Logueate"/>
-            </s:form>
-          </div><!--/.nav-collapse -->
-        </div>
-              </div>
-      </div>
-    </div>
+      
+      
+ 
          
    <div class="container">
 

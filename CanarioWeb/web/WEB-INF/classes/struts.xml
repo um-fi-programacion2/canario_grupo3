@@ -7,12 +7,16 @@
 	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
 	<constant name="struts.devMode" value="false" />
 	<package name="default" extends="struts-default">
-
+                
 		<action name="register" class="view.RegisterAction">
 			<result name="success" type="chain">login</result>
 			<result name="fail">/index.jsp</result>
                         <result name="input">/index.jsp</result>
 
+		</action>
+                <action name="home" class="view.HomeAction">
+                        <result name="success">/home.jsp</result>
+			<result name="empty">/index.jsp</result>
 		</action>
                 
                 <action name="login" class="view.LoginAction">
@@ -30,6 +34,7 @@
                 <action name="sendtwit" class="view.TwitAction">
                     <result name="success">/home.jsp</result>
                     <result name="fail">/home.jsp</result>
+                    <result name="empty">/index.jsp</result> 
                     
                 </action>
                 
@@ -90,18 +95,19 @@
                  <action name="publico" class="view.publicoAction">
                     <result name="success">/publico.jsp</result>
                     <result name="fail">/publico.jsp</result>
+                    <result name="empty">/index.jsp</result> 
                     
                 </action>
                  <action name="config" class="view.ConfigPerfilAction">
                     <result name="bien">/perfil.jsp</result>
                     <result name="fail">/perfil.jsp</result>
-                    
+                    <result name="empty">/index.jsp</result>
                 </action>
                  
                  <action name="api" class="view.ApiAction">
                     <result name="bien">/api.jsp</result>
                     <result name="fail">/api.jsp</result>
-                    
+                    <result name="empty">/index.jsp</result>
                 </action>
                 
                  <action name="addapp" class="view.AddappAction">
@@ -126,21 +132,24 @@
                  <action name="listarFollowers" class="view.ListarFollowersAction">
                      <result name="bien">/followers.jsp</result>
                     <result name="fail">/home.jsp</result>
-                     
+                     <result name="empty">/index.jsp</result>
                  </action>
                  <action name="listarFollowings" class="view.ListarFollowingsAction">
                      <result name="bien">/followings.jsp</result>
                     <result name="fail">/home.jsp</result>
+                    <result name="empty">/index.jsp</result>
                  </action>
               
                  <action name="listarFollowingsPublico" class="view.ListarFollowingsAction" method="ListarFollowingsPublico">
                      <result name="bien">/followingsPublico.jsp</result>
                     <result name="fail">/home.jsp</result>
+                    <result name="empty">/index.jsp</result>
                  </action>
                  
                  <action name="listarFollowersPublico" class="view.ListarFollowersAction" method="ListarFollowersPublico">
                      <result name="bien">/followersPublico.jsp</result>
                     <result name="fail">/home.jsp</result>
+                    <result name="empty">/index.jsp</result>
                  </action>
 
                     
@@ -218,12 +227,14 @@
                      
                  <action name="busqueda" class="view.BusquedaAction">
                      <result name="bien">/busqueda.jsp</result>
-                     <result name="fail">/busqueda.jsp</result>  
+                     <result name="fail">/busqueda.jsp</result> 
+                     <result name="empty">/index.jsp</result> 
                  </action>
                  
                  <action name="hashtag" class="view.ListarHashtagAction">
                      <result name="bien">/hashtag.jsp</result>
                      <result name="fail">/home.jsp</result>  
+                     <result name="empty">/index.jsp</result>
                  </action>
                  
 	</package>

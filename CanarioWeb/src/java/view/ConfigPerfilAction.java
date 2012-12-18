@@ -7,6 +7,7 @@ package view;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.PerfilDao;
+import java.util.Map;
 import model.Usuarios;
 
 /**
@@ -29,10 +30,14 @@ public class ConfigPerfilAction extends ActionSupport{
  
     @Override
     public String execute() throws Exception {
-
+        Map auth1 = ActionContext.getContext().getSession();
+     if(!auth1.isEmpty()){
     config= PerfilDao.traerPerfil();
            
     return "bien";
+     }else{
+         return "empty";
+     }
     }
     
 }

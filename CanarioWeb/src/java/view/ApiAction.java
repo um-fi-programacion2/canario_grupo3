@@ -8,6 +8,7 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.PerfilDao;
 import java.util.ArrayList;
+import java.util.Map;
 import model.Aplicaciones;
 import model.Twits;
 import model.Usuarios;
@@ -41,10 +42,14 @@ public class ApiAction extends ActionSupport{
  
     @Override
     public String execute() throws Exception {
-
+         Map auth1 = ActionContext.getContext().getSession();
+     if(!auth1.isEmpty()){
     config= PerfilDao.traerPerfil();
     listaApp=PerfilDao.getApps();  
     return "bien";
+    }else{
+         return "empty";
+     }
     }
     
 }
