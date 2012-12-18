@@ -67,6 +67,7 @@
       
       
       <script type="text/javascript" src="./js/jquery.js"></script>
+      <script type="text/javascript" src="./js/bootstrap-typeahead.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function() {
             var alCities = ['Capital (Mendoza)', 'General Alvear', 'Godoy Cruz', 'Guaymallen', 'Junin', 'La Paz', 'Las Heras', 'Lavalle', 'Lujan de Cuyo', 'Maipu', 'Malargue', 'Rivadavia', 'San Carllos', 'San Martin','San Rafael','Santa Rosa','Tunuyan','Tupungato'].sort();
