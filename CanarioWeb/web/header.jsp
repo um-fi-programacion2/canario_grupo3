@@ -20,6 +20,7 @@
     <script src="./js/bootstrap-collapse.js"></script>
     <script src="./js/bootstrap-carousel.js"></script>
     <script src="./js/bootstrap-typeahead.js"></script>
+    <script src="./js/bootstrap-select.js"></script>
 <script type="text/javascript" src="./js/jquery-validate.js"></script>
 
 
@@ -33,6 +34,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="./css/bootstrap.css" rel="stylesheet">
+    <link href="./css/bootstrap-select.css" rel="stylesheet">
     
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
       <!-- Le  styles -->

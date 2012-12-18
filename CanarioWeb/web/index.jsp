@@ -133,7 +133,7 @@
 			
 			$("#registerHere").validate({
 				rules:{ 
-                                        nombre:"required",
+                                        nombre:{required:true, digits:true },
                                         usuario:"required",
 					mail:{
 							required:true,
@@ -146,7 +146,7 @@
 				},
 				messages:{
                                         nombre:"Ingrese Nombre Completo",
-                                        usuario:"Ingrese un Usuario",
+                                        usuario:"El Usuario no puede contener espacios",
 					mail:{
 						required:"Ingrese una dirección de correo",
 						email:"Ingrese una dirección de correo valida"

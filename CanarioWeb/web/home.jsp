@@ -54,7 +54,7 @@
                   <div class="well">
                     <h4>Top 10 Usuarios:</h4>
                     <div id="fusers" hidden></div>
-                <select id="filterUsers">
+                <select id="filterUsers" class="selectpicker">
                 <option>Todos</option>
                 <option>Capital</option>
                 <option>General Alvear</option>
@@ -84,7 +84,7 @@
                       <h4>Top 10 Temas:</h4>
                    
                       <div id="fhashs" hidden></div>
-                 <select id="filterHashs">
+                 <select id="filterHashs" class="selectpicker">
                 <option>Todos</option>
                 <option>Capital</option>
                 <option>General Alvear</option>
@@ -126,6 +126,7 @@
 
 <script>
  $(document).ready(function() {
+     $('select').selectpicker();
  	 $("#topUser").load("http://localhost:8084/topUsuarios");
    var refreshTopu = setInterval(function() {
       $("#topUser").load('http://localhost:8084/topUsuarios');
