@@ -1,4 +1,4 @@
-package view;
+package controler;
 
 import dao.TopDao;
 import java.util.ArrayList;

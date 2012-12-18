@@ -1,51 +1,27 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package view;
-
-/**
- *
- * @author Franco
- */
+package controler;
 import com.opensymphony.xwork2.ActionSupport;
-import dao.PerfilDao;
-import java.util.ArrayList;
-import java.util.List;
+import dao.ListarTwitsDao;
+import dao.LoginDao;
+import dao.RegisterDao;
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import model.Twits;
 import model.Usuarios;
 
 
-public class PerfilAction extends ActionSupport {
+
+
+public class LoginAction extends ActionSupport {
 private Long idu;
 private String nombre;
-private String bio;
+private String bio="hola que tal";
+private java.util.Date date;
 private String mail;
 private String pass;
-private String localidad;
-private String usuario;
-
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getLocalidad() {
-        return localidad;
-    }
-
-    public void setLocalidad(String localidad) {
-        this.localidad = localidad;
-    }
-
-public PerfilAction() {
+private String imagen="imagen";
+public LoginAction() {
 }
+
 @Id
 @GeneratedValue
 @Column(name = "idu")
@@ -72,7 +48,14 @@ return this.bio;
 public void setBio(String bio) {
 this.bio = bio;
 }
+@Column (name="date")
+public java.util.Date getDate() {
+return this.date;
+}
 
+public void setDate(java.util.Date date) {
+this.date = date;
+}
 @Column (name="mail")
 public String getMail() {
 return this.mail;
@@ -89,22 +72,27 @@ return this.pass;
 public void setPass(String pass) {
 this.pass = pass;
 }
+@Column (name= "imagen")
+public String getImagen() {
+return this.imagen;
+}
 
-    public String execute() throws Exception {
+public void setImagen(String imagen) {
+this.imagen = imagen;
+}
+public String execute() throws Exception {
 Usuarios reg = new Usuarios();
-reg.setIdu(idu);
 reg.setBio(bio);
+reg.setDate(date);
+reg.setIdu(idu);
 reg.setMail(mail);
 reg.setNombre(nombre);
 reg.setPass(pass);
-reg.setLocalidad(localidad);
-reg.setUsuario(usuario);
-if (PerfilDao.guardarPerfil(reg))
+reg.setImagen(imagen);
+if (LoginDao.LoginUser(reg)) {
 return "success";
+}
 else
 return "fail";
 }
-    
- 
-    
 }

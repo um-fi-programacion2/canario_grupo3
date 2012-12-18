@@ -62,7 +62,7 @@
  	 $("#divdinamico").load("../listarpublico");
    var refreshId = setInterval(function() {
       $("#divdinamico").load('../listarpublico');
-   }, 9000);
+   }, 6000);
    $.ajaxSetup({ cache: false });
 });
 </script>
@@ -72,7 +72,7 @@
            // alert(idu +"-" +nombre+"-"+idt);
             
              $("#trash1").load('../api/retweet?id='+idu+'&nombre='+nombre+'&twit='+idt);
-             var no = noty({ layout: 'bottomRight',type: 'warning', text: 'Retweet enviado correctamente!'});
+             var no = noty({ layout: 'bottomRight',type: 'warning', closeWith: ['hover'], text: 'Retweet enviado correctamente!'});
              //$("#topUser").load("http://localhost:8084/topUsuarios");
              //window.scrollTo(0,0);
             }

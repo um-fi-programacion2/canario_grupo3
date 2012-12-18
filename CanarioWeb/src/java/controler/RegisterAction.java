@@ -1,4 +1,4 @@
-package view;
+package controler;
 import com.opensymphony.xwork2.ActionSupport;
 import dao.RegisterDao;
 import java.sql.Date;

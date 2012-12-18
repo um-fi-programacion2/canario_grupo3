@@ -1,32 +1,29 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-package view;
+package controler;
 
 import com.opensymphony.xwork2.ActionContext;
 import dao.ListarTwitsDao;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import model.Twits;
 import model.timelineView;
+import controler.Parser;
 
 /**
  *
  * @author Franco
  */
-public class ListarTwits {
+public class ListarPublicoTwits {
     
     public ArrayList <Twits> listaTwits = new ArrayList<Twits>();
     public ArrayList <timelineView> listaTabla = new ArrayList<timelineView>();
-     Map auth = ActionContext.getContext().getSession();
+    int retweet;
     
     
      public String execute() throws Exception {
     
-       
-       listaTwits = ListarTwitsDao.getTwitList();
+           Map auth = ActionContext.getContext().getSession();
+
+       listaTwits = ListarTwitsDao.getPublicTwitList(Long.parseLong(auth.get("publicocontext").toString()));
        
       
       for (int i = 0; i < listaTwits.size(); i++) {
@@ -34,7 +31,7 @@ public class ListarTwits {
         listaTabla.add(i, e);
         listaTabla.get(i).setIdt(listaTwits.get(i).getIdt());
         listaTabla.get(i).setIdu(listaTwits.get(i).getIdu());
-        listaTabla.get(i).setString(Parser.parseTweet(listaTwits.get(i).getString()));
+        listaTabla.get(i).setString(Parser.parseTweet( listaTwits.get(i).getString()));
         listaTabla.get(i).setTimestam(listaTwits.get(i).getTimestam());
         listaTabla.get(i).setNombre(ListarTwitsDao.getSingleUser(listaTwits.get(i).getIdu()).getNombre());
         listaTabla.get(i).setImagen(ListarTwitsDao.getSingleUser(listaTwits.get(i).getIdu()).getImagen());

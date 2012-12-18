@@ -119,7 +119,7 @@
  	 $("#divtest").load("http://localhost:8084/listar");
    var refreshId = setInterval(function() {
       $("#divtest").load('http://localhost:8084/listar');
-   }, 8000);
+   }, 6000);
    $.ajaxSetup({ cache: false });
 });
 </script>
@@ -129,7 +129,7 @@
  	 $("#topUser").load("http://localhost:8084/topUsuarios");
    var refreshTopu = setInterval(function() {
       $("#topUser").load('http://localhost:8084/topUsuarios');
-   }, 8000);
+   }, 6000);
    $.ajaxSetup({ cache: false });
 });
 </script>
@@ -138,7 +138,7 @@
  	 $("#topHash").load("http://localhost:8084/topHashtags");
    var refreshTopu = setInterval(function() {
       $("#topHash").load('../topHashtags');
-   }, 8000);
+   }, 6000);
    $.ajaxSetup({ cache: false });
 });
 </script>
@@ -146,7 +146,7 @@
         function rt(idu,nombre,idt) {
             //alert(idu +"-" +nombre+"-"+idt);
              $("#trash1").load('http://localhost:8084/api/retweet?id='+idu+'&nombre='+nombre+'&twit='+idt);
-             var no = noty({ layout: 'bottomRight',type: 'warning', text: 'Retweet enviado correctamente!'});
+             var no = noty({ layout: 'bottomRight',type: 'warning',  closeWith: ['hover'], text: 'Retweet enviado correctamente!'});
              //$("#topUser").load("http://localhost:8084/topUsuarios");
              //window.scrollTo(0,0);
             }

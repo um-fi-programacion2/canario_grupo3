@@ -92,7 +92,7 @@
                   <div class="nav-collapse collapse navbar-inverse-collapse">
                     <ul class="nav">
                       
-                      <li><a href="<s:url action="home"/>"><i class="icon-home"></i>Home</a></li><li class="divider-vertical"></li>
+                      <li><a href="<s:url action="home"/>"><i class="icon-white icon-home"></i>Home</a></li><li class="divider-vertical"></li>
                       <li><a href="<s:url action="config"/>"><i class="icon-white icon-user"></i>Configuración</a></li><li class="divider-vertical"></li>
                       <li><a href="<s:url action="api"/>"><i class="icon-white icon-wrench"></i>Api</a></li>
                       
