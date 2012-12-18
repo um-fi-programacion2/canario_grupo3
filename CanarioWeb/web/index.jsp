@@ -129,12 +129,25 @@
 
    
 <script type="text/javascript">
+    
 	  $(document).ready(function(){
-			
+	$.validator.addMethod("Regex", function(value, element) {
+             return this.optional(element) || /^[a-z0-9\-]+$/i.test(value);
+            }, "Username must contain only letters, numbers, or dashes.");
+             jQuery.validator.addMethod("lettersonly", function(value, element) {
+                return this.optional(element) || /^[A-Za-z ]+$/i.test(value);
+                }, "Letters only please");     
+            
 			$("#registerHere").validate({
 				rules:{ 
-                                        nombre:"required",
-                                        usuario:"required",
+                                        nombre:{
+                                          required:true,
+                                          Regex:true
+                                          
+                                        },
+                                        usuario:{required: true,
+                                            lettersonly:true
+                                        },
 					mail:{
 							required:true,
 							email: true
@@ -145,8 +158,12 @@
 					}
 				},
 				messages:{
-                                        nombre:"Ingrese Nombre Completo",
-                                        usuario:"Ingrese un Usuario",
+                                        nombre:{required:"Ingrese un nombre de Usuario",
+                                                Regex:"El Usuario solo puede contener Letras y Numeros"
+                                        },
+                                        usuario:{required:"Ingrese su Nombre y Apellido",
+                                        lettersonly:"Solo puede ingresar Letras en su Nombre y Apellido"
+                                        },
 					mail:{
 						required:"Ingrese una dirección de correo",
 						email:"Ingrese una dirección de correo valida"
