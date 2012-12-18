@@ -3,7 +3,7 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-                <li class="nav-header">Usuario: <strong><s:property value="reg.usuario"/></strong></li>
+                <li class="nav-header">Usuario: <strong><a href="http://localhost:8084/publico?u=<s:property value="reg.nombre"/>"><s:property value="reg.usuario"/></a></strong></li>
               <img src="./img/users/<s:property value="reg.imagen"/>"  width="150" height="310"> 
               <s:form action="changeFollowState" method="post">
                   <s:hidden name="user" value="%{reg.idu}" />
@@ -52,17 +52,30 @@
           </div><!--/row-->
         </div><!--/span-->
 </div><!--/row-->
-
+<div id="trash1" hidden></div>
       
       
       
 <%@include file="footer.jsp"%>
 <script>
  $(document).ready(function() {
- 	 $("#divdinamico").load("http://localhost:8084/listarpublico");
+ 	 $("#divdinamico").load("../listarpublico");
    var refreshId = setInterval(function() {
-      $("#divdinamico").load('http://localhost:8084/api/listarpublico');
+      $("#divdinamico").load('../listarpublico');
    }, 9000);
    $.ajaxSetup({ cache: false });
 });
 </script>
+<script>
+
+        function rt(idu,nombre,idt) {
+           // alert(idu +"-" +nombre+"-"+idt);
+            
+             $("#trash1").load('../api/retweet?id='+idu+'&nombre='+nombre+'&twit='+idt);
+             var no = noty({ layout: 'bottomRight',type: 'warning', text: 'Retweet enviado correctamente!'});
+             //$("#topUser").load("http://localhost:8084/topUsuarios");
+             //window.scrollTo(0,0);
+            }
+        
+    </script>
+    

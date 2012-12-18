@@ -1,6 +1,8 @@
 package dao;
 
+import com.opensymphony.xwork2.ActionContext;
 import java.util.ArrayList;
+import java.util.Map;
 import model.Hashtags;
 import model.Usuarios;
 import org.hibernate.Query;
@@ -13,46 +15,65 @@ import org.hibernate.SessionFactory;
  */
 public class TopDao {
     public static ArrayList <Usuarios> getUsers() {
-		 try {
-			SessionFactory sf = HibernateUtil.getSessionFactory();
-                    
-                        Session s = sf.openSession();
-			
-                        Query query1 = s.createSQLQuery("SELECT * FROM usuarios u LEFT JOIN twits t ON u.idu = t.idu GROUP BY t.idu ORDER BY count(t.idu) desc;")
+        
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session s = sf.openSession();
+        Query query;
+        
+        String statment="";
+            Map auth = ActionContext.getContext().getSession();
+            String ciudad=auth.get("filteru").toString();
+            if(ciudad.compareToIgnoreCase("todos") == 0 | ciudad.length()==0 | ciudad == null) {
+        
+            statment="SELECT * FROM usuarios u LEFT JOIN twits t ON u.idu = t.idu GROUP BY t.idu ORDER BY count(t.idu) desc;";
+        query = s.createSQLQuery(statment)
                                 .addEntity(Usuarios.class);
-			 //Query query = s.createQuery("SELECT * FROM Usuarios u LEFT JOIN Twits t ON u.idu = t.idu GROUP BY t.idu ORDER BY count(t.idu) desc");
-                         //query1.setMaxResults(10);           
-                         //ArrayList top10 = query.list();
-                        
-                         			System.err.println("Debug !-->" + query1.list().size());
-                         s.disconnect();
-
-                         return (ArrayList<Usuarios>)query1.list();
+            }
+            else {
+            statment="SELECT * FROM usuarios u LEFT JOIN twits t ON u.idu = t.idu WHERE u.localidad LIKE :ciudad GROUP BY t.idu ORDER BY count(t.idu) desc;";
+            query = s.createSQLQuery(statment)
+                                .addEntity(Usuarios.class);
+            query.setParameter("ciudad",'%'+ciudad+'%');
+            }
+            try {
+                	System.err.println("filteru -->" + query.list().size());                    
+                         return (ArrayList<Usuarios>)query.list();
 
 		
 		} catch (Exception ex) {
-			System.err.println("Error !p-->" + ex.getMessage());
+			System.err.println("Error filteru-->" + ex.getMessage());
 			
 			return null;
 		}
   }
     
      public static ArrayList <Hashtags> getHashtags() {
-		 try {
-			SessionFactory sf = HibernateUtil.getSessionFactory();
-                    
-                        Session s = sf.openSession();
-			
-                        Query query1 = s.createSQLQuery("SELECT * FROM hashtags h LEFT JOIN hashaux ha ON h.idh = ha.idh GROUP BY ha.idh ORDER BY count(ha.idh) desc;")
-                                .addEntity(Hashtags.class);
-			 
-                         s.disconnect();
+          SessionFactory sf = HibernateUtil.getSessionFactory();
+          Session s = sf.openSession();
+          Query query;
 
-                         return (ArrayList<Hashtags>)query1.list();
+          String statment="";
+          Map auth = ActionContext.getContext().getSession();
+          String ciudad=auth.get("filterh").toString();
+            if(ciudad.compareToIgnoreCase("todos") == 0 | ciudad.length()==0 | ciudad == null) {
+        
+            statment="SELECT * FROM hashtags h LEFT JOIN hashaux ha ON h.idh = ha.idh GROUP BY ha.idh ORDER BY count(ha.idh) desc;";
+            query = s.createSQLQuery(statment)
+                                .addEntity(Hashtags.class);
+            }
+            else {
+            statment="SELECT * FROM hashtags h LEFT JOIN hashaux ha ON h.idh = ha.idh WHERE  h.idu IN (SELECT idu from usuarios WHERE localidad LIKE :ciudad) GROUP BY ha.idh ORDER BY count(ha.idh) desc;";
+            query = s.createSQLQuery(statment)
+                                .addEntity(Hashtags.class);
+            query.setParameter("ciudad",'%'+ciudad+'%');
+            }
+            try {
+                	System.err.println("filterh -->" + query.list().size());                    
+                         return (ArrayList<Hashtags>)query.list();
 
 		
 		} catch (Exception ex) {
-			System.err.println("Error !p-->" + ex.getMessage());
+			System.err.println("Error filterh-->" + ex.getMessage());
 			
 			return null;
 		}

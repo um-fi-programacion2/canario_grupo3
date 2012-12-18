@@ -1,5 +1,29 @@
 <!DOCTYPE html> 
 <%@taglib uri="/struts-tags" prefix="s" %>
+<script src="./js/jquery.js"></script>
+<script type="text/javascript" src="js/noty/jquery.noty.js"></script>
+<script type="text/javascript" src="js/noty/layouts/bottom.js"></script>
+<script type="text/javascript" src="js/noty/layouts/bottomRight.js"></script>
+<!-- You can add more layouts if you want -->
+<script type="text/javascript" src="js/noty/themes/default.js"></script>
+
+
+<script src="./js/bootstrap-transition.js"></script>
+    <script src="./js/bootstrap-alert.js"></script>
+    <script src="./js/bootstrap-modal.js"></script>
+    <script src="./js/bootstrap-dropdown.js"></script>
+    <script src="./js/bootstrap-scrollspy.js"></script>
+    <script src="./js/bootstrap-tab.js"></script>
+    <script src="./js/bootstrap-tooltip.js"></script>
+    <script src="./js/bootstrap-popover.js"></script>
+    <script src="./js/bootstrap-button.js"></script>
+    <script src="./js/bootstrap-collapse.js"></script>
+    <script src="./js/bootstrap-carousel.js"></script>
+    <script src="./js/bootstrap-typeahead.js"></script>
+<script type="text/javascript" src="./js/jquery-validate.js"></script>
+
+
+
 <html lang="en">
     <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
