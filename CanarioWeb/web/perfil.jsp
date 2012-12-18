@@ -32,9 +32,7 @@
 
             <s:form cssClass="well" action="GuardarPerfil" method="post">
                <li class="nav-header">Nombre y Apellido</li>
-                 <s:textfield label="Usuario" name="usuario" value="%{config.usuario}"/><br>        
-               
-               
+                 <s:textfield label="Usuario" name="usuario" value="%{config.usuario}"/><br>    
             <li class="nav-header">Nombre de Usuario</li>
             <s:textfield label="Nombre" name="nombre" value="%{config.nombre}"/><br> 
             <li class="nav-header">Email</li>

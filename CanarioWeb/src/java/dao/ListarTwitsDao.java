@@ -6,6 +6,7 @@ package dao;
 
 import com.opensymphony.xwork2.ActionContext;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import model.Twits;
 import model.Usuarios;
@@ -23,14 +24,17 @@ public class ListarTwitsDao {
 			SessionFactory sf = HibernateUtil.getSessionFactory();
                     
                         Session s = sf.openSession();
-			
+			ArrayList<Usuarios> u = new ArrayList<Usuarios>();
+                        Map auth = ActionContext.getContext().getSession();
+                        Query query1= s.createQuery("from Usuarios where idu= :idu");
+                        query1.setParameter("idu", ((Number)auth.get("idusuario")).longValue());
+                        u=(ArrayList<Usuarios>)query1.list();
+                        String nombre =  u.get(0).getNombre();
                         
-			 Query query = s.createQuery("FROM Twits where idu = :idu or idu IN (select siguiendo from Relaciones where idusuario = :idu) order by timestam desc");
+			 Query query = s.createQuery("FROM Twits where idu = :idu or idu IN (select siguiendo from Relaciones where idusuario = :idu) or string like CONCAT ('%',:nombre,'%')  order by timestam desc");
                          query.setMaxResults(10);
-                         Map auth = ActionContext.getContext().getSession();
-                           
                          query.setParameter("idu", ((Number)auth.get("idusuario")).longValue());            
-                         
+                         query.setParameter("nombre", nombre);
                    
                                                   s.disconnect();
 
@@ -71,12 +75,18 @@ public static ArrayList <Twits> getPublicTwitList(Long idu) {
 			SessionFactory sf = HibernateUtil.getSessionFactory();
                     
                         Session s = sf.openSession();
-			
-                        
-			 Query query = s.createQuery("FROM Twits where idu = :idu order by timestam desc");
+			ArrayList<Usuarios> u = new ArrayList<Usuarios>();
+                        Query query1= s.createQuery("from Usuarios where idu= :idu");
+                        query1.setParameter("idu", idu);
+                        u=(ArrayList<Usuarios>)query1.list();
+                       String nombre =  u.get(0).getNombre();
+                       
+                       System.out.println(nombre);
+                         Query query = s.createQuery("FROM Twits where idu = :idu or string like CONCAT ('%',:nombre,'%') order by timestam desc");
                          query.setMaxResults(10);
                            
-                         query.setParameter("idu", idu);            
+                         query.setParameter("idu", idu);
+                         query.setParameter("nombre", nombre);
                                                   s.disconnect();
 
                         return (ArrayList<Twits>)query.list();
