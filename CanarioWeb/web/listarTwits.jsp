@@ -13,12 +13,7 @@
            <td><img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="35px"></td><td> <a href="http://localhost:8084/publico?u=<s:property value="nombre"/>">@<s:property value="nombre" /> </a> <strong>dijo:</strong><br><s:property escapeHtml="false" value="string" /></td>
         <td><h6><s:property value="timestam" /><h6></td>
         <td>
-            <s:form action="retweet" method="post">
-               
-                <s:hidden name="nombre" value="%{nombre}"/>
-                <s:hidden name="string" value="%{string}"/>
-                <s:submit cssClass="badge badge-info" type="button" title="retweet"><i class="icon-retweet icon-white"></i></s:submit>
-                </s:form>
+            <button id="retweet"  Class="badge badge-info"  style="margin-right: 40px; width: 30px" onclick="rt('<s:property value="idu"/>','<s:property value="nombre"/>',<s:property value="idt"/>)"><i class="icon-retweet icon-white" ></i> </button>
             </td>       
 
         </tr>

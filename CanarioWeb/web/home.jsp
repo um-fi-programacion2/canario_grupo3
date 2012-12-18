@@ -68,7 +68,7 @@
                
                
       </div><!--/row-->
-
+      <div id="trash1" hidden></div>
 <%@include file="footer.jsp"%>
 <script>
  $(document).ready(function() {
@@ -98,3 +98,12 @@
    $.ajaxSetup({ cache: false });
 });
 </script>
+<script>
+        function rt(idu,nombre,idt) {
+            //alert(idu +"-" +nombre+"-"+idt);
+             $("#trash1").load('http://localhost:8084/api/retweet?id='+idu+'&nombre='+nombre+'&twit='+idt);
+             //$("#topUser").load("http://localhost:8084/topUsuarios");
+             //window.scrollTo(0,0);
+            }
+        
+    </script>    

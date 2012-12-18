@@ -255,6 +255,9 @@
       <action name="unfollow" class="api.Unfollow">
        	   <result type="json" />
       </action>
+      <action name="retweet" class="api.ajax.retweet">
+       	   <result type="json" />
+      </action>
     </package>
  
 </struts>

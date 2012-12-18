@@ -19,13 +19,7 @@
               Following:<a href="<s:url action="listarFollowings"/>"><strong><%= relacionesDao.countFollowing(u.getIdu()) %></strong></a><br>
               Twits: <strong><%= relacionesDao.countTwits(u.getIdu()) %></strong>
               
-              <li class="divider"></li>
-              <li class="nav-header">Enviar un tweet</li>
-              <s:form action="sendtwit" id="prueba">
-                  <s:textarea id="strings" cssClass="texto"  name="strings"  maxlength="200" placeholder="canarear!!!"></s:textarea> 
-            <s:submit cssClass="btn btn-warning" value="enviar"></s:submit> 
-            </s:form>
-              <div id="caracteres"></div>
+              
               
               
             </ul>
@@ -91,36 +85,7 @@
                   
               
           </div>
-         </div><!--/span-->
-                  
-
-               <div class="span3">
-                   <div class="well">
-                    <h2>Menciones:</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
-                  </div><!--/.well -->
-            
-                  <div class="well">
-                    <h2>Top 10 por Regiones:</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
-                  </div> 
-              
-                 <div class="well"> 
-                    <h2>Top 10 users:</h2>
-                    <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-                    <p><a class="btn" href="http://twitter.github.com/bootstrap/examples/fluid.html#">View details »</a></p>
-                </div> 
-                
-               </div><!--/span-->
-               
-               
-               
-                      
-                      
-                      
-               
+         </div><!--/span-->               
                
       </div><!--/row-->
 

@@ -143,4 +143,14 @@ public class TwitDao {
     }
     return true;
     }
+
+public static Twits getTwit(Long idt) {
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+                Session s = sf.openSession();
+    Query query = s.createQuery("FROM Twits where idt = :idt");
+                         query.setParameter("idt", idt);
+                         return (Twits) query.list().get(0);
+
+}
+
 }
