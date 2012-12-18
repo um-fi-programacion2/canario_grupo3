@@ -60,7 +60,7 @@
                            <br>
                            
                            <s:if test="valorh==1">
-                           <s:property value="string" />
+                               <a href="http://localhost:8084/hashtag?h=<s:property value="string"/>">#<s:property value="string" /></a>
                            </s:if>
                          
                         </s:iterator>

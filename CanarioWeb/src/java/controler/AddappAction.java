@@ -2,33 +2,36 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package view;
+package controler;
 
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+import dao.GuardarFlagsDao;
 import dao.PerfilDao;
-import java.util.Map;
 import java.util.Random;
 
 /**
  *
  * @author Franco
  */
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+public class AddappAction extends ActionSupport{
+    private String nombre;
 
-public class GenkeyAction extends ActionSupport{
+    public AddappAction() {
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
     
    
    public String execute() throws Exception {
        			
- Map auth = ActionContext.getContext().getSession();
-    //auth.get("idusuario")).longValue();
-        String key = this.getAleatoria(10);
-        
-        if(PerfilDao.saveKey(((Number)auth.get("idusuario")).longValue(), key)){
+
+        if(PerfilDao.saveApp(nombre,this.getAleatoria(6) )){
             return "success";
         }
             
@@ -51,4 +54,3 @@ i ++;
 return cadenaAleatoria;
 }
 }
-

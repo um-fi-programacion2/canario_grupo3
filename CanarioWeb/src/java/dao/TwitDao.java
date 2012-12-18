@@ -22,7 +22,7 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import view.SendMail;
+import controler.SendMail;
 
 public class TwitDao {
 	public static boolean saveTwit(Twits datos) {
@@ -128,7 +128,7 @@ public class TwitDao {
                          //Traemos el usuario
                          Usuarios mencionado = new Usuarios();
                          mencionado = PerfilDao.traerPerfilNombre(rawName);
-                      if(mencionado.getFlag1().compareTo("true") == 0) {
+                      if(mencionado.getFlag2().compareTo("true") == 0) {
                       
 
                        SendMail correo = new SendMail(mencionado.getMail(),mencionado.getNombre(),3);  
