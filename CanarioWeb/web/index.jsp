@@ -109,7 +109,7 @@
                 <div class="control-group">
                     <label class="control-label" for="input01"></label>
                         <div class="controls">
-                        <button type="submit" class="btn btn-success" rel="tooltip" title="first tooltip">Registrarse</button>
+                        <button type="submit" class="btn btn-success" rel="tooltip" >Registrarse</button>
 	        </div>
                 
            </s:form>  
