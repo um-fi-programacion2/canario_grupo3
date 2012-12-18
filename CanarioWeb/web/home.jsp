@@ -42,6 +42,7 @@
         </div><!--/span-->
         <div class="span6">
           <div class="hero-unit">
+              
                <div id="divtest">cargando.....</div>
           </div>
          </div><!--/span-->
@@ -52,15 +53,58 @@
             
                   <div class="well">
                     <h4>Top 10 Usuarios:</h4>
-
+                    <div id="fusers" hidden></div>
+                <select id="filterUsers">
+                <option>Todos</option>
+                <option>Capital</option>
+                <option>General Alvear</option>
+                <option>Godoy Cruz</option>
+                <option>Guaymallen</option>
+                <option>Junin</option>
+                <option>La Paz</option> 
+                <option>Las Heras</option>
+                <option>Lavalle</option> 
+                <option>Lujan</option> 
+                <option>Maipu</option>
+                <option>Malargue</option> 
+                <option>Rivadavia</option> 
+                <option>San Carlos</option>
+                <option>San Martin</option>
+                <option>San Rafael</option>
+                <option>Santa Rosa</option> 
+                <option>Tunuyan</option> 
+                <option>Tupungato</option> 
+              </select>
                         
+                    
                     <div id="topUser">cargando...</div>
                   </div> 
               
                  <div class="well"> 
                       <h4>Top 10 Temas:</h4>
                    
-                   
+                      <div id="fhashs" hidden></div>
+                 <select id="filterHashs">
+                <option>Todos</option>
+                <option>Capital</option>
+                <option>General Alvear</option>
+                <option>Godoy Cruz</option>
+                <option>Guaymallen</option>
+                <option>Junin</option>
+                <option>La Paz</option> 
+                <option>Las Heras</option>
+                <option>Lavalle</option> 
+                <option>Lujan</option> 
+                <option>Maipu</option>
+                <option>Malargue</option> 
+                <option>Rivadavia</option> 
+                <option>San Carlos</option>
+                <option>San Martin</option>
+                <option>San Rafael</option>
+                <option>Santa Rosa</option> 
+                <option>Tunuyan</option> 
+                <option>Tupungato</option> 
+              </select>
                     <div id="topHash">cargando.....</div>
                  </div> 
                 
@@ -93,7 +137,7 @@
  $(document).ready(function() {
  	 $("#topHash").load("http://localhost:8084/topHashtags");
    var refreshTopu = setInterval(function() {
-      $("#topHash").load('http://localhost:8084/topHashtags');
+      $("#topHash").load('../topHashtags');
    }, 8000);
    $.ajaxSetup({ cache: false });
 });
@@ -102,8 +146,33 @@
         function rt(idu,nombre,idt) {
             //alert(idu +"-" +nombre+"-"+idt);
              $("#trash1").load('http://localhost:8084/api/retweet?id='+idu+'&nombre='+nombre+'&twit='+idt);
+             var no = noty({ layout: 'bottomRight',type: 'warning', text: 'Retweet enviado correctamente!'});
              //$("#topUser").load("http://localhost:8084/topUsuarios");
              //window.scrollTo(0,0);
             }
         
-    </script>    
+    </script>
+    
+<script>
+    $("#filterUsers").change(function () {
+          var str = "";
+          $("#filterUsers option:selected").each(function () {
+               
+                str = $(this).text();
+                //alert(str);
+              });
+              $("#fusers").load('../api/filteru?'+ $.param({f:str}));
+        })
+        .change();
+        
+            $("#filterHashs").change(function () {
+          var str = "";
+          $("#filterHashs option:selected").each(function () {
+               
+                str2 = $(this).text();
+               // alert(str);
+              });
+              $("#fhashs").load('..api/filterh', {h:str2});
+        })
+        .change();
+</script>

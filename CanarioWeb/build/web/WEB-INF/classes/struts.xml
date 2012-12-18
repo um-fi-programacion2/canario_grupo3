@@ -247,6 +247,12 @@
       <action name="retweet" class="api.ajax.retweet">
        	   <result type="json" />
       </action>
+       <action name="filteru" class="api.ajax.filteru">
+       	   <result type="json" />
+      </action>
+       <action name="filterh" class="api.ajax.filterh">
+       	   <result type="json" />
+      </action>
     </package>
  
 </struts>
