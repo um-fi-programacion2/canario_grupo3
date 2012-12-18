@@ -62,7 +62,7 @@ public class ApiDao {
                         Session s = sf.openSession();
 			t = s.beginTransaction(); // start a new transaction
                         
-			 Query query = s.createQuery("FROM Aplicaciones where apikey = :aplication and permitido = 1");
+			 Query query = s.createQuery("FROM Aplicaciones where apikey = :aplication");
   
                          query.setParameter("aplication", aplication);            
                          

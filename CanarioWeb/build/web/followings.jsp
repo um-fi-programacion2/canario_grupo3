@@ -36,7 +36,7 @@
                     <s:if test="relacion == 0">
                    <tr>
                        <td> <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a></td>
-                       <s:form action="followUsuario" method="post">
+                       <s:form action="followU" method="post">
                            <s:hidden name="idusuario" value="%{idmia}"/>
                            <s:hidden name="idseguidor" value="%{idseguidor}"/>
                            <s:hidden name="relacion" value="%{relacion}"/>

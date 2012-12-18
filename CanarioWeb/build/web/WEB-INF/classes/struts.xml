@@ -64,8 +64,8 @@
                         </param>
                     </interceptor-ref>
                          <interceptor-ref name="defaultStack"></interceptor-ref>
-                            <result name="success">perfil.jsp</result>
-                             <result name="input">perfil.jsp</result>
+                            <result name="success" type="chain">config</result>
+                             <result name="input" type="chain">config</result>
                 </action>
 
 
@@ -145,13 +145,19 @@
 
                     
                  <action name="followUsuario" class="view.FollowAction">
-                     <result name="bien" type="chain">listarFollowings</result>
+                     <result name="bien" type="chain">listarFollowers</result>
                     <result name="fail">/home.jsp</result>
                      
                  </action>
                  
                 <action name="unfollowUsuario" class="view.UnFollowAction">
                      <result name="bien" type="chain">listarFollowers</result>
+                     
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                 <action name="followU" class="view.FollowAction">
+                     <result name="bien" type="chain">listarFollowings</result>
                      
                     <result name="fail">/home.jsp</result>
                      
@@ -175,6 +181,14 @@
                     <result name="fail">/home.jsp</result>
                      
                  </action>
+                 
+                 <action name="followUp" class="view.FollowAction">
+                     <result name="bien" type="chain">listarFollowingsPublico</result>
+                     
+                    <result name="fail">/home.jsp</result>
+                     
+                 </action>
+                 
                  <action name="unfollowUp" class="view.UnFollowAction">
                      <result name="bien" type="chain">listarFollowingsPublico</result>
                      
@@ -204,7 +218,7 @@
                      
                  <action name="busqueda" class="view.BusquedaAction">
                      <result name="bien">/busqueda.jsp</result>
-                     <result name="fail">/perfil.jsp</result>  
+                     <result name="fail">/busqueda.jsp</result>  
                  </action>
                  
                  <action name="hashtag" class="view.ListarHashtagAction">
@@ -228,6 +242,9 @@
        	   <result type="json" />
       </action>
       <action name="unfollow" class="api.Unfollow">
+       	   <result type="json" />
+      </action>
+      <action name="retweet" class="api.ajax.retweet">
        	   <result type="json" />
       </action>
     </package>
