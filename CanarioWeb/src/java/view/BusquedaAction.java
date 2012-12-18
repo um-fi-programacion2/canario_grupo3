@@ -96,8 +96,9 @@ private int valor=1;
     }
     
     public String execute() throws Exception{
-        Map auth = ActionContext.getContext().getSession();
         
+     Map auth = ActionContext.getContext().getSession();
+     if(!auth.isEmpty()){
         if(buscate.compareTo("#")==0 | buscate.compareTo("@")==0 | buscate.compareTo("")==0 | buscate.compareTo(" ")==0 ){
             return "fail";
         }
@@ -149,14 +150,13 @@ private int valor=1;
        }else {
        valort=2;
        }
-       System.out.println("aca va la busqueda: "+buscate);
-        System.out.println("nombres de usuarios: "+valoru);
-        System.out.println("nombres de tweets: "+valort);
-        System.out.println("nombres de temas: "+valorh);
+      
        return "bien";
+    }else{
+        return "empty";
         }
         
-     
+    }
    
     
 }

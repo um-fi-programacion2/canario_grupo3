@@ -3,7 +3,7 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-                <li class="nav-header">Usuario: <strong><s:property value="reg.usuario"/></strong></li>
+                <li class="nav-header">Usuario: <strong><a href="http://localhost:8084/publico?u=<s:property value="reg.nombre"/>"><s:property value="reg.usuario"/></a></strong></li>
               <img src="./img/users/<s:property value="reg.imagen"/>"  width="150" height="310"> 
               <s:form action="changeFollowStateInFollowers" method="post">
                   <s:hidden name="usuariopublico" value="%{reg.idu}" />

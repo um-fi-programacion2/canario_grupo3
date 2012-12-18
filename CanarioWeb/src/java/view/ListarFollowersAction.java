@@ -107,7 +107,8 @@ public class ListarFollowersAction {
     }
     
     public String execute() throws Exception {
-    
+     Map auth1 = ActionContext.getContext().getSession();
+     if(!auth1.isEmpty()){
     
        listaFollowersU=dao.relacionesDao.getFollowers(((Number)auth.get("idusuario")).longValue());
        
@@ -122,9 +123,13 @@ public class ListarFollowersAction {
        lista.get(i).setRelacion(dao.relacionesDao.checkRelacion(((Number)auth.get("idusuario")).longValue(), listaFollowersU.get(i).getIdu().longValue()));
        } 
        return "bien";
+    }else {
+         return "empty";
+     }
     }
     public String ListarFollowersPublico() throws Exception{
-        
+        Map auth1 = ActionContext.getContext().getSession();
+        if(!auth1.isEmpty()){
         
        
        
@@ -167,4 +172,8 @@ public class ListarFollowersAction {
        } 
        return "bien";
     }
+     else {
+         return "empty";
+     }
+    }      
 }

@@ -130,7 +130,8 @@ public class ListarHashtagAction extends ActionSupport {
 
 
     Map auth = ActionContext.getContext().getSession();
-    reg= PerfilDao.traerPerfil();
+        if(!auth.isEmpty()){
+        reg= PerfilDao.traerPerfil();
     
 
                 if (reg != null) {
@@ -173,11 +174,14 @@ public class ListarHashtagAction extends ActionSupport {
                     }
                     creador=listaTablaHash.get(0).getNombre();
               
-    //}
-       return "bien";
+    
+                return "bien";
        
-        
+        }else{
+        return "empty";
+            }
     }
+        
     
   
     

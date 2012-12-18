@@ -4,7 +4,7 @@
         <div class="span3">
          <div class="well" > 
             <ul class="nav nav-list">
-              <li class="nav-header">Usuario:<%= u.getUsuario() %></li>
+              <li class="nav-header">Usuario: <strong><a href="http://localhost:8084/publico?u=<%= u.getNombre() %>"><%= u.getUsuario() %></a></strong> </li>
               
               <li align="center"><img class="img-polaroid" src="./img/users/<%= u.getImagen() %>"  width="150" height="310"> </li>
               <li class="nav-header">Biografia:</li>
