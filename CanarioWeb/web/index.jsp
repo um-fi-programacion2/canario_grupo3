@@ -99,9 +99,9 @@
                 <label>Nombre Completo</label>
                     <s:textfield id="usuario" name="usuario" label="User"  placeholder="Ingresa tu nombre"/>
                 <label>Nombre de usuario</label>
-                    <s:textfield id="nombre" name="nombre" label="Name"  placeholder="Elige un nombre de usuario"/>
+                    <s:textfield id="nombre" name="nombre" label="Name"  placeholder="Elige un nombre de usuario"/><span id="status"></span>
                 <label>Email</label>
-                    <s:textfield id="mail" name="mail" label="Email" placeholder="email para ingresar"/>
+                    <s:textfield id="mail" name="mail" label="Email" placeholder="email para ingresar"/><span id="status2"></span>
                 <label>Contraseña</label>
                     <s:password id="pass" name="pass" label="Password" placeholder="elije tu contraseña" /><br>
                     
@@ -127,63 +127,82 @@
    </div>    
 <%@include file="footer.jsp"%>
 
-   
 <script type="text/javascript">
-    
-	  $(document).ready(function(){
-	$.validator.addMethod("Regex", function(value, element) {
-             return this.optional(element) || /^[a-z0-9\-]+$/i.test(value);
-            }, "Username must contain only letters, numbers, or dashes.");
-             jQuery.validator.addMethod("lettersonly", function(value, element) {
-                return this.optional(element) || /^[A-Za-z ]+$/i.test(value);
-                }, "Letters only please");     
-            
-			$("#registerHere").validate({
-				rules:{ 
+$(document).ready(function()
+{
 
-                                        nombre:{
-                                          required:true,
-                                          Regex:true
-                                          
-                                        },
-                                        usuario:{required: true,
-                                            lettersonly:true
-                                        },
-					mail:{
-							required:true,
-							email: true
-						},
-					pass:{
-						required:true,
-						minlength: 6
-					}
-				},
-				messages:{
+$("#nombre").change(function() 
+{ 
+var username = $("#nombre").val();
+var msgbox = $("#status");
+rexp = new RegExp(/^[a-zA-Z0-9_-]{4,16}$/);
+if(rexp.test(username)== true)
+{
+$("#status").html('<img src="./img/loader.gif">&nbsp;Verificando Disponibilidad.');
+$.ajax({ 
+type: "GET", 
+url: "../api/checkuser", 
+data: "u="+ username,
+dataType:"json",
+success: function(msg){ 
+$("#status").ajaxComplete(function(event, request){ 
+    //alert(msg.message);
+if(msg.message == "OK")
+{ 
+$("#status").html('<img src="./img/yes.png"> <font color="Green"> Disponible </font>');
+} 
+else 
+{ 
+$("#status").html('<font color="Red"> No disponible </font>');
+} 
+});
+} 
+}); 
 
-                                        nombre:{required:"Ingrese un nombre de Usuario",
-                                                Regex:"El Usuario solo puede contener Letras y Numeros"
-                                        },
-                                        usuario:{required:"Ingrese su Nombre y Apellido",
-                                        lettersonly:"Solo puede ingresar Letras en su Nombre y Apellido"
-                                        },
-					mail:{
-						required:"Ingrese una dirección de correo",
-						email:"Ingrese una dirección de correo valida"
-					},
-					pass:{
-						required:"Ingrese una Contraseña",
-						minlength:"La Contraseña  debe contener por lo menos 6 caracteres"
-					}
-				},
-				errorClass: "help-inline",
-				errorElement: "span",
-				highlight:function(element, errorClass, validClass) {
-					$(element).parents('.control-group').addClass('error');
-				},
-				unhighlight: function(element, errorClass, validClass) {
-					$(element).parents('.control-group').removeClass('error');
-					$(element).parents('.control-group').addClass('success');
-				}
-			});
-		});
-	  </script>
+}
+else
+{
+$("#status").html('<font color="#cc0000">Ingresar un nombre de usuario valido</font>');
+}
+return false;
+});
+
+$("#mail").change(function() 
+{ 
+var email = $("#mail").val();
+var msgbox = $("#status2");
+rexp = new RegExp(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/);
+if(rexp.test(email)== true)
+{
+$("#status2").html('<img src="./img/loader.gif">&nbsp;Verificando Disponibilidad.');$
+.ajax({ 
+type: "GET", 
+url: "../api/checkmail", 
+data: "m="+ email,
+dataType:"json",
+success: function(msg){ 
+$("#status2").ajaxComplete(function(event, request){ 
+    //alert(msg.message);
+if(msg.message == "OK")
+{ 
+$("#status2").html('<img src="./img/yes.png"> <font color="Green"> Disponible </font>');
+} 
+else 
+{ 
+$("#status2").html('<font color="Red"> No disponible </font>');
+} 
+});
+} 
+}); 
+
+}
+else
+{
+$("#status2").html('<font color="#cc0000">Ingresar una direción de correo valida</font>');
+}
+return false;
+});
+
+});
+
+</script>

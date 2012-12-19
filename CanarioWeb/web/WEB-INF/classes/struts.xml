@@ -255,6 +255,13 @@
        <action name="filterh" class="api.ajax.filterh">
        	   <result type="json" />
       </action>
+     
+       <action name="checkuser" class="api.ajax.checkuser">
+       	   <result type="json" />
+      </action>
+      <action name="checkmail" class="api.ajax.checkmail">
+       	   <result type="json" />
+      </action>
     </package>
  
 </struts>
