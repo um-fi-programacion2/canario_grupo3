@@ -21,9 +21,7 @@ public class DellappAction {
     public void setApp(String app) {
         this.app = app;
     }
-    public String execute() throws Exception {
-       		                         			System.err.println("idaplicaciones-->" + app);
-	
+    public String execute() throws Exception {	
         deleteappDao.dellApp(app);
         return "success";
     }

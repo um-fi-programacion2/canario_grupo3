@@ -24,14 +24,11 @@ public class ListarHashTagsDao {
                     
                         Session s = sf.openSession();
 			//h="'"+h+"'";
-                        System.out.println(h);
                         Query query1 = s.createQuery("from Twits where idt in (select idt from Hashaux where idh in (select idh from Hashtags where string = :h))");
                         
                         query1.setParameter("h", h);
                         //query1.setParameter("h", h);
                         
-                        System.err.println("temas encontrados !-->" + query1.list().size());
-                        System.err.println("Error !p-->" + query1.list());
                         s.disconnect();
 
                          return (ArrayList<Twits>)query1.list();

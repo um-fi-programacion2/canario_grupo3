@@ -81,7 +81,6 @@ public static ArrayList <Twits> getPublicTwitList(Long idu) {
                         u=(ArrayList<Usuarios>)query1.list();
                        String nombre =  u.get(0).getNombre();
                        
-                       System.out.println(nombre);
                          Query query = s.createQuery("FROM Twits where idu = :idu or string like CONCAT ('%',:nombre,'%') order by timestam desc");
                          query.setMaxResults(10);
                            

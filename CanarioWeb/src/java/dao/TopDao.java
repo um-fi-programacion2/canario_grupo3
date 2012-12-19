@@ -25,12 +25,12 @@ public class TopDao {
             String ciudad=auth.get("filteru").toString();
             if(ciudad.compareToIgnoreCase("todos") == 0 | ciudad.length()==0 | ciudad == null) {
         
-            statment="SELECT * FROM usuarios u LEFT JOIN twits t ON u.idu = t.idu GROUP BY t.idu ORDER BY count(t.idu) desc;";
+            statment="SELECT * FROM usuarios u LEFT JOIN twits t ON u.idu = t.idu GROUP BY t.idu ORDER BY count(t.idu) desc limit 10;";
         query = s.createSQLQuery(statment)
                                 .addEntity(Usuarios.class);
             }
             else {
-            statment="SELECT * FROM usuarios u LEFT JOIN twits t ON u.idu = t.idu WHERE u.localidad LIKE :ciudad GROUP BY t.idu ORDER BY count(t.idu) desc;";
+            statment="SELECT * FROM usuarios u LEFT JOIN twits t ON u.idu = t.idu WHERE u.localidad LIKE :ciudad GROUP BY t.idu ORDER BY count(t.idu) desc limit 10;";
             query = s.createSQLQuery(statment)
                                 .addEntity(Usuarios.class);
             query.setParameter("ciudad",'%'+ciudad+'%');
@@ -57,12 +57,12 @@ public class TopDao {
           String ciudad=auth.get("filterh").toString();
             if(ciudad.compareToIgnoreCase("todos") == 0 | ciudad.length()==0 | ciudad == null) {
         
-            statment="SELECT * FROM hashtags h LEFT JOIN hashaux ha ON h.idh = ha.idh GROUP BY ha.idh ORDER BY count(ha.idh) desc;";
+            statment="SELECT * FROM hashtags h LEFT JOIN hashaux ha ON h.idh = ha.idh GROUP BY ha.idh ORDER BY count(ha.idh) desc limit 10;";
             query = s.createSQLQuery(statment)
                                 .addEntity(Hashtags.class);
             }
             else {
-            statment="SELECT * FROM hashtags h LEFT JOIN hashaux ha ON h.idh = ha.idh WHERE  h.idu IN (SELECT idu from usuarios WHERE localidad LIKE :ciudad) GROUP BY ha.idh ORDER BY count(ha.idh) desc;";
+            statment="SELECT * FROM hashtags h LEFT JOIN hashaux ha ON h.idh = ha.idh WHERE  h.idu IN (SELECT idu from usuarios WHERE localidad LIKE :ciudad) GROUP BY ha.idh ORDER BY count(ha.idh) desc limit 10;";
             query = s.createSQLQuery(statment)
                                 .addEntity(Hashtags.class);
             query.setParameter("ciudad",'%'+ciudad+'%');
