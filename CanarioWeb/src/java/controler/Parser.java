@@ -1,5 +1,6 @@
 package controler;
 
+import dao.PerfilDao;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,8 +33,10 @@ public class Parser {
       foundValue = matcher.group();
       foundValue = foundValue.replace(" ","");
       String rawName = foundValue.replace("@","");
+      if(PerfilDao.traerPerfilNombre(rawName) != null) {
       inTweet = inTweet.replace(foundValue, "<a href='http://localhost:8084/publico?u=" + rawName + "'>" + foundValue + "</a>");
-    }
+      }
+      }
  
     //links
     patternStr = "(^|[ \t\r\n])((ftp|http|https|mailto|aim|webcal|skype):(([A-Za-z0-9$_.+!*(),;/?:@&~=-])|%[A-Fa-f0-9]{2}){2,}(#([a-zA-Z0-9][a-zA-Z0-9$_.+!*(),;/?:@&~=%-]*))?([A-Za-z0-9$_+!*();/?:~-]))";
