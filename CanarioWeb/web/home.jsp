@@ -113,7 +113,12 @@
                
       </div><!--/row-->
       <div id="trash1" hidden></div>
+       <script src="./js/jquery-1.7.1.min.js"></script>
+      <script src="./js/jquery.validate.min.js"></script>
+     <script type="text/javascript" src="./js/bootstrap-typeahead.js"></script>
+    <script src="./js/script.js"></script>
 <%@include file="footer.jsp"%>
+<script src="./js/bootstrap-select.js"></script>
 <script>
  $(document).ready(function() {
  	 $("#divtest").load("http://localhost:8084/listar");

@@ -21,7 +21,8 @@
     <script src="./js/bootstrap-collapse.js"></script>
     <script src="./js/bootstrap-carousel.js"></script>
     <script src="./js/bootstrap-typeahead.js"></script>
-<script type="text/javascript" src="./js/jquery-validate.js"></script>
+    <script src="./js/jquery.js"></script>
+<script type="text/javascript" src="./js/jquery.validate.js"></script>
 <html lang="es">
   <head>
     <meta charset="utf-8">
@@ -97,14 +98,24 @@
         <s:form action="register" id="registerHere" method="post">
                 <legend>Formulario de registro:</legend>
                 <label>Nombre Completo</label>
-                    <s:textfield id="usuario" name="usuario" label="User"  placeholder="Ingresa tu nombre"/>
+                    <div class="control-group">
+                    <label class="control-label" for="usuario"></label>
+                    <div class="controls">
+                   
+                    <s:textfield label="usuario"  name="usuario" placeholder="Ingresa tu Nombre Completo"/><br> 
+                    </div></div>
                 <label>Nombre de usuario</label>
                     <s:textfield id="nombre" name="nombre" label="Name"  placeholder="Elige un nombre de usuario"/><span id="status"></span>
                 <label>Email</label>
                     <s:textfield id="mail" name="mail" label="Email" placeholder="email para ingresar"/><span id="status2"></span>
                 <label>Contraseña</label>
-                    <s:password id="pass" name="pass" label="Password" placeholder="elije tu contraseña" /><br>
                     
+                    <div class="control-group">
+                    <label class="control-label" for="pass"></label>
+                    <div class="controls">
+                   
+                    <s:password label="Password" name="pass" placeholder="elije tu contraseña" /><br>
+                    </div></div>
                     <!--s:submit value="Registrarse" cssClass="btn" /-->
                 <div class="control-group">
                     <label class="control-label" for="input01"></label>
@@ -126,10 +137,61 @@
     </div>
    </div>    
 <%@include file="footer.jsp"%>
-
+        <script src="./js/jquery-1.7.1.min.js"></script>
+        <script src="./js/jquery.validate.min.js"></script>
+        
+        <script type="text/javascript">
+            $(document).ready(function(){
+	$.validator.addMethod("Regex", function(value, element) {
+             return this.optional(element) || /^[a-z0-9\-]+$/i.test(value);
+            }, "Username must contain only letters, numbers, or dashes.");
+             jQuery.validator.addMethod("lettersonly", function(value, element) {
+                return this.optional(element) || /^[A-Za-z ]+$/i.test(value);
+                }, "Letters only please");     
+			$("#registerHere").validate({
+				rules:{ 
+                                            usuario:{required: true,
+                                            lettersonly:true
+                                        },
+					pass:{
+						required:true,
+						minlength: 6
+                                        }
+				},
+				messages:{
+                                        usuario:{required:"Ingrese su Nombre y Apellido",
+                                        lettersonly:"Solo puede ingresar Letras en su Nombre y Apellido"
+                                        },
+					pass:{
+						required:"Ingrese una Contrasenia",
+						minlength:"La Contrasenia  debe contener por lo menos 6 caracteres"
+					}
+				},
+				errorClass: "help-inline",
+				errorElement: "span",
+				highlight:function(element, errorClass, validClass) {
+					$(element).parents('.control-group').addClass('error');
+				},
+				unhighlight: function(element, errorClass, validClass) {
+					$(element).parents('.control-group').removeClass('error');
+					$(element).parents('.control-group').addClass('success');
+				}
+			});
+		});
+            
+            
+            
+        </script>
 <script type="text/javascript">
+
 $(document).ready(function()
 {
+jQuery.validator.addMethod("lettersonly", function(value, element) {
+                return this.optional(element) || /^[A-Za-z ]+$/i.test(value);
+                }, "Letters only please");    
+    
+    
+
 
 $("#nombre").change(function() 
 { 
@@ -202,7 +264,5 @@ $("#status2").html('<font color="#cc0000">Ingresar una direción de correo valid
 }
 return false;
 });
-
 });
-
 </script>

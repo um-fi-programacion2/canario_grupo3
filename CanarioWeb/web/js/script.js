@@ -6,6 +6,35 @@
 //	Free for your use -- No warranties, no guarantees!
 //
 
+$(document).ready(function()
+{
+
+// Validation
+$("#prueba").validate({
+rules:{
+
+
+strings:{required:true,minlength: 3}
+},
+
+messages:{
+strings:"Ingrese al menos 3 caracteres"
+},
+
+errorClass: "help-inline",
+errorElement: "span",
+highlight:function(element, errorClass, validClass)
+{
+$(element).parents('.control-group').addClass('error');
+},
+unhighlight: function(element, errorClass, validClass)
+{
+$(element).parents('.control-group').removeClass('error');
+$(element).parents('.control-group').addClass('success');
+}
+});
+});
+
   
  
         jQuery(document).ready(function() {
