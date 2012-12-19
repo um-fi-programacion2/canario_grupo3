@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="/struts-tags" prefix="s" %>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
-<script type="text/javascript" src="./js/noty/jquery.noty.js"></script>
-<script type="text/javascript" src="./js/noty/layouts/bottom.js"></script>
-<script type="text/javascript" src="./js/noty/layouts/bottomCenter.js"></script>
+
+
+
 <!-- You can add more layouts if you want -->
-<script type="text/javascript" src="./js/noty/themes/default.js"></script>
+   <script src="./js/jquery.js"></script>
 
 
 <script src="./js/bootstrap-transition.js"></script>
@@ -21,7 +20,8 @@
     <script src="./js/bootstrap-collapse.js"></script>
     <script src="./js/bootstrap-carousel.js"></script>
     <script src="./js/bootstrap-typeahead.js"></script>
-    <script src="./js/jquery.js"></script>
+ 
+ 
 <script type="text/javascript" src="./js/jquery.validate.js"></script>
 <html lang="es">
   <head>
@@ -123,9 +123,17 @@
                         <button type="submit" class="btn btn-success" rel="tooltip" >Registrarse</button>
 	        </div>
                 
-           </s:form>  
+                 </s:form>  
                 
-      </div>
+                </div>
+                    <s:if test="bandera==1">
+                       
+                           <script type="text/javascript" src="./js/noty/jquery.noty.js"></script>
+                            
+                            <script type="text/javascript" src="./js/noty/layouts/topCenter.js"></script>
+                            <script type="text/javascript" src="./js/noty/themes/default.js"></script>
+                        <script>var no=noty({ layout: 'topCenter',type: 'error',  closeWith: ['hover'], text: 'Usuario o contraseña invalidos!'});</script>
+                    </s:if>
         
         </div>
         <div class="span4">

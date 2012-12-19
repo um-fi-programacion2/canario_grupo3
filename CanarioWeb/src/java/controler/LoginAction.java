@@ -19,6 +19,9 @@ private java.util.Date date;
 private String mail;
 private String pass;
 private String imagen="imagen";
+private int bandera=0;
+
+  
 public LoginAction() {
 }
 
@@ -80,6 +83,13 @@ return this.imagen;
 public void setImagen(String imagen) {
 this.imagen = imagen;
 }
+  public int getBandera() {
+        return bandera;
+    }
+
+    public void setBandera(int bandera) {
+        this.bandera = bandera;
+    }
 public String execute() throws Exception {
 Usuarios reg = new Usuarios();
 reg.setBio(bio);
@@ -92,7 +102,10 @@ reg.setImagen(imagen);
 if (LoginDao.LoginUser(reg)) {
 return "success";
 }
-else
-return "fail";
+else{
+bandera=1;
+    return "fail";
+
+}
 }
 }
