@@ -24,6 +24,8 @@
 
 
 
+
+
 <html lang="en">
     <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -34,7 +36,7 @@
     <meta name="author" content="">
     <link href="./css/bootstrap.css" rel="stylesheet">
     <link href="./css/bootstrap-select.css" rel="stylesheet">
-    
+    <link href="./css/style.css" rel="stylesheet">
     <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
       <!-- Le  styles -->
     

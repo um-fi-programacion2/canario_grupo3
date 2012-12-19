@@ -1,4 +1,5 @@
 <%@include file="header.jsp"%>
+
 <div class="row-fluid">
           <div class="span3">
           <div class="well sidebar-nav">
@@ -30,17 +31,41 @@
             </s:form>
 
 
-            <s:form cssClass="well" action="GuardarPerfil" method="post">
-               <li class="nav-header">Nombre y Apellido</li>
-                 <s:textfield label="Usuario" name="usuario" value="%{config.usuario}"/><br>    
-            <li class="nav-header">Nombre de Usuario</li>
-            <s:textfield label="Nombre" name="nombre" value="%{config.nombre}"/><br> 
-            <li class="nav-header">Email</li>
-                <s:textfield label="Email" name="mail" value="%{config.mail}"/><br>
-            <li class="nav-header">Password</li>
-            <s:password label="Password" name="pass" key="%{config.pass}"/><br>
-            </li><li class="nav-header">Localidad</li>
-                <s:textfield label="Localidad" name="localidad" id="localidad" value="%{config.localidad}"/><br>
+                 <s:form cssClass="well" action="GuardarPerfil" method="post" id="contact-form">
+                 
+                    <div class="control-group">
+                    <label class="control-label" for="usuario"></label>
+                    <div class="controls">
+                    <li class="nav-header">Nombre y Apellido</li>
+                    <s:textfield label="usuario" name="usuario" value="%{config.usuario}"/><br> 
+                    </div></div>
+                    <div class="control-group">
+                    <label class="control-label" for="nombre"></label>
+                    <div class="controls">
+                    <li class="nav-header">Nombre de Usuario</li>
+                    <s:textfield label="Nombre" name="nombre" value="%{config.nombre}"/><br> 
+                    </div></div>
+                    <div class="control-group">
+                    <label class="control-label" for="mail"></label>
+                    <div class="controls">
+                    <li class="nav-header">Email</li>
+                     <s:textfield label="Email" name="mail" value="%{config.mail}"/><br>
+                     </div></div>
+                     <div class="control-group">
+                    <label class="control-label" for="pass"></label>
+                    <div class="controls">
+                    <li class="nav-header">Password</li>
+                    <s:password label="Password" name="pass" key="%{config.pass}"/><br>
+                    </div></div>
+                    
+                    </li><li class="nav-header">Localidad</li>
+                     
+                    <s:textfield label="Localidad" name="localidad" id="localidad" value="%{config.localidad}"/><br>
+                                       
+                     
+                     
+                     
+                     
             <li class="nav-header">Biografia</li>
                 <s:textarea label="Bio"  cols="40" rows="5" name="bio" maxlength="300" value="%{config.bio}"></s:textarea> <br>
 
@@ -66,12 +91,15 @@
       
       
       
-      <script type="text/javascript" src="./js/jquery.js"></script>
+     
+
+  
+     <!-- jQuery -->
+    
+     
+    <!-- Validate Plugin -->
+      <script src="./js/jquery-1.7.1.min.js"></script>
+      <script src="./js/jquery.validate.min.js"></script>
       <script type="text/javascript" src="./js/bootstrap-typeahead.js"></script>
-    <script type="text/javascript">
-        jQuery(document).ready(function() {
-            var alCities = ['Capital (Mendoza)', 'General Alvear', 'Godoy Cruz', 'Guaymallen', 'Junin', 'La Paz', 'Las Heras', 'Lavalle', 'Lujan de Cuyo', 'Maipu', 'Malargue', 'Rivadavia', 'San Carllos', 'San Martin','San Rafael','Santa Rosa','Tunuyan','Tupungato'].sort();
-            $('#localidad').typeahead({source: alCities, items:5});
-        });
-    </script>
+    <script src="./js/script.js"></script>
  <%@include file="footer.jsp"%>
