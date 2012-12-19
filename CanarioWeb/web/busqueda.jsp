@@ -3,7 +3,7 @@
         <div class="span3">
           <div class="well sidebar-nav" >
             <ul class="nav nav-list">
-              <li class="nav-header">Usuario: <strong><a href="http://localhost:8084/publico?u=<%= u.getNombre() %>"><%= u.getUsuario() %></a></strong> </li>
+              <li class="nav-header">Usuario: <strong><a href="./publico?u=<%= u.getNombre() %>"><%= u.getUsuario() %></a></strong> </li>
               
               <li align="center"><img class="img-polaroid" src="./img/users/<%= u.getImagen() %>"  width="150" height="310"> </li>
               <li class="nav-header">Biografia:</li>
@@ -44,7 +44,7 @@
                            
                            <s:if test="valoru==1">
                            <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30"> 
-                           <a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a>
+                           <a href="./publico?u=<s:property value="nombre" />">@<s:property value="nombre" /></a>
                            </s:if>
                            
                         </s:iterator>
@@ -60,7 +60,7 @@
                            <br>
                            
                            <s:if test="valorh==1">
-                               <a href="http://localhost:8084/hashtag?h=<s:property value="string"/>">#<s:property value="string" /></a>
+                               <a href="./hashtag?h=<s:property value="string"/>">#<s:property value="string" /></a>
                            </s:if>
                          
                         </s:iterator>
@@ -76,7 +76,7 @@
                           <br>
                            
                         <img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30">
-                        <a href="http://localhost:8084/publico?u=<s:property value="nombre"/>">@<s:property value="nombre" /> </a>
+                        <a href="./publico?u=<s:property value="nombre"/>">@<s:property value="nombre" /> </a>
                         <strong>dijo:</strong> <s:property escapeHtml="false" value="string" />
                         
                            
@@ -90,18 +90,3 @@
       </div><!--/row-->
 
 <%@include file="footer.jsp"%>
-
-
-
-<script>
-    $(document).ready(function() {
-    var text_max=200;
-	$('#caracteres').html(text_max + ' caracteres restantes');
-	$('#textarea').keyup(function(){
-		var text_lenght= $('#textarea').val().length;
-		var text_remaining= text_max - text_lenght;
-	$('#caracteres').html(text_remaining + ' caracteres restantes');	
-		})	
-	
-});
-</script> 

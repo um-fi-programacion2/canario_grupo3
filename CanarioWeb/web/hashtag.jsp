@@ -3,7 +3,7 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-                <li class="nav-header">Usuario: <strong><a href="http://localhost:8084/publico?u=<s:property value="reg.nombre"/>"><s:property value="reg.usuario"/></a></strong></li>
+                <li class="nav-header">Usuario: <strong><a href="./publico?u=<s:property value="reg.nombre"/>"><s:property value="reg.usuario"/></a></strong></li>
               <img src="./img/users/<s:property value="reg.imagen"/>"  width="150" height="310"> 
               <s:form action="changeFollowState" method="post">
                   <s:hidden name="user" value="%{reg.idu}" />
@@ -45,15 +45,15 @@
         <div>
 
                                 <table class="table table-hover">
-                                    <thead><strong>Tema: </strong> <a href="http://localhost:8084/hashtag?h=<s:property value="h" escapeHtml="false"/>">#<s:property value="h"/></a>
-                                    <br><strong>Creado por: </strong><a href="http://localhost:8084/publico?u=<s:property value="creador" escapeHtml="false"/>">@<s:property value="creador"/></a></thead>
+                                    <thead><strong>Tema: </strong> <a href="./hashtag?h=<s:property value="h" escapeHtml="false"/>">#<s:property value="h"/></a>
+                                    <br><strong>Creado por: </strong><a href="./publico?u=<s:property value="creador" escapeHtml="false"/>">@<s:property value="creador"/></a></thead>
                                 <tbody> 
                                     <tr><td align="center" colspan="3"><strong>Tweets en los que aparece:</strong></td></tr>
                         <s:iterator value="listaTablaHash">
 
                             
                            <tr>
-                               <td><img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="35px"></td><td> <a href="http://localhost:8084/publico?u=<s:property value="nombre"/>">@<s:property value="nombre" /> </a><strong>dijo:</strong><br><s:property escapeHtml="false" value="string" /></td>
+                               <td><img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="35px"></td><td> <a href="./publico?u=<s:property value="nombre"/>">@<s:property value="nombre" /> </a><strong>dijo:</strong><br><s:property escapeHtml="false" value="string" /></td>
                                <td><h6><s:property value="timestam" /></h6></td>
                              
                             </tr>

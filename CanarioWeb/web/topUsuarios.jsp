@@ -10,7 +10,7 @@
 
     <s:iterator value="listaTopUsuarios">
    
-    <a href='http://localhost:8084/publico?u=<s:property value="nombre" />'> @ <s:property value="nombre" /></a><br>
+    <a href='./publico?u=<s:property value="nombre" />'> @ <s:property value="nombre" /></a><br>
     
 
     

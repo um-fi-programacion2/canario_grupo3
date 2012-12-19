@@ -4,7 +4,7 @@
         <div class="span3">
          <div class="well" > 
             <ul class="nav nav-list">
-              <li class="nav-header">Usuario: <strong><a href="http://localhost:8084/publico?u=<%= u.getNombre() %>"><%= u.getUsuario() %></a></strong> </li>
+              <li class="nav-header">Usuario: <strong><a href="./publico?u=<%= u.getNombre() %>"><%= u.getUsuario() %></a></strong> </li>
               
               <li align="center"><img class="img-polaroid" src="./img/users/<%= u.getImagen() %>"  width="150" height="310"> </li>
               <li class="nav-header">Biografia:</li>
@@ -43,7 +43,7 @@
         <div class="span6">
           <div class="hero-unit">
               
-               <div id="divtest">cargando.....</div>
+               <div id="divtest"><img src="./img/loader.gif"></div>
           </div>
          </div><!--/span-->
                   
@@ -77,7 +77,7 @@
               </select>
                         
                     
-                    <div id="topUser">cargando...</div>
+                    <div id="topUser"><img src="./img/loader.gif"></div>
                   </div> 
               
                  <div class="well"> 
@@ -105,7 +105,7 @@
                 <option>Tunuyan</option> 
                 <option>Tupungato</option> 
               </select>
-                    <div id="topHash">cargando.....</div>
+                    <div id="topHash"><img src="./img/loader.gif"></div>
                  </div> 
                 
                </div><!--/span-->
@@ -121,9 +121,9 @@
 <script src="./js/bootstrap-select.js"></script>
 <script>
  $(document).ready(function() {
- 	 $("#divtest").load("http://localhost:8084/listar");
+ 	 $("#divtest").load("../listar");
    var refreshId = setInterval(function() {
-      $("#divtest").load('http://localhost:8084/listar');
+      $("#divtest").load('../listar');
    }, 6000);
    $.ajaxSetup({ cache: false });
 });
@@ -132,29 +132,27 @@
 <script>
  $(document).ready(function() {
      $('select').selectpicker();
- 	 $("#topUser").load("http://localhost:8084/topUsuarios");
+ 	 $("#topUser").load("../topUsuarios");
    var refreshTopu = setInterval(function() {
-      $("#topUser").load('http://localhost:8084/topUsuarios');
-   }, 6000);
+      $("#topUser").load('../topUsuarios');
+   }, 4000);
    $.ajaxSetup({ cache: false });
 });
 </script>
 <script>
  $(document).ready(function() {
- 	 $("#topHash").load("http://localhost:8084/topHashtags");
+ 	 $("#topHash").load("../topHashtags");
    var refreshTopu = setInterval(function() {
       $("#topHash").load('../topHashtags');
-   }, 6000);
+   }, 4000);
    $.ajaxSetup({ cache: false });
 });
 </script>
 <script>
         function rt(idu,nombre,idt) {
             //alert(idu +"-" +nombre+"-"+idt);
-             $("#trash1").load('http://localhost:8084/api/retweet?id='+idu+'&nombre='+nombre+'&twit='+idt);
+             $("#trash1").load('../api/retweet?id='+idu+'&nombre='+nombre+'&twit='+idt);
              var no = noty({ layout: 'bottomRight',type: 'warning',  closeWith: ['hover'], text: 'Retweet enviado correctamente!'});
-             //$("#topUser").load("http://localhost:8084/topUsuarios");
-             //window.scrollTo(0,0);
             }
         
     </script>

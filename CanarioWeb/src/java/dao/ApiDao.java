@@ -220,13 +220,12 @@ public class ApiDao {
             }
             else {
                 
-                try {
-                                       
+                try {            
                       relacionesDao.follow(listaUsuarios.get(0).getIdu().longValue(),PerfilDao.traerPerfilNombre(siguiendo).getIdu());                        
 			
 			return true;
 		} catch (Exception ex) {
-			System.err.println("Error -->" + ex.getMessage());
+			System.err.println("Errorfollow -->" + ex.getMessage());
 			if (t != null)
 				t.rollback();
 			return false;
@@ -245,19 +244,17 @@ public class ApiDao {
             
 
             listaUsuarios = query.list();
-            
+            s.close();
             if(listaUsuarios.isEmpty()) {
                 return false;
             }
             else {
-                
+
                 try {
-                                       
-                      relacionesDao.unfollow(listaUsuarios.get(0).getIdu().longValue(),PerfilDao.traerPerfilNombre(siguiendo).getIdu());                        
-		s.disconnect();	
+                relacionesDao.unfollow(listaUsuarios.get(0).getIdu().longValue(),PerfilDao.traerPerfilNombre(siguiendo).getIdu());                        
 			return true;
 		} catch (Exception ex) {
-			System.err.println("Error -->" + ex.getMessage());
+			System.err.println("Errorunfollow -->" + ex.getMessage());
 			if (t != null)
 				t.rollback();
 			return false;

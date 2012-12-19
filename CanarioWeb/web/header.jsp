@@ -13,7 +13,7 @@
     <script src="./js/bootstrap-tooltip.js"></script>
     <script src="./js/bootstrap-popover.js"></script>
     <script src="./js/bootstrap-button.js"></script>
-   <!-- <script src="./js/bootstrap-collapse.js"></script>-->
+   <script src="./js/bootstrap-collapse.js"></script>
     <!--<script src="./js/bootstrap-carousel.js"></script>-->
     <script src="./js/bootstrap-select.js"></script>
 
@@ -59,7 +59,7 @@
     <![endif]-->
 
     <!-- Fav and touch icons -->
-    <link rel="shortcut icon" href="http://twitter.github.com/bootstrap/assets/ico/favicon.ico">
+    
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://twitter.github.com/bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">

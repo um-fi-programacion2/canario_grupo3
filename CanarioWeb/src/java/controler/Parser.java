@@ -3,6 +3,9 @@ package controler;
 import dao.PerfilDao;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.servlet.ServletContext;
+import javax.servlet.jsp.PageContext;
+import org.apache.struts2.ServletActionContext;
 
 /**
  *
@@ -22,7 +25,7 @@ public class Parser {
       String rawValue = foundValue.replace("#","");
       			System.err.println("Hash -->" +rawValue);
 
-      inTweet = inTweet.replace(foundValue, "<a href='http://localhost:8084/hashtag?h=" + rawValue + "'>" + foundValue + "</a>");
+      inTweet = inTweet.replace(foundValue, "<a href='./hashtag?h=" + rawValue + "'>" + foundValue + "</a>");
     }
  
     //Users
@@ -34,7 +37,7 @@ public class Parser {
       foundValue = foundValue.replace(" ","");
       String rawName = foundValue.replace("@","");
       if(PerfilDao.traerPerfilNombre(rawName) != null) {
-      inTweet = inTweet.replace(foundValue, "<a href='http://localhost:8084/publico?u=" + rawName + "'>" + foundValue + "</a>");
+      inTweet = inTweet.replace(foundValue, "<a href='./publico?u=" + rawName + "'>" + foundValue + "</a>");
       }
       }
  

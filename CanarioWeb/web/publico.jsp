@@ -3,7 +3,7 @@
         <div class="span3">
           <div class="well sidebar-nav">
             <ul class="nav nav-list">
-                <li class="nav-header">Usuario: <strong><a href="http://localhost:8084/publico?u=<s:property value="reg.nombre"/>"><s:property value="reg.usuario"/></a></strong></li>
+                <li class="nav-header">Usuario: <strong><a href="./publico?u=<s:property value="reg.nombre"/>"><s:property value="reg.usuario"/></a></strong></li>
               <img src="./img/users/<s:property value="reg.imagen"/>"  width="150" height="310"> 
               <s:form action="changeFollowState" method="post">
                   <s:hidden name="user" value="%{reg.idu}" />
@@ -42,7 +42,7 @@
         </div><!--/span-->
         <div class="span7">
           <div class="hero-unit">
-        <div id="divdinamico">Cargando.....</div>
+        <div id="divdinamico"><img src="./img/loader.gif"></div>
           </div>
           <div class="row-fluid">
           
@@ -73,8 +73,6 @@
             
              $("#trash1").load('../api/retweet?id='+idu+'&nombre='+nombre+'&twit='+idt);
              var no = noty({ layout: 'bottomRight',type: 'warning', closeWith: ['hover'], text: 'Retweet enviado correctamente!'});
-             //$("#topUser").load("http://localhost:8084/topUsuarios");
-             //window.scrollTo(0,0);
             }
         
     </script>

@@ -10,7 +10,7 @@
 
     <s:iterator value="listaTopHashtags">
    
-    <a href='http://localhost:8084/hashtag?h=<s:property value="string" />'> #<s:property value="string" /></a><br>
+    <a href='./hashtag?h=<s:property value="string" />'> #<s:property value="string" /></a><br>
     
 
     

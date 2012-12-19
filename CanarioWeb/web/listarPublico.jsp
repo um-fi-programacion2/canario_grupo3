@@ -9,7 +9,7 @@
     <s:iterator value="listaTabla">
    
        <tr>
-           <td><img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30px"></td><td> <s:property value="relacion"/><a href="http://localhost:8084/publico?u=<s:property value="nombre" />">@<s:property value="nombre" /> </a><strong>dijo:</strong><br><s:property escapeHtml="false" value="string" /></td>
+           <td><img src="./img/users/<s:property value="imagen" />" class="img-rounded" width="30px"></td><td> <s:property value="relacion"/><a href="./publico?u=<s:property value="nombre" />">@<s:property value="nombre" /> </a><strong>dijo:</strong><br><s:property escapeHtml="false" value="string" /></td>
         <td><h6><s:property value="timestam" /></h6></td>
 
        
