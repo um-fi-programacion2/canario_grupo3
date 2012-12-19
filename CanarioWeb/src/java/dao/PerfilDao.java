@@ -116,7 +116,9 @@ public static Usuarios traerPerfilNombre(String nombre) {
      
                            
                          query.setParameter("nombre", nombre);            
-                         
+                         if(query.list().size() ==0) {
+                             return null;
+                         }
                         return (Usuarios) query.list().get(0);
 
 		
@@ -268,6 +270,34 @@ public static Usuarios traerPerfilPublico() {
 		} catch (Exception ex) {
 			System.err.println("Error !-->" + ex.getMessage());
 		
+			return null;
+		}
+        }
+
+public static Usuarios checkmail(String mail) {
+                	
+		 try {
+			SessionFactory sf = HibernateUtil.getSessionFactory();
+                        Transaction t = null;
+                        Session s = sf.openSession();
+			t = s.beginTransaction(); // start a new transaction
+                        
+			 Query query = s.createQuery("FROM Usuarios t where t.mail = :mail");
+     
+                           
+                         query.setParameter("mail", mail);            
+                         if(query.list().size() ==0) {
+                             return null;
+                         }
+                        return (Usuarios) query.list().get(0);
+
+		
+		 	
+
+		
+		} catch (Exception ex) {
+			System.err.println("Error !-->" + ex.getMessage());
+			
 			return null;
 		}
         }
