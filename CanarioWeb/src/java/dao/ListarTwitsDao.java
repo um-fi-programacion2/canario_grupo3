@@ -34,7 +34,7 @@ public class ListarTwitsDao {
 			 Query query = s.createQuery("FROM Twits where idu = :idu or idu IN (select siguiendo from Relaciones where idusuario = :idu) or string like CONCAT ('%',:nombre,'%')  order by timestam desc");
                          query.setMaxResults(10);
                          query.setParameter("idu", ((Number)auth.get("idusuario")).longValue());            
-                         query.setParameter("nombre", nombre);
+                         query.setParameter("nombre", "@"+nombre);
                    
                                                   s.disconnect();
 
@@ -85,7 +85,7 @@ public static ArrayList <Twits> getPublicTwitList(Long idu) {
                          query.setMaxResults(10);
                            
                          query.setParameter("idu", idu);
-                         query.setParameter("nombre", nombre);
+                         query.setParameter("nombre", "@"+nombre);
                                                   s.disconnect();
 
                         return (ArrayList<Twits>)query.list();
