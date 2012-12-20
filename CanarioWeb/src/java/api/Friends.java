@@ -35,9 +35,6 @@ public class Friends{
                if(type.equals("2")) {
                 amigos = dao.ApiDao.Friends(key,"2");
                }
-               else{
-                   message="FAIL - type no reconocido";
-               }
                }
                else {
                    message="FAIL - type no encontrado";

@@ -7,6 +7,7 @@ package dao;
 import com.opensymphony.xwork2.ActionContext;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import model.Relaciones;
@@ -186,10 +187,10 @@ public class ApiDao {
                 
                 try {
                     if(type.equals("1")) {
-                        return relacionesDao.getFollowers(listaUsuarios.get(0).getIdu());
+                        return hideDatos(relacionesDao.getFollowers(listaUsuarios.get(0).getIdu()));
                     }
                     if(type.equals("2")) {
-                        return relacionesDao.getFollowings(listaUsuarios.get(0).getIdu());
+                        return hideDatos(relacionesDao.getFollowings(listaUsuarios.get(0).getIdu()));
 
                     }
                     else {
@@ -261,4 +262,14 @@ public class ApiDao {
 		}
             }
 	}
+
+    public static List<Usuarios> hideDatos(List<Usuarios> listau) {
+        for(Usuarios u : listau) {
+	            u.setApikey("hidden");
+                    u.setFlag1("hidden");
+                    u.setFlag2("hidden");
+                    u.setPass("hidden");
+	        }
+        return listau;
+    }
 }
